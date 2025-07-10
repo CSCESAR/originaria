@@ -159,7 +159,7 @@ The main.js file provides:
 ### Data Simulation
 Since this is a frontend prototype, all data is simulated with realistic content:
 - Product catalog with authentic Peruvian organic products
-- Vendor profiles (especially Roberto Mamani's coffee business)
+- Vendor profiles (especially Roberto Gomez's coffee business)
 - Sales metrics and analytics
 - User interactions and feedback
 

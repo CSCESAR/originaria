@@ -1,9 +1,9 @@
 <!--
  * Archivo: components/sidebar-vendor.html
- * Descripción: Componente reutilizable del sidebar para el panel de vendedor
+ * Descripciï¿½n: Componente reutilizable del sidebar para el panel de vendedor
  * Autor: Equipo ORIGINARIA
  * Fecha: 2024
- * Función: Navegación lateral común para todas las páginas del panel vendedor
+ * Funciï¿½n: Navegaciï¿½n lateral comï¿½n para todas las pï¿½ginas del panel vendedor
 -->
 
 <!-- Sidebar Vendedor -->
@@ -16,12 +16,12 @@
             </div>
             <div class="vendor-info">
                 <div class="vendor-avatar">
-                    <img src="../assets/images/vendor-avatar.jpg" alt="Roberto Mamani" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <img src="../assets/images/vendor-avatar.jpg" alt="Roberto Gomez" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                     <div class="avatar-placeholder">RM</div>
                 </div>
                 <div class="vendor-details">
-                    <span class="vendor-name">Roberto Mamani</span>
-                    <span class="vendor-store">Café Andino Los Andes</span>
+                    <span class="vendor-name">Roberto Gomez</span>
+                    <span class="vendor-store">Cafï¿½ Andino Los Andes</span>
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@
             </div>
             
             <div class="nav-section">
-                <h3 class="nav-section-title">Gestión</h3>
+                <h3 class="nav-section-title">Gestiï¿½n</h3>
                 <ul class="nav-list">
                     <li class="nav-item" data-page="inventory">
                         <a href="../inventory/stock.html" class="nav-link">
@@ -78,7 +78,7 @@
                     <li class="nav-item" data-page="reviews">
                         <a href="../reviews/manage.html" class="nav-link">
                             <i class="fas fa-star"></i>
-                            <span>Reseñas</span>
+                            <span>Reseï¿½as</span>
                             <span class="nav-badge">2</span>
                         </a>
                     </li>
@@ -97,7 +97,7 @@
                     <li class="nav-item" data-page="analytics">
                         <a href="../analytics/reports.html" class="nav-link">
                             <i class="fas fa-chart-bar"></i>
-                            <span>Análisis</span>
+                            <span>Anï¿½lisis</span>
                         </a>
                     </li>
                     <li class="nav-item" data-page="marketing">
@@ -109,7 +109,7 @@
                     <li class="nav-item" data-page="shipping">
                         <a href="../shipping/zones.html" class="nav-link">
                             <i class="fas fa-truck"></i>
-                            <span>Envíos</span>
+                            <span>Envï¿½os</span>
                         </a>
                     </li>
                 </ul>
@@ -127,7 +127,7 @@
                     <li class="nav-item" data-page="billing">
                         <a href="../billing/payments.html" class="nav-link">
                             <i class="fas fa-credit-card"></i>
-                            <span>Facturación</span>
+                            <span>Facturaciï¿½n</span>
                         </a>
                     </li>
                     <li class="nav-item" data-page="support">
@@ -173,10 +173,10 @@
                     <i class="fas fa-bell"></i>
                     <span class="notification-dot"></span>
                 </button>
-                <button class="sidebar-btn" onclick="showSettings()" title="Configuración">
+                <button class="sidebar-btn" onclick="showSettings()" title="Configuraciï¿½n">
                     <i class="fas fa-cog"></i>
                 </button>
-                <button class="sidebar-btn logout-btn" onclick="logout()" title="Cerrar Sesión">
+                <button class="sidebar-btn logout-btn" onclick="logout()" title="Cerrar Sesiï¿½n">
                     <i class="fas fa-sign-out-alt"></i>
                 </button>
             </div>
@@ -209,23 +209,23 @@
     }
 
     function showSettings() {
-        alert('Abriendo configuración...');
+        alert('Abriendo configuraciï¿½n...');
     }
 
     function logout() {
-        if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
-            alert('Cerrando sesión...');
+        if (confirm('ï¿½Estï¿½s seguro de que quieres cerrar sesiï¿½n?')) {
+            alert('Cerrando sesiï¿½n...');
             // window.location.href = '../public/login.html';
         }
     }
 
-    // Toggle sidebar en móviles
+    // Toggle sidebar en mï¿½viles
     function toggleSidebar() {
         const sidebar = document.getElementById('vendorSidebar');
         sidebar.classList.toggle('mobile-open');
     }
 
-    // Cerrar sidebar al hacer clic fuera en móviles
+    // Cerrar sidebar al hacer clic fuera en mï¿½viles
     document.addEventListener('click', function(event) {
         const sidebar = document.getElementById('vendorSidebar');
         const sidebarToggle = document.getElementById('sidebarToggle');
@@ -237,7 +237,7 @@
         }
     });
 
-    // Actualizar badges dinámicamente
+    // Actualizar badges dinï¿½micamente
     function updateBadges() {
         // Simular actualizaciones de badges
         const badges = {
