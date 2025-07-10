@@ -1,0 +1,28 @@
+{
+  "encoding": "UTF-8",
+  "contentType": "text/html; charset=UTF-8",
+  "files": {
+    "html": {
+      "charset": "UTF-8",
+      "meta": "<meta charset=\"UTF-8\">",
+      "httpEquiv": "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">"
+    },
+    "css": {
+      "charset": "UTF-8",
+      "directive": "@charset \"UTF-8\";"
+    },
+    "js": {
+      "charset": "UTF-8",
+      "encoding": "utf8"
+    }
+  },
+  "serverConfig": {
+    "apache": {
+      "AddDefaultCharset": "UTF-8",
+      "AddCharset": "UTF-8 .html .css .js"
+    },
+    "nginx": {
+      "charset": "utf-8"
+    }
+  }
+}

@@ -1,0 +1,641 @@
+<!--
+ * Archivo: admin/dashboard.html
+ * Descripción: Panel administrativo principal para ORIGINARIA
+ * Autor: Equipo ORIGINARIA
+ * Fecha: 2024
+ * Función: Gestión completa del marketplace, vendedores, productos y métricas
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel Administrativo ORIGINARIA - Gestión del marketplace">
+    <title>Dashboard Administrativo | ORIGINARIA</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="admin-dashboard">
+    <!-- Header -->
+    <header class="admin-header">
+        <div class="header-content">
+            <div class="header-left">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <div class="logo-placeholder">ORIGINARIA ADMIN</div>
+                </div>
+            </div>
+            
+            <div class="header-center">
+                <div class="search-bar">
+                    <div class="search-input-group">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" placeholder="Buscar vendedores, productos, pedidos..." id="adminSearch">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <div class="header-actions">
+                    <button class="notification-btn" onclick="showNotifications()">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">8</span>
+                    </button>
+                    
+                    <button class="quick-action-btn" onclick="showQuickActions()">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    
+                    <div class="user-menu">
+                        <div class="user-avatar">
+                            <img src="../assets/images/admin-avatar.jpg" alt="Admin" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <div class="avatar-placeholder">AD</div>
+                        </div>
+                        <div class="user-info">
+                            <span class="user-name">Admin Principal</span>
+                            <span class="user-role">Administrador</span>
+                        </div>
+                        <button class="user-menu-btn" onclick="toggleUserMenu()">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+        <div class="sidebar-content">
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Principal</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item active">
+                            <a href="dashboard.html" class="nav-link">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="vendors.html" class="nav-link">
+                                <i class="fas fa-store"></i>
+                                <span>Vendedores</span>
+                                <span class="nav-badge">45</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="products.html" class="nav-link">
+                                <i class="fas fa-box"></i>
+                                <span>Productos</span>
+                                <span class="nav-badge">156</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="orders.html" class="nav-link">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Pedidos</span>
+                                <span class="nav-badge pending">12</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Gestión</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="users.html" class="nav-link">
+                                <i class="fas fa-users"></i>
+                                <span>Usuarios</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="categories.html" class="nav-link">
+                                <i class="fas fa-tags"></i>
+                                <span>Categorías</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="reviews.html" class="nav-link">
+                                <i class="fas fa-star"></i>
+                                <span>Reseñas</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Analytics</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="analytics.html" class="nav-link">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Métricas</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="reports.html" class="nav-link">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Reportes</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Sistema</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="settings.html" class="nav-link">
+                                <i class="fas fa-cog"></i>
+                                <span>Configuración</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="support.html" class="nav-link">
+                                <i class="fas fa-question-circle"></i>
+                                <span>Soporte</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <!-- Dashboard Overview -->
+        <div class="dashboard-container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>Dashboard Administrativo</h1>
+                    <p>Visión general del marketplace ORIGINARIA</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-outline btn-sm" onclick="exportData()">
+                        <i class="fas fa-download"></i>
+                        Exportar Datos
+                    </button>
+                    <button class="btn btn-primary btn-sm" onclick="showQuickActions()">
+                        <i class="fas fa-plus"></i>
+                        Acción Rápida
+                    </button>
+                </div>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon sales">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-value">S/ 48,750</div>
+                        <div class="metric-label">Ventas del Mes</div>
+                        <div class="metric-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +12.5%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon orders">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-value">324</div>
+                        <div class="metric-label">Pedidos Totales</div>
+                        <div class="metric-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +8.3%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon vendors">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-value">45</div>
+                        <div class="metric-label">Vendedores Activos</div>
+                        <div class="metric-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +15.4%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon products">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-value">156</div>
+                        <div class="metric-label">Productos Publicados</div>
+                        <div class="metric-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +22.1%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon users">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-value">1,248</div>
+                        <div class="metric-label">Usuarios Registrados</div>
+                        <div class="metric-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +18.9%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon commission">
+                        <i class="fas fa-percent"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-value">S/ 2,438</div>
+                        <div class="metric-label">Comisiones del Mes</div>
+                        <div class="metric-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +11.2%
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-section">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Ventas Mensuales</h3>
+                        <div class="chart-controls">
+                            <select class="chart-period">
+                                <option value="6m">Últimos 6 meses</option>
+                                <option value="3m">Últimos 3 meses</option>
+                                <option value="1m">Último mes</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="chart-content">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Distribución por Categorías</h3>
+                    </div>
+                    <div class="chart-content">
+                        <canvas id="categoriesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity Feed and Recent Actions -->
+            <div class="dashboard-grid">
+                <!-- Recent Orders -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Pedidos Recientes</h3>
+                        <a href="orders.html" class="view-all-link">Ver todos</a>
+                    </div>
+                    <div class="card-content">
+                        <div class="order-list">
+                            <div class="order-item">
+                                <div class="order-info">
+                                    <div class="order-id">#ORD-2024-001</div>
+                                    <div class="order-customer">María González</div>
+                                    <div class="order-date">Hace 2 horas</div>
+                                </div>
+                                <div class="order-amount">S/ 125.50</div>
+                                <div class="order-status pending">Pendiente</div>
+                            </div>
+                            
+                            <div class="order-item">
+                                <div class="order-info">
+                                    <div class="order-id">#ORD-2024-002</div>
+                                    <div class="order-customer">Carlos Mendoza</div>
+                                    <div class="order-date">Hace 4 horas</div>
+                                </div>
+                                <div class="order-amount">S/ 89.00</div>
+                                <div class="order-status confirmed">Confirmado</div>
+                            </div>
+                            
+                            <div class="order-item">
+                                <div class="order-info">
+                                    <div class="order-id">#ORD-2024-003</div>
+                                    <div class="order-customer">Ana Silva</div>
+                                    <div class="order-date">Hace 6 horas</div>
+                                </div>
+                                <div class="order-amount">S/ 234.75</div>
+                                <div class="order-status shipped">Enviado</div>
+                            </div>
+                            
+                            <div class="order-item">
+                                <div class="order-info">
+                                    <div class="order-id">#ORD-2024-004</div>
+                                    <div class="order-customer">Luis Torres</div>
+                                    <div class="order-date">Hace 8 horas</div>
+                                </div>
+                                <div class="order-amount">S/ 67.25</div>
+                                <div class="order-status delivered">Entregado</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Vendors -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Mejores Vendedores</h3>
+                        <a href="vendors.html" class="view-all-link">Ver todos</a>
+                    </div>
+                    <div class="card-content">
+                        <div class="vendor-list">
+                            <div class="vendor-item">
+                                <div class="vendor-avatar">
+                                    <img src="../assets/images/vendor-1.jpg" alt="Roberto Mamani" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                    <div class="avatar-placeholder">RM</div>
+                                </div>
+                                <div class="vendor-info">
+                                    <div class="vendor-name">Roberto Mamani</div>
+                                    <div class="vendor-store">Café Andino Los Andes</div>
+                                    <div class="vendor-location">Cusco</div>
+                                </div>
+                                <div class="vendor-stats">
+                                    <div class="vendor-sales">S/ 12,450</div>
+                                    <div class="vendor-rating">
+                                        <i class="fas fa-star"></i> 4.9
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="vendor-item">
+                                <div class="vendor-avatar">
+                                    <div class="avatar-placeholder">MP</div>
+                                </div>
+                                <div class="vendor-info">
+                                    <div class="vendor-name">María Quispe</div>
+                                    <div class="vendor-store">Quinua Real del Altiplano</div>
+                                    <div class="vendor-location">Puno</div>
+                                </div>
+                                <div class="vendor-stats">
+                                    <div class="vendor-sales">S/ 8,920</div>
+                                    <div class="vendor-rating">
+                                        <i class="fas fa-star"></i> 4.8
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="vendor-item">
+                                <div class="vendor-avatar">
+                                    <div class="avatar-placeholder">JH</div>
+                                </div>
+                                <div class="vendor-info">
+                                    <div class="vendor-name">Jorge Huamán</div>
+                                    <div class="vendor-store">Miel de Abeja Natural</div>
+                                    <div class="vendor-location">Ayacucho</div>
+                                </div>
+                                <div class="vendor-stats">
+                                    <div class="vendor-sales">S/ 6,750</div>
+                                    <div class="vendor-rating">
+                                        <i class="fas fa-star"></i> 4.7
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Alerts -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Alertas del Sistema</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="alert-list">
+                            <div class="alert-item warning">
+                                <div class="alert-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <div class="alert-title">Stock Bajo</div>
+                                    <div class="alert-message">5 productos con stock menor a 10 unidades</div>
+                                    <div class="alert-time">Hace 1 hora</div>
+                                </div>
+                            </div>
+                            
+                            <div class="alert-item info">
+                                <div class="alert-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <div class="alert-title">Nuevo Vendedor</div>
+                                    <div class="alert-message">Pablo Vargas solicitó unirse al marketplace</div>
+                                    <div class="alert-time">Hace 3 horas</div>
+                                </div>
+                            </div>
+                            
+                            <div class="alert-item success">
+                                <div class="alert-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <div class="alert-title">Respaldo Completado</div>
+                                    <div class="alert-message">Respaldo automático ejecutado exitosamente</div>
+                                    <div class="alert-time">Hace 6 horas</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Acciones Rápidas</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="quick-actions-grid">
+                            <button class="quick-action-item" onclick="addNewVendor()">
+                                <i class="fas fa-user-plus"></i>
+                                <span>Nuevo Vendedor</span>
+                            </button>
+                            
+                            <button class="quick-action-item" onclick="createPromotion()">
+                                <i class="fas fa-tag"></i>
+                                <span>Crear Promoción</span>
+                            </button>
+                            
+                            <button class="quick-action-item" onclick="sendNotification()">
+                                <i class="fas fa-bullhorn"></i>
+                                <span>Enviar Notificación</span>
+                            </button>
+                            
+                            <button class="quick-action-item" onclick="generateReport()">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>Generar Reporte</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Admin Dashboard JavaScript -->
+    <script>
+        // Sidebar toggle
+        function toggleSidebar() {
+            const sidebar = document.getElementById('adminSidebar');
+            const main = document.querySelector('.admin-main');
+            sidebar.classList.toggle('collapsed');
+            main.classList.toggle('sidebar-collapsed');
+        }
+
+        // Initialize sidebar toggle
+        document.getElementById('sidebarToggle').addEventListener('click', toggleSidebar);
+
+        // Sales Chart
+        const salesCtx = document.getElementById('salesChart').getContext('2d');
+        const salesChart = new Chart(salesCtx, {
+            type: 'line',
+            data: {
+                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+                datasets: [{
+                    label: 'Ventas (S/)',
+                    data: [28500, 32100, 41200, 38900, 45600, 48750],
+                    borderColor: '#4A7023',
+                    backgroundColor: 'rgba(74, 112, 35, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return 'S/ ' + value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Categories Chart
+        const categoriesCtx = document.getElementById('categoriesChart').getContext('2d');
+        const categoriesChart = new Chart(categoriesCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Café', 'Quinua', 'Cacao', 'Miel', 'Cereales', 'Otros'],
+                datasets: [{
+                    data: [35, 25, 15, 12, 8, 5],
+                    backgroundColor: [
+                        '#4A7023',
+                        '#D97741',
+                        '#48BB78',
+                        '#ED8936',
+                        '#4299E1',
+                        '#9F7AEA'
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'right'
+                    }
+                }
+            }
+        });
+
+        // Quick Actions
+        function addNewVendor() {
+            alert('Redirigiendo a agregar nuevo vendedor...');
+        }
+
+        function createPromotion() {
+            alert('Abriendo creador de promociones...');
+        }
+
+        function sendNotification() {
+            alert('Abriendo centro de notificaciones...');
+        }
+
+        function generateReport() {
+            alert('Generando reporte personalizado...');
+        }
+
+        function exportData() {
+            alert('Exportando datos del dashboard...');
+        }
+
+        function showQuickActions() {
+            alert('Mostrando menú de acciones rápidas...');
+        }
+
+        function showNotifications() {
+            alert('Mostrando panel de notificaciones...');
+        }
+
+        function toggleUserMenu() {
+            alert('Mostrando menú de usuario...');
+        }
+
+        // Search functionality
+        document.getElementById('adminSearch').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+            console.log('Buscando:', query);
+        });
+
+        // Auto-update dashboard data every 30 seconds
+        setInterval(function() {
+            console.log('Actualizando métricas del dashboard...');
+        }, 30000);
+
+        // Initialize tooltips and interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Dashboard administrativo cargado correctamente');
+        });
+    </script>
+</body>
+</html>

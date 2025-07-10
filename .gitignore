@@ -1,0 +1,29 @@
+# Archivos de configuración privados
+0_private/
+.claude
+
+
+# Archivos ocultos
+.DS_Store
+Thumbs.db
+
+# Archivos temporales y del sistema
+*.log
+*.tmp
+*.swp
+*.bak
+
+# Configuración del editor (VS Code, etc.)
+.vscode/
+
+# Archivos de respaldo de editores
+*~
+
+# Entornos de pruebas o construcción (si aplicara)
+node_modules/
+dist/
+build/
+
+# Otros innecesarios en producción
+*.sublime-project
+*.sublime-workspace

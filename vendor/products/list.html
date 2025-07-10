@@ -1,0 +1,1426 @@
+<!--
+ * Archivo: vendor/products/list.html
+ * Descripción: Lista de productos del vendedor con gestión y acciones
+ * Autor: Equipo ORIGINARIA
+ * Fecha: 2024
+ * Función: Gestión completa de productos, stock, precios y estado de publicación
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gestión de productos - ORIGINARIA Marketplace">
+    <title>Mis Productos | ORIGINARIA</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/vendor.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="vendor-dashboard">
+    <!-- Header -->
+    <header class="vendor-header">
+        <div class="header-content">
+            <div class="header-left">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <div class="logo-placeholder">ORIGINARIA</div>
+                </div>
+            </div>
+            
+            <div class="header-center">
+                <div class="breadcrumb">
+                    <a href="../dashboard.html" class="breadcrumb-item">Dashboard</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span class="breadcrumb-item active">Mis Productos</span>
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <div class="header-actions">
+                    <button class="notification-btn" onclick="showNotifications()">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    
+                    <div class="user-menu">
+                        <div class="user-avatar">
+                            <img src="../../assets/images/vendor-avatar.jpg" alt="Roberto Mamani" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <div class="avatar-placeholder">RM</div>
+                        </div>
+                        <div class="user-info">
+                            <span class="user-name">Roberto Mamani</span>
+                            <span class="user-role">Café Andino Los Andes</span>
+                        </div>
+                        <button class="user-menu-btn" onclick="toggleUserMenu()">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="vendor-sidebar" id="vendorSidebar">
+        <div class="sidebar-content">
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Principal</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="../dashboard.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="list.html" class="nav-link">
+                                <i class="fas fa-box"></i>
+                                <span>Mis Productos</span>
+                                <span class="nav-badge">8</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../sales/orders.html" class="nav-link">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Pedidos</span>
+                                <span class="nav-badge pending">3</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../sales/reports.html" class="nav-link">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Reportes</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Marketing</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="../marketing/campaigns.html" class="nav-link">
+                                <i class="fas fa-megaphone"></i>
+                                <span>Campañas</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../marketing/promotions.html" class="nav-link">
+                                <i class="fas fa-tags"></i>
+                                <span>Promociones</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Servicios</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="../services/cost-advisory.html" class="nav-link">
+                                <i class="fas fa-calculator"></i>
+                                <span>Asesoría Costos</span>
+                                <span class="nav-badge new">¡Nuevo!</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../services/packaging.html" class="nav-link">
+                                <i class="fas fa-box-open"></i>
+                                <span>Empaquetado</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../services/photography.html" class="nav-link">
+                                <i class="fas fa-camera"></i>
+                                <span>Fotografía</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Configuración</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="../profile/edit.html" class="nav-link">
+                                <i class="fas fa-user"></i>
+                                <span>Mi Perfil</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../profile/settings.html" class="nav-link">
+                                <i class="fas fa-cog"></i>
+                                <span>Configuración</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="upgrade-card">
+                    <div class="upgrade-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h4>Mejora a Premium</h4>
+                    <p>Desbloquea funciones avanzadas</p>
+                    <button class="btn btn-accent btn-sm">Upgradar</button>
+                </div>
+                
+                <div class="support-card">
+                    <i class="fas fa-headset"></i>
+                    <span>¿Necesitas ayuda?</span>
+                    <button onclick="openSupport()">Contactar Soporte</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="vendor-main">
+        <div class="vendor-content">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-title-section">
+                    <h1 class="page-title">Mis Productos</h1>
+                    <p class="page-subtitle">Gestiona tu catálogo de productos orgánicos</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-outline" onclick="importProducts()">
+                        <i class="fas fa-upload"></i>
+                        Importar CSV
+                    </button>
+                    <button class="btn btn-primary" onclick="location.href='add.html'">
+                        <i class="fas fa-plus"></i>
+                        Agregar Producto
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon products">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>8</h3>
+                        <p>Total productos</p>
+                        <div class="stat-trend neutral">
+                            <i class="fas fa-minus"></i>
+                            <span>Sin cambios</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon active">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>6</h3>
+                        <p>Productos activos</p>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+1 esta semana</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>2</h3>
+                        <p>Stock bajo</p>
+                        <div class="stat-trend warning">
+                            <i class="fas fa-clock"></i>
+                            <span>Requiere atención</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon revenue">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>S/ 38.50</h3>
+                        <p>Precio promedio</p>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+5%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters and Search -->
+            <div class="filters-section">
+                <div class="filters-content">
+                    <div class="search-box">
+                        <div class="search-input-group">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" placeholder="Buscar productos..." id="productSearch" onkeyup="filterProducts()">
+                        </div>
+                    </div>
+                    
+                    <div class="filters-group">
+                        <select class="filter-select" id="categoryFilter" onchange="filterProducts()">
+                            <option value="">Todas las categorías</option>
+                            <option value="cafe">Café y Cacao</option>
+                            <option value="granos">Granos y Cereales</option>
+                            <option value="frutas">Frutas Procesadas</option>
+                            <option value="lacteos">Lácteos Artesanales</option>
+                        </select>
+                        
+                        <select class="filter-select" id="statusFilter" onchange="filterProducts()">
+                            <option value="">Todos los estados</option>
+                            <option value="active">Activo</option>
+                            <option value="inactive">Inactivo</option>
+                            <option value="pending">Pendiente</option>
+                            <option value="low-stock">Stock bajo</option>
+                        </select>
+                        
+                        <button class="btn btn-outline btn-sm" onclick="clearFilters()">
+                            <i class="fas fa-times"></i>
+                            Limpiar filtros
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Table -->
+            <div class="data-table">
+                <div class="table-header">
+                    <h3 class="table-title">Lista de Productos</h3>
+                    <div class="table-actions">
+                        <button class="btn btn-outline btn-sm" onclick="exportProducts()">
+                            <i class="fas fa-download"></i>
+                            Exportar
+                        </button>
+                        <button class="btn btn-outline btn-sm" onclick="bulkActions()">
+                            <i class="fas fa-edit"></i>
+                            Acciones masivas
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="table-wrapper">
+                    <table class="table" id="productsTable">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" id="selectAll" onchange="toggleSelectAll()">
+                                </th>
+                                <th>Producto</th>
+                                <th>Categoría</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Estado</th>
+                                <th>Ventas</th>
+                                <th>Última actualización</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-category="cafe" data-status="active">
+                                <td>
+                                    <input type="checkbox" class="product-checkbox" value="1">
+                                </td>
+                                <td>
+                                    <div class="product-info">
+                                        <div class="product-image">
+                                            <div class="img-placeholder">
+                                                <i class="fas fa-coffee"></i>
+                                            </div>
+                                        </div>
+                                        <div class="product-details">
+                                            <h4>Café Orgánico Premium</h4>
+                                            <p>Grano entero, tueste medio</p>
+                                            <span class="product-sku">SKU: CAF-001</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="category-badge cafe">Café y Cacao</span>
+                                </td>
+                                <td>
+                                    <span class="price">S/ 45.00</span>
+                                    <small>/kg</small>
+                                </td>
+                                <td>
+                                    <div class="stock-info">
+                                        <span class="stock-number">25</span>
+                                        <span class="stock-unit">kg</span>
+                                        <div class="stock-bar">
+                                            <div class="stock-fill" style="width: 65%"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge active">Activo</span>
+                                </td>
+                                <td>
+                                    <div class="sales-info">
+                                        <span class="sales-number">12</span>
+                                        <small>este mes</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="date">Hace 2 días</span>
+                                </td>
+                                <td>
+                                    <div class="table-actions-cell">
+                                        <button class="table-action-btn view" onclick="viewProduct(1)" title="Ver detalles">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="table-action-btn edit" onclick="editProduct(1)" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="table-action-btn duplicate" onclick="duplicateProduct(1)" title="Duplicar">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                        <button class="table-action-btn delete" onclick="deleteProduct(1)" title="Eliminar">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <tr data-category="granos" data-status="active">
+                                <td>
+                                    <input type="checkbox" class="product-checkbox" value="2">
+                                </td>
+                                <td>
+                                    <div class="product-info">
+                                        <div class="product-image">
+                                            <div class="img-placeholder">
+                                                <i class="fas fa-seedling"></i>
+                                            </div>
+                                        </div>
+                                        <div class="product-details">
+                                            <h4>Quinua Tricolor Andina</h4>
+                                            <p>Quinua blanca, roja y negra</p>
+                                            <span class="product-sku">SKU: QUI-002</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="category-badge granos">Granos y Cereales</span>
+                                </td>
+                                <td>
+                                    <span class="price">S/ 18.00</span>
+                                    <small>/kg</small>
+                                </td>
+                                <td>
+                                    <div class="stock-info">
+                                        <span class="stock-number">3</span>
+                                        <span class="stock-unit">kg</span>
+                                        <div class="stock-bar">
+                                            <div class="stock-fill low" style="width: 15%"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge active">Activo</span>
+                                </td>
+                                <td>
+                                    <div class="sales-info">
+                                        <span class="sales-number">8</span>
+                                        <small>este mes</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="date">Hace 5 días</span>
+                                </td>
+                                <td>
+                                    <div class="table-actions-cell">
+                                        <button class="table-action-btn view" onclick="viewProduct(2)" title="Ver detalles">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="table-action-btn edit" onclick="editProduct(2)" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="table-action-btn duplicate" onclick="duplicateProduct(2)" title="Duplicar">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                        <button class="table-action-btn delete" onclick="deleteProduct(2)" title="Eliminar">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <tr data-category="cafe" data-status="active">
+                                <td>
+                                    <input type="checkbox" class="product-checkbox" value="3">
+                                </td>
+                                <td>
+                                    <div class="product-info">
+                                        <div class="product-image">
+                                            <div class="img-placeholder">
+                                                <i class="fas fa-cube"></i>
+                                            </div>
+                                        </div>
+                                        <div class="product-details">
+                                            <h4>Cacao en Grano Orgánico</h4>
+                                            <p>Cacao crudo, sin procesar</p>
+                                            <span class="product-sku">SKU: CAC-003</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="category-badge cafe">Café y Cacao</span>
+                                </td>
+                                <td>
+                                    <span class="price">S/ 32.00</span>
+                                    <small>/kg</small>
+                                </td>
+                                <td>
+                                    <div class="stock-info">
+                                        <span class="stock-number">15</span>
+                                        <span class="stock-unit">kg</span>
+                                        <div class="stock-bar">
+                                            <div class="stock-fill" style="width: 45%"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge active">Activo</span>
+                                </td>
+                                <td>
+                                    <div class="sales-info">
+                                        <span class="sales-number">6</span>
+                                        <small>este mes</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="date">Hace 1 semana</span>
+                                </td>
+                                <td>
+                                    <div class="table-actions-cell">
+                                        <button class="table-action-btn view" onclick="viewProduct(3)" title="Ver detalles">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="table-action-btn edit" onclick="editProduct(3)" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="table-action-btn duplicate" onclick="duplicateProduct(3)" title="Duplicar">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                        <button class="table-action-btn delete" onclick="deleteProduct(3)" title="Eliminar">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <tr data-category="frutas" data-status="pending">
+                                <td>
+                                    <input type="checkbox" class="product-checkbox" value="4">
+                                </td>
+                                <td>
+                                    <div class="product-info">
+                                        <div class="product-image">
+                                            <div class="img-placeholder">
+                                                <i class="fas fa-jar"></i>
+                                            </div>
+                                        </div>
+                                        <div class="product-details">
+                                            <h4>Miel de Abeja Andina</h4>
+                                            <p>Miel pura de flores silvestres</p>
+                                            <span class="product-sku">SKU: MIE-004</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="category-badge frutas">Frutas Procesadas</span>
+                                </td>
+                                <td>
+                                    <span class="price">S/ 25.00</span>
+                                    <small>/500ml</small>
+                                </td>
+                                <td>
+                                    <div class="stock-info">
+                                        <span class="stock-number">12</span>
+                                        <span class="stock-unit">frascos</span>
+                                        <div class="stock-bar">
+                                            <div class="stock-fill" style="width: 30%"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge pending">En revisión</span>
+                                </td>
+                                <td>
+                                    <div class="sales-info">
+                                        <span class="sales-number">0</span>
+                                        <small>este mes</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="date">Hace 1 día</span>
+                                </td>
+                                <td>
+                                    <div class="table-actions-cell">
+                                        <button class="table-action-btn view" onclick="viewProduct(4)" title="Ver detalles">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="table-action-btn edit" onclick="editProduct(4)" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="table-action-btn duplicate" onclick="duplicateProduct(4)" title="Duplicar">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                        <button class="table-action-btn delete" onclick="deleteProduct(4)" title="Eliminar">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <tr data-category="lacteos" data-status="inactive">
+                                <td>
+                                    <input type="checkbox" class="product-checkbox" value="5">
+                                </td>
+                                <td>
+                                    <div class="product-info">
+                                        <div class="product-image">
+                                            <div class="img-placeholder">
+                                                <i class="fas fa-cheese"></i>
+                                            </div>
+                                        </div>
+                                        <div class="product-details">
+                                            <h4>Queso Fresco Artesanal</h4>
+                                            <p>Queso de leche de vaca</p>
+                                            <span class="product-sku">SKU: QUE-005</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="category-badge lacteos">Lácteos Artesanales</span>
+                                </td>
+                                <td>
+                                    <span class="price">S/ 22.00</span>
+                                    <small>/kg</small>
+                                </td>
+                                <td>
+                                    <div class="stock-info">
+                                        <span class="stock-number">0</span>
+                                        <span class="stock-unit">kg</span>
+                                        <div class="stock-bar">
+                                            <div class="stock-fill empty" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge inactive">Inactivo</span>
+                                </td>
+                                <td>
+                                    <div class="sales-info">
+                                        <span class="sales-number">15</span>
+                                        <small>mes pasado</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="date">Hace 2 semanas</span>
+                                </td>
+                                <td>
+                                    <div class="table-actions-cell">
+                                        <button class="table-action-btn view" onclick="viewProduct(5)" title="Ver detalles">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="table-action-btn edit" onclick="editProduct(5)" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="table-action-btn duplicate" onclick="duplicateProduct(5)" title="Duplicar">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                        <button class="table-action-btn delete" onclick="deleteProduct(5)" title="Eliminar">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Table Pagination -->
+                <div class="table-pagination">
+                    <div class="pagination-info">
+                        Mostrando 1-5 de 8 productos
+                    </div>
+                    <div class="pagination-controls">
+                        <button class="pagination-btn" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="pagination-btn active">1</button>
+                        <button class="pagination-btn">2</button>
+                        <button class="pagination-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State (hidden by default) -->
+            <div class="vendor-empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">
+                    <i class="fas fa-box-open"></i>
+                </div>
+                <h3 class="empty-title">No tienes productos todavía</h3>
+                <p class="empty-description">Comienza agregando tu primer producto orgánico para empezar a vender en ORIGINARIA</p>
+                <button class="btn btn-primary" onclick="location.href='add.html'">
+                    <i class="fas fa-plus"></i>
+                    Agregar mi primer producto
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- User Menu Dropdown -->
+    <div class="user-menu-dropdown" id="userMenuDropdown">
+        <div class="user-menu-item">
+            <i class="fas fa-user"></i>
+            <span>Mi Perfil</span>
+        </div>
+        <div class="user-menu-item">
+            <i class="fas fa-cog"></i>
+            <span>Configuración</span>
+        </div>
+        <div class="user-menu-item">
+            <i class="fas fa-question-circle"></i>
+            <span>Ayuda</span>
+        </div>
+        <div class="user-menu-divider"></div>
+        <div class="user-menu-item logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Cerrar Sesión</span>
+        </div>
+    </div>
+
+    <!-- Notification Panel -->
+    <div class="notification-panel" id="notificationPanel">
+        <div class="notification-header">
+            <h3>Notificaciones</h3>
+            <button class="close-btn" onclick="hideNotifications()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="notification-list">
+            <div class="notification-item unread">
+                <div class="notification-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="notification-content">
+                    <h4>Nuevo pedido</h4>
+                    <p>Pedido #1234 - Café Orgánico Premium</p>
+                    <span class="notification-time">Hace 10 minutos</span>
+                </div>
+            </div>
+            
+            <div class="notification-item unread">
+                <div class="notification-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="notification-content">
+                    <h4>Stock bajo</h4>
+                    <p>Quinua Tricolor tiene pocas unidades disponibles</p>
+                    <span class="notification-time">Hace 2 horas</span>
+                </div>
+            </div>
+            
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="notification-content">
+                    <h4>Producto aprobado</h4>
+                    <p>Cacao en Grano Orgánico fue aprobado</p>
+                    <span class="notification-time">Hace 6 horas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bulk Actions Modal -->
+    <div class="vendor-modal" id="bulkActionsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Acciones Masivas</h3>
+                <button class="modal-close" onclick="closeBulkActionsModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Selecciona una acción para aplicar a los productos seleccionados:</p>
+                <div class="bulk-actions-grid">
+                    <button class="bulk-action-btn" onclick="bulkUpdateStatus('active')">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Activar productos</span>
+                    </button>
+                    <button class="bulk-action-btn" onclick="bulkUpdateStatus('inactive')">
+                        <i class="fas fa-pause-circle"></i>
+                        <span>Desactivar productos</span>
+                    </button>
+                    <button class="bulk-action-btn" onclick="bulkUpdateCategory()">
+                        <i class="fas fa-tags"></i>
+                        <span>Cambiar categoría</span>
+                    </button>
+                    <button class="bulk-action-btn danger" onclick="bulkDelete()">
+                        <i class="fas fa-trash"></i>
+                        <span>Eliminar productos</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/vendor.js"></script>
+    <script src="../../assets/js/components.js"></script>
+    
+    <script>
+        // Products management functionality
+        let selectedProducts = [];
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeProductsPage();
+        });
+        
+        function initializeProductsPage() {
+            // Initialize filters
+            setupFilters();
+            
+            // Initialize tooltips
+            initializeTooltips();
+            
+            // Check for empty state
+            checkEmptyState();
+        }
+        
+        function setupFilters() {
+            // Add event listeners for filters
+            const searchInput = document.getElementById('productSearch');
+            const categoryFilter = document.getElementById('categoryFilter');
+            const statusFilter = document.getElementById('statusFilter');
+            
+            if (searchInput) {
+                searchInput.addEventListener('input', debounce(filterProducts, 300));
+            }
+        }
+        
+        function filterProducts() {
+            const searchTerm = document.getElementById('productSearch').value.toLowerCase();
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            const statusFilter = document.getElementById('statusFilter').value;
+            
+            const rows = document.querySelectorAll('#productsTable tbody tr');
+            let visibleCount = 0;
+            
+            rows.forEach(row => {
+                const productName = row.querySelector('.product-details h4').textContent.toLowerCase();
+                const productDescription = row.querySelector('.product-details p').textContent.toLowerCase();
+                const category = row.getAttribute('data-category');
+                const status = row.getAttribute('data-status');
+                
+                const matchesSearch = !searchTerm || 
+                    productName.includes(searchTerm) || 
+                    productDescription.includes(searchTerm);
+                
+                const matchesCategory = !categoryFilter || category === categoryFilter;
+                const matchesStatus = !statusFilter || status === statusFilter;
+                
+                if (matchesSearch && matchesCategory && matchesStatus) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+            
+            // Update pagination info
+            updatePaginationInfo(visibleCount);
+            
+            // Show empty state if no results
+            checkEmptyState(visibleCount === 0);
+        }
+        
+        function clearFilters() {
+            document.getElementById('productSearch').value = '';
+            document.getElementById('categoryFilter').value = '';
+            document.getElementById('statusFilter').value = '';
+            filterProducts();
+        }
+        
+        function checkEmptyState(forceEmpty = false) {
+            const table = document.querySelector('.data-table');
+            const emptyState = document.getElementById('emptyState');
+            const hasProducts = document.querySelectorAll('#productsTable tbody tr').length > 0;
+            
+            if (forceEmpty || !hasProducts) {
+                table.style.display = 'none';
+                emptyState.style.display = 'block';
+            } else {
+                table.style.display = 'block';
+                emptyState.style.display = 'none';
+            }
+        }
+        
+        function updatePaginationInfo(count) {
+            const paginationInfo = document.querySelector('.pagination-info');
+            if (paginationInfo) {
+                paginationInfo.textContent = `Mostrando ${count} de ${count} productos`;
+            }
+        }
+        
+        function toggleSelectAll() {
+            const selectAll = document.getElementById('selectAll');
+            const checkboxes = document.querySelectorAll('.product-checkbox');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = selectAll.checked;
+            });
+            
+            updateSelectedProducts();
+        }
+        
+        function updateSelectedProducts() {
+            const checkboxes = document.querySelectorAll('.product-checkbox:checked');
+            selectedProducts = Array.from(checkboxes).map(cb => cb.value);
+            
+            // Update bulk actions button state
+            const bulkActionsBtn = document.querySelector('[onclick="bulkActions()"]');
+            if (bulkActionsBtn) {
+                bulkActionsBtn.disabled = selectedProducts.length === 0;
+                bulkActionsBtn.textContent = selectedProducts.length > 0 
+                    ? `Acciones (${selectedProducts.length})` 
+                    : 'Acciones masivas';
+            }
+        }
+        
+        // Product actions
+        function viewProduct(id) {
+            // Show product details modal or navigate to product detail page
+            showNotification(`Viendo detalles del producto ${id}`, 'info');
+        }
+        
+        function editProduct(id) {
+            // Navigate to edit product page
+            window.location.href = `edit.html?id=${id}`;
+        }
+        
+        function duplicateProduct(id) {
+            if (confirm('¿Estás seguro de que quieres duplicar este producto?')) {
+                showNotification('Producto duplicado exitosamente', 'success');
+                // Here you would make an API call to duplicate the product
+                setTimeout(() => {
+                    location.reload();
+                }, 1500);
+            }
+        }
+        
+        function deleteProduct(id) {
+            if (confirm('¿Estás seguro de que quieres eliminar este producto? Esta acción no se puede deshacer.')) {
+                showNotification('Producto eliminado exitosamente', 'success');
+                // Here you would make an API call to delete the product
+                document.querySelector('input[value="' + id + '"]').closest('tr').remove();
+                checkEmptyState();
+            }
+        }
+        
+        // Bulk actions
+        function bulkActions() {
+            if (selectedProducts.length === 0) {
+                showNotification('Selecciona al menos un producto', 'warning');
+                return;
+            }
+            
+            document.getElementById('bulkActionsModal').classList.add('active');
+        }
+        
+        function closeBulkActionsModal() {
+            document.getElementById('bulkActionsModal').classList.remove('active');
+        }
+        
+        function bulkUpdateStatus(status) {
+            const statusText = status === 'active' ? 'activados' : 'desactivados';
+            showNotification(selectedProducts.length + ' productos ' + statusText, 'success');
+            closeBulkActionsModal();
+            
+            // Update UI for selected products
+            selectedProducts.forEach(productId => {
+                const row = document.querySelector('input[value="' + productId + '"]').closest('tr');
+                const statusBadge = row.querySelector('.status-badge');
+                statusBadge.className = 'status-badge ' + status;
+                statusBadge.textContent = status === 'active' ? 'Activo' : 'Inactivo';
+                row.setAttribute('data-status', status);
+            });
+            
+            clearSelection();
+        }
+        
+        function bulkUpdateCategory() {
+            // Show category selection modal
+            showNotification('Función de cambio masivo de categoría próximamente', 'info');
+            closeBulkActionsModal();
+        }
+        
+        function bulkDelete() {
+            if (confirm('¿Estás seguro de que quieres eliminar ' + selectedProducts.length + ' productos? Esta acción no se puede deshacer.')) {
+                showNotification(selectedProducts.length + ' productos eliminados', 'success');
+                
+                // Remove selected products from table
+                selectedProducts.forEach(productId => {
+                    const row = document.querySelector('input[value="' + productId + '"]').closest('tr');
+                    row.remove();
+                });
+                
+                closeBulkActionsModal();
+                clearSelection();
+                checkEmptyState();
+            }
+        }
+        
+        function clearSelection() {
+            document.getElementById('selectAll').checked = false;
+            document.querySelectorAll('.product-checkbox').forEach(cb => cb.checked = false);
+            updateSelectedProducts();
+        }
+        
+        // Import/Export functions
+        function importProducts() {
+            showNotification('Función de importación próximamente', 'info');
+        }
+        
+        function exportProducts() {
+            showNotification('Exportando productos...', 'info');
+            // Simulate export
+            setTimeout(() => {
+                showNotification('Productos exportados exitosamente', 'success');
+            }, 2000);
+        }
+        
+        // Utility functions
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        function initializeTooltips() {
+            // Initialize tooltip functionality for action buttons
+            const tooltipElements = document.querySelectorAll('[title]');
+            tooltipElements.forEach(element => {
+                // Add tooltip behavior
+            });
+        }
+        
+        function showNotification(message, type = 'info') {
+            if (typeof Notifications !== 'undefined') {
+                Notifications.show(message, type);
+            }
+        }
+        
+        // Sidebar toggle
+        function toggleSidebar() {
+            const sidebar = document.getElementById('vendorSidebar');
+            const main = document.querySelector('.vendor-main');
+            
+            sidebar.classList.toggle('collapsed');
+            main.classList.toggle('expanded');
+        }
+        
+        // User menu toggle
+        function toggleUserMenu() {
+            const dropdown = document.getElementById('userMenuDropdown');
+            dropdown.classList.toggle('show');
+        }
+        
+        // Notifications panel
+        function showNotifications() {
+            const panel = document.getElementById('notificationPanel');
+            panel.classList.add('show');
+        }
+        
+        function hideNotifications() {
+            const panel = document.getElementById('notificationPanel');
+            panel.classList.remove('show');
+        }
+        
+        // Support chat
+        function openSupport() {
+            showNotification('Conectando con soporte...', 'info');
+        }
+        
+        // Event listeners
+        document.addEventListener('click', function(e) {
+            // Close user menu if clicking outside
+            if (!e.target.closest('.user-menu') && !e.target.closest('.user-menu-dropdown')) {
+                document.getElementById('userMenuDropdown').classList.remove('show');
+            }
+            
+            // Close notifications if clicking outside
+            if (!e.target.closest('.notification-btn') && !e.target.closest('.notification-panel')) {
+                document.getElementById('notificationPanel').classList.remove('show');
+            }
+            
+            // Close bulk actions modal if clicking outside
+            if (e.target.classList.contains('vendor-modal')) {
+                closeBulkActionsModal();
+            }
+        });
+        
+        // Sidebar toggle button
+        document.getElementById('sidebarToggle').addEventListener('click', toggleSidebar);
+        
+        // Product checkbox change events
+        document.addEventListener('change', function(e) {
+            if (e.target.classList.contains('product-checkbox')) {
+                updateSelectedProducts();
+            }
+        });
+    </script>
+    
+    <style>
+        /* Additional styles specific to products list */
+        .page-title-section {
+            flex: 1;
+        }
+        
+        .filters-section {
+            margin-bottom: var(--space-6);
+        }
+        
+        .filters-content {
+            display: flex;
+            gap: var(--space-4);
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .search-input-group {
+            position: relative;
+        }
+        
+        .search-input-group input {
+            width: 100%;
+            padding: var(--space-3) var(--space-3) var(--space-3) var(--space-10);
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-lg);
+            font-size: var(--text-sm);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: var(--space-3);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-gray-400);
+        }
+        
+        .filters-group {
+            display: flex;
+            gap: var(--space-3);
+            align-items: center;
+        }
+        
+        .filter-select {
+            padding: var(--space-2) var(--space-3);
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            font-size: var(--text-sm);
+            min-width: 150px;
+        }
+        
+        .product-info {
+            display: flex;
+            gap: var(--space-3);
+            align-items: center;
+        }
+        
+        .product-image {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .product-image .img-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gray-400);
+            font-size: var(--text-lg);
+        }
+        
+        .product-details h4 {
+            font-size: var(--text-base);
+            font-weight: 600;
+            color: var(--color-gray-800);
+            margin-bottom: var(--space-1);
+        }
+        
+        .product-details p {
+            font-size: var(--text-sm);
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-1);
+        }
+        
+        .product-sku {
+            font-size: var(--text-xs);
+            color: var(--color-gray-500);
+            font-family: monospace;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-full);
+            font-size: var(--text-xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .category-badge.cafe {
+            background-color: #FEF3C7;
+            color: #92400E;
+        }
+        
+        .category-badge.granos {
+            background-color: #D1FAE5;
+            color: #065F46;
+        }
+        
+        .category-badge.frutas {
+            background-color: #FECACA;
+            color: #991B1B;
+        }
+        
+        .category-badge.lacteos {
+            background-color: #E0E7FF;
+            color: #3730A3;
+        }
+        
+        .price {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--color-gray-800);
+        }
+        
+        .stock-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-1);
+        }
+        
+        .stock-number {
+            font-weight: 600;
+            color: var(--color-gray-800);
+        }
+        
+        .stock-unit {
+            font-size: var(--text-xs);
+            color: var(--color-gray-500);
+        }
+        
+        .stock-bar {
+            width: 60px;
+            height: 4px;
+            background-color: var(--color-gray-200);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+        
+        .stock-fill {
+            height: 100%;
+            background-color: var(--vendor-success);
+            transition: var(--transition-fast);
+        }
+        
+        .stock-fill.low {
+            background-color: var(--vendor-warning);
+        }
+        
+        .stock-fill.empty {
+            background-color: var(--vendor-danger);
+        }
+        
+        .sales-info {
+            text-align: center;
+        }
+        
+        .sales-number {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--color-gray-800);
+            display: block;
+        }
+        
+        .sales-info small {
+            color: var(--color-gray-500);
+            font-size: var(--text-xs);
+        }
+        
+        .date {
+            font-size: var(--text-sm);
+            color: var(--color-gray-500);
+        }
+        
+        .table-pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-4) var(--space-6);
+            border-top: 1px solid var(--color-gray-200);
+        }
+        
+        .pagination-info {
+            font-size: var(--text-sm);
+            color: var(--color-gray-600);
+        }
+        
+        .pagination-controls {
+            display: flex;
+            gap: var(--space-1);
+        }
+        
+        .pagination-btn {
+            padding: var(--space-2) var(--space-3);
+            border: 1px solid var(--color-gray-300);
+            background-color: var(--color-white);
+            color: var(--color-gray-600);
+            cursor: pointer;
+            border-radius: var(--radius-md);
+            font-size: var(--text-sm);
+            transition: var(--transition-fast);
+        }
+        
+        .pagination-btn:hover:not(:disabled) {
+            background-color: var(--color-gray-50);
+        }
+        
+        .pagination-btn.active {
+            background-color: var(--vendor-primary);
+            color: var(--color-white);
+            border-color: var(--vendor-primary);
+        }
+        
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .bulk-actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-3);
+            margin-top: var(--space-4);
+        }
+        
+        .bulk-action-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-4);
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-lg);
+            background-color: var(--color-white);
+            color: var(--color-gray-700);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            text-align: left;
+        }
+        
+        .bulk-action-btn:hover {
+            border-color: var(--vendor-primary);
+            background-color: var(--color-gray-50);
+        }
+        
+        .bulk-action-btn.danger:hover {
+            border-color: var(--vendor-danger);
+            color: var(--vendor-danger);
+        }
+        
+        .bulk-action-btn i {
+            font-size: var(--text-lg);
+        }
+        
+        .stat-icon.active {
+            background-color: var(--vendor-success);
+        }
+        
+        .stat-icon.warning {
+            background-color: var(--vendor-warning);
+        }
+        
+        @media (max-width: 768px) {
+            .filters-content {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-box {
+                min-width: auto;
+            }
+            
+            .filters-group {
+                justify-content: space-between;
+            }
+            
+            .filter-select {
+                min-width: auto;
+                flex: 1;
+            }
+            
+            .page-header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: var(--space-4);
+            }
+            
+            .page-actions {
+                justify-content: stretch;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</body>
+</html>

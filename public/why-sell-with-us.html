@@ -1,0 +1,862 @@
+<!--
+ * Archivo: public/why-sell-with-us.html
+ * Descripción: Página dedicada a convencer a productores de unirse a ORIGINARIA
+ * Autor: Equipo ORIGINARIA
+ * Fecha: 2024
+ * Función: Mostrar beneficios, facilidades y servicios adicionales para productores
+ * Objetivo: Convertir visitantes productores en vendedores registrados
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Únete a ORIGINARIA como vendedor - Mejores comisiones, marketing gratuito y soporte completo para productores orgánicos">
+    <meta name="keywords" content="vender productos orgánicos, marketplace vendedores, ORIGINARIA vendedor, agricultura orgánica">
+    <title>¿Por qué vender con nosotros? | ORIGINARIA</title>
+    
+    <!-- CSS Principal + Específico de Why Sell -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/public.css">
+    <link rel="stylesheet" href="../assets/css/why-sell.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-public">
+        <nav class="nav-container">
+            <div class="container">
+                <div class="nav-content">
+                    <!-- Logo -->
+                    <div class="logo-section">
+                        <a href="index.html">
+                            <div class="logo-placeholder">
+                                <img src="../assets/images/logos/LogoOriginaria01.png" alt="ORIGINARIA" class="logo">
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <ul class="nav-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="marketplace.html">Productos</a></li>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="why-sell-with-us.html" class="active">Vende con Nosotros</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                    </ul>
+
+                    <!-- User Actions -->
+                    <div class="user-actions">
+                        <a href="login.html" class="btn btn-outline btn-sm">Iniciar Sesión</a>
+                        <a href="register.html?type=vendor" class="btn btn-accent btn-sm">Registrarse como Vendedor</a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section for Vendors -->
+    <section class="vendor-hero">
+        <div class="container">
+            <div class="vendor-hero-content">
+                <div class="vendor-hero-text">
+                    <h1 class="vendor-hero-title">
+                        <span class="hero-highlight">Vende tus productos orgánicos</span>
+                        <span>sin intermediarios en ORIGINARIA</span>
+                    </h1>
+                    <p class="vendor-hero-description">
+                        Conecta directamente con miles de consumidores conscientes que buscan 
+                        productos auténticos y sostenibles. Te acompañamos en cada paso de tu 
+                        crecimiento digital.
+                    </p>
+                    <div class="vendor-hero-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">🚀</span>
+                            <span>Sin costos iniciales</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📈</span>
+                            <span>Incrementa tus ventas hasta 300%</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🎯</span>
+                            <span>Asesoría especializada incluida</span>
+                        </div>
+                    </div>
+                    <div class="vendor-hero-actions">
+                        <a href="register.html?type=vendor" class="btn btn-accent btn-lg">
+                            🌾 Empezar a Vender Ahora
+                        </a>
+                        <a href="#benefits" class="btn btn-outline btn-lg">
+                            📋 Ver Todos los Beneficios
+                        </a>
+                    </div>
+                </div>
+                <div class="vendor-hero-image">
+                    <div class="img-placeholder vendor-hero-img">
+                        <div>
+                            <p>Productor Peruano Exitoso</p>
+                            <small>Sugerencia: Agricultor sonriente con productos orgánicos, laptop/tablet mostrando ventas</small>
+                        </div>
+                    </div>
+                    <!-- Success Stats Overlay -->
+                    <div class="success-stats">
+                        <div class="stat-card">
+                            <span class="stat-number">+300%</span>
+                            <span class="stat-label">Aumento promedio de ventas</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Productores activos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Benefits Section -->
+    <section class="main-benefits" id="benefits">
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="benefit-card primary">
+                    <div class="benefit-icon">
+                        <div class="icon-placeholder">💰</div>
+                    </div>
+                    <h3>Sin Intermediarios</h3>
+                    <p>Vende directamente al consumidor final y obtén hasta 40% más ganancias eliminando la cadena de intermediarios tradicional.</p>
+                    <div class="benefit-details">
+                        <div class="detail-item">✅ Precios justos para ti</div>
+                        <div class="detail-item">✅ Mayor margen de ganancia</div>
+                        <div class="detail-item">✅ Control total de tu negocio</div>
+                    </div>
+                </div>
+
+                <div class="benefit-card secondary">
+                    <div class="benefit-icon">
+                        <div class="icon-placeholder">🎯</div>
+                    </div>
+                    <h3>Marketing Digital Incluido</h3>
+                    <p>Nuestro equipo de expertos promociona tus productos en redes sociales, Google Ads y campañas especializadas sin costo adicional.</p>
+                    <div class="benefit-details">
+                        <div class="detail-item">✅ Gestión de redes sociales</div>
+                        <div class="detail-item">✅ Campañas publicitarias</div>
+                        <div class="detail-item">✅ SEO y posicionamiento</div>
+                    </div>
+                </div>
+
+                <div class="benefit-card accent">
+                    <div class="benefit-icon">
+                        <div class="icon-placeholder">🛠️</div>
+                    </div>
+                    <h3>Herramientas Profesionales</h3>
+                    <p>Accede a un dashboard completo con analytics de ventas, gestión de inventario y herramientas de comunicación con clientes.</p>
+                    <div class="benefit-details">
+                        <div class="detail-item">✅ Dashboard de ventas en tiempo real</div>
+                        <div class="detail-item">✅ Gestión de inventario automática</div>
+                        <div class="detail-item">✅ Reportes de rendimiento</div>
+                    </div>
+                </div>
+
+                <div class="benefit-card highlight">
+                    <div class="benefit-icon">
+                        <div class="icon-placeholder">🚚</div>
+                    </div>
+                    <h3>Logística Especializada</h3>
+                    <p>Nos encargamos del empaque, envío y entrega de tus productos con un sistema logístico diseñado para productos orgánicos.</p>
+                    <div class="benefit-details">
+                        <div class="detail-item">✅ Empaque especializado incluido</div>
+                        <div class="detail-item">✅ Red de distribución nacional</div>
+                        <div class="detail-item">✅ Seguimiento en tiempo real</div>
+                    </div>
+                </div>
+
+                <div class="benefit-card support">
+                    <div class="benefit-icon">
+                        <div class="icon-placeholder">👨‍🏫</div>
+                    </div>
+                    <h3>Asesoría Especializada</h3>
+                    <p>Te acompañamos con capacitación en comercio digital, optimización de precios, gestión de costos y estrategias de crecimiento.</p>
+                    <div class="benefit-details">
+                        <div class="detail-item">✅ Consultoría en gestión de costos</div>
+                        <div class="detail-item">✅ Optimización de empaquetado</div>
+                        <div class="detail-item">✅ Estrategias de pricing</div>
+                    </div>
+                </div>
+
+                <div class="benefit-card growth">
+                    <div class="benefit-icon">
+                        <div class="icon-placeholder">📊</div>
+                    </div>
+                    <h3>Crecimiento Garantizado</h3>
+                    <p>Nuestros vendedores aumentan sus ventas en promedio 300% en los primeros 6 meses gracias a nuestro ecosistema integral.</p>
+                    <div class="benefit-details">
+                        <div class="detail-item">✅ Plan de crecimiento personalizado</div>
+                        <div class="detail-item">✅ Métricas y KPIs claros</div>
+                        <div class="detail-item">✅ Soporte continuo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="additional-services">
+        <div class="container">
+            <h2 class="section-title">Servicios Adicionales Exclusivos</h2>
+            <p class="section-subtitle">
+                Más que una plataforma de ventas, somos tu socio estratégico para el crecimiento
+            </p>
+            
+            <div class="services-grid">
+                <div class="service-card featured">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <div class="icon-placeholder">💡</div>
+                        </div>
+                        <h3>Consultoría en Gestión de Costos</h3>
+                        <div class="service-badge">GRATUITO</div>
+                    </div>
+                    <div class="service-content">
+                        <p>Nuestros expertos analizan tu estructura de costos y te ayudan a optimizar precios para maximizar rentabilidad sin perder competitividad.</p>
+                        <div class="service-features">
+                            <div class="feature">📋 Análisis de estructura de costos</div>
+                            <div class="feature">💰 Estrategias de pricing dinámico</div>
+                            <div class="feature">📈 Optimización de márgenes</div>
+                            <div class="feature">🎯 Benchmarking competitivo</div>
+                        </div>
+                        <div class="service-cta">
+                            <span class="cta-text">Incluido en todos los planes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <div class="icon-placeholder">📦</div>
+                        </div>
+                        <h3>Asesoría en Empaquetado</h3>
+                        <div class="service-badge premium">PREMIUM</div>
+                    </div>
+                    <div class="service-content">
+                        <p>Diseñamos el empaque perfecto para tus productos: sostenible, atractivo y que preserve la calidad durante el transporte.</p>
+                        <div class="service-features">
+                            <div class="feature">🎨 Diseño de empaque personalizado</div>
+                            <div class="feature">♻️ Materiales eco-friendly</div>
+                            <div class="feature">🛡️ Protección durante envío</div>
+                            <div class="feature">🏷️ Etiquetado profesional</div>
+                        </div>
+                        <div class="service-cta">
+                            <span class="cta-price">Desde S/ 200</span>
+                            <span class="cta-note">Inversión que se recupera en el primer mes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <div class="icon-placeholder">📸</div>
+                        </div>
+                        <h3>Fotografía Profesional</h3>
+                        <div class="service-badge">OPCIONAL</div>
+                    </div>
+                    <div class="service-content">
+                        <p>Sesiones fotográficas profesionales que destacan la calidad y origen de tus productos, aumentando las conversiones hasta 150%.</p>
+                        <div class="service-features">
+                            <div class="feature">📷 Sesión fotográfica en estudio</div>
+                            <div class="feature">🌄 Fotos de contexto/origen</div>
+                            <div class="feature">✨ Edición profesional</div>
+                            <div class="feature">📱 Optimización para redes</div>
+                        </div>
+                        <div class="service-cta">
+                            <span class="cta-price">S/ 300 por sesión</span>
+                            <span class="cta-note">Incluye 15 fotos editadas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <div class="icon-placeholder">🚀</div>
+                        </div>
+                        <h3>Campañas Publicitarias</h3>
+                        <div class="service-badge">CONTRATA</div>
+                    </div>
+                    <div class="service-content">
+                        <p>Campañas dirigidas en Google Ads, Facebook e Instagram para aumentar la visibilidad de tus productos específicos.</p>
+                        <div class="service-features">
+                            <div class="feature">🎯 Segmentación precisa</div>
+                            <div class="feature">📊 Reportes detallados</div>
+                            <div class="feature">💰 ROI garantizado</div>
+                            <div class="feature">🔄 Optimización continua</div>
+                        </div>
+                        <div class="service-cta">
+                            <span class="cta-price">Desde S/ 500/mes</span>
+                            <span class="cta-note">Gestión incluida + presupuesto publicitario</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories / Testimonials -->
+    <section class="success-stories">
+        <div class="container">
+            <h2 class="section-title">Historias de Éxito</h2>
+            <p class="section-subtitle">
+                Conoce cómo otros productores han transformado sus negocios con ORIGINARIA
+            </p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <div class="img-placeholder avatar">
+                                <p>Foto María</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>María Quispe</h4>
+                            <p>Productora de Quinua - Puno</p>
+                            <div class="testimonial-results">
+                                <span class="result-item">+250% ventas</span>
+                                <span class="result-item">6 meses</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Antes vendía mi quinua a intermediarios por S/ 8 el kilo. Ahora en ORIGINARIA la vendo a S/ 18 directamente a los consumidores. El equipo me ayudó con el empaque y las fotos de mis productos. ¡Mi familia ahora tiene una vida mejor!"</p>
+                    </div>
+                    <div class="testimonial-metrics">
+                        <div class="metric">
+                            <span class="metric-value">S/ 8</span>
+                            <span class="metric-label">Antes (por kilo)</span>
+                        </div>
+                        <div class="metric-arrow">→</div>
+                        <div class="metric">
+                            <span class="metric-value">S/ 18</span>
+                            <span class="metric-label">Ahora (por kilo)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card featured">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <div class="img-placeholder avatar">
+                                <p>Foto Carlos</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Carlos Mendoza</h4>
+                            <p>Caficultor - Villa Rica</p>
+                            <div class="testimonial-results">
+                                <span class="result-item">+400% ventas</span>
+                                <span class="result-item">8 meses</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Jamás pensé que podría vender mi café directamente a Lima. ORIGINARIA me enseñó sobre marketing digital y ahora tengo clientes regulares que me compran cada mes. La asesoría en costos me ayudó a fijar precios justos."</p>
+                    </div>
+                    <div class="testimonial-metrics">
+                        <div class="metric">
+                            <span class="metric-value">20kg/mes</span>
+                            <span class="metric-label">Antes</span>
+                        </div>
+                        <div class="metric-arrow">→</div>
+                        <div class="metric">
+                            <span class="metric-value">100kg/mes</span>
+                            <span class="metric-label">Ahora</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <div class="img-placeholder avatar">
+                                <p>Foto Ana</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Ana Huamán</h4>
+                            <p>Productos Lácteos - Cajamarca</p>
+                            <div class="testimonial-results">
+                                <span class="result-item">+180% ventas</span>
+                                <span class="result-item">4 meses</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"El equipo de ORIGINARIA me ayudó a mejorar el empaque de mis quesos y a contar la historia de mi familia. Ahora mis productos se ven profesionales y los clientes valoran la tradición que hay detrás."</p>
+                    </div>
+                    <div class="testimonial-metrics">
+                        <div class="metric">
+                            <span class="metric-value">Local</span>
+                            <span class="metric-label">Antes</span>
+                        </div>
+                        <div class="metric-arrow">→</div>
+                        <div class="metric">
+                            <span class="metric-value">Nacional</span>
+                            <span class="metric-label">Ahora</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">¿Cómo funciona? Súper fácil en 4 pasos</h2>
+            <div class="steps-container">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Regístrate Gratis</h3>
+                        <p>Completa el formulario de registro con la información básica de tu negocio. El proceso toma menos de 5 minutos.</p>
+                        <div class="step-details">
+                            <div class="detail">✅ Datos básicos del negocio</div>
+                            <div class="detail">✅ Información de productos</div>
+                            <div class="detail">✅ Verificación rápida</div>
+                        </div>
+                    </div>
+                    <div class="step-image">
+                        <div class="img-placeholder step-img">
+                            <p>Formulario de Registro</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item reverse">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Configura tu Tienda</h3>
+                        <p>Nuestro equipo te guía para subir tus productos, optimizar descripciones y configurar precios competitivos.</p>
+                        <div class="step-details">
+                            <div class="detail">✅ Asesoría personalizada incluida</div>
+                            <div class="detail">✅ Optimización de productos</div>
+                            <div class="detail">✅ Estrategia de precios</div>
+                        </div>
+                    </div>
+                    <div class="step-image">
+                        <div class="img-placeholder step-img">
+                            <p>Dashboard de Vendedor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Nosotros te Promocionamos</h3>
+                        <p>Iniciamos campañas de marketing para dar visibilidad a tus productos sin costo adicional. Tú solo enfócate en producir.</p>
+                        <div class="step-details">
+                            <div class="detail">✅ Campañas en redes sociales</div>
+                            <div class="detail">✅ SEO y posicionamiento</div>
+                            <div class="detail">✅ Email marketing incluido</div>
+                        </div>
+                    </div>
+                    <div class="step-image">
+                        <div class="img-placeholder step-img">
+                            <p>Campañas de Marketing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item reverse">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Recibe Pedidos y Gana</h3>
+                        <p>Los pedidos llegan automáticamente, nosotros gestionamos la logística y tú recibes el pago directamente en tu cuenta.</p>
+                        <div class="step-details">
+                            <div class="detail">✅ Pagos seguros y rápidos</div>
+                            <div class="detail">✅ Logística automatizada</div>
+                            <div class="detail">✅ Soporte continuo</div>
+                        </div>
+                    </div>
+                    <div class="step-image">
+                        <div class="img-placeholder step-img">
+                            <p>Gestión de Pedidos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="pricing-plans">
+        <div class="container">
+            <h2 class="section-title">Planes Transparentes Sin Sorpresas</h2>
+            <p class="section-subtitle">
+                Elige el plan que mejor se adapte a tu volumen de ventas
+            </p>
+
+            <div class="plans-grid">
+                <div class="plan-card starter">
+                    <div class="plan-header">
+                        <h3>Starter</h3>
+                        <div class="plan-price">
+                            <span class="price">GRATIS</span>
+                            <span class="period">3 meses</span>
+                        </div>
+                        <p class="plan-description">Perfecto para empezar sin riesgos</p>
+                    </div>
+                    <div class="plan-features">
+                        <div class="feature included">✅ Hasta 10 productos</div>
+                        <div class="feature included">✅ Asesoría básica incluida</div>
+                        <div class="feature included">✅ Marketing digital básico</div>
+                        <div class="feature included">✅ Dashboard de ventas</div>
+                        <div class="feature included">✅ Soporte por email</div>
+                        <div class="feature not-included">❌ Fotografía profesional</div>
+                        <div class="feature not-included">❌ Campañas pagadas</div>
+                    </div>
+                    <div class="plan-cta">
+                        <a href="register.html?plan=starter" class="btn btn-outline">Empezar Gratis</a>
+                        <p class="plan-note">Sin compromisos • Cambia cuando quieras</p>
+                    </div>
+                </div>
+
+                <div class="plan-card professional featured">
+                    <div class="plan-ribbon">MÁS POPULAR</div>
+                    <div class="plan-header">
+                        <h3>Professional</h3>
+                        <div class="plan-price">
+                            <span class="price">8%</span>
+                            <span class="period">comisión por venta</span>
+                        </div>
+                        <p class="plan-description">Para productores en crecimiento</p>
+                    </div>
+                    <div class="plan-features">
+                        <div class="feature included">✅ Productos ilimitados</div>
+                        <div class="feature included">✅ Asesoría completa incluida</div>
+                        <div class="feature included">✅ Marketing digital avanzado</div>
+                        <div class="feature included">✅ Analytics detallados</div>
+                        <div class="feature included">✅ Soporte prioritario</div>
+                        <div class="feature included">✅ 1 sesión fotográfica gratis</div>
+                        <div class="feature not-included">❌ Campañas pagadas ilimitadas</div>
+                    </div>
+                    <div class="plan-cta">
+                        <a href="register.html?plan=professional" class="btn btn-accent">Elegir Professional</a>
+                        <p class="plan-note">Solo pagas cuando vendes • 92% para ti</p>
+                    </div>
+                </div>
+
+                <div class="plan-card enterprise">
+                    <div class="plan-header">
+                        <h3>Enterprise</h3>
+                        <div class="plan-price">
+                            <span class="price">12%</span>
+                            <span class="period">comisión + servicios premium</span>
+                        </div>
+                        <p class="plan-description">Para grandes productores</p>
+                    </div>
+                    <div class="plan-features">
+                        <div class="feature included">✅ Todo lo de Professional</div>
+                        <div class="feature included">✅ Campañas pagadas ilimitadas</div>
+                        <div class="feature included">✅ Consultor dedicado</div>
+                        <div class="feature included">✅ Reportes personalizados</div>
+                        <div class="feature included">✅ Integración con sistemas</div>
+                        <div class="feature included">✅ Sesiones fotográficas mensuales</div>
+                        <div class="feature included">✅ Acceso prioritario a nuevas funciones</div>
+                    </div>
+                    <div class="plan-cta">
+                        <a href="contact.html?plan=enterprise" class="btn btn-primary">Contactar Ventas</a>
+                        <p class="plan-note">Soluciones personalizadas</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-note">
+                <p><strong>💡 Nota importante:</strong> No hay costos ocultos ni cuotas mensuales. Solo pagas cuando vendes, y nuestro éxito está directamente ligado al tuyo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>¿Realmente no hay costos iniciales?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Correcto. Puedes empezar con nuestro plan Starter completamente gratis por 3 meses. Solo pagas comisión cuando realizas ventas, no hay cuotas mensuales ni costos de inscripción.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>¿Qué pasa si no sé usar tecnología?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No te preocupes. Nuestro equipo te acompaña paso a paso. Ofrecemos capacitación gratuita y soporte continuo. Muchos de nuestros vendedores más exitosos empezaron sin conocimientos técnicos.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>¿Cómo me aseguran que aumentaré mis ventas?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nuestros vendedores aumentan sus ventas en promedio 300% gracias a: eliminación de intermediarios, marketing digital profesional, asesoría especializada y acceso a miles de consumidores conscientes que buscan productos como los tuyos.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>¿Qué documentos necesito para registrarme?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Solo necesitas: DNI o RUC, información básica de tus productos, fotos de muestra de tu producción y datos de contacto. El proceso de verificación es simple y rápido.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>¿Ustedes se encargan del envío de productos?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, tenemos un sistema logístico especializado en productos orgánicos. Nos encargamos del empaque, envío y entrega. Tú solo te enfocas en producir, nosotros nos encargamos del resto.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>¿Puedo vender en otros lugares además de ORIGINARIA?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>¡Por supuesto! No hay exclusividad. Puedes seguir vendiendo en mercados locales, ferias o cualquier otro canal. ORIGINARIA será un canal adicional para aumentar tus ventas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Listo para transformar tu negocio?</h2>
+                <p>Únete a más de 50 productores que ya están creciendo con ORIGINARIA</p>
+                <div class="cta-urgency">
+                    <div class="urgency-item">
+                        <span class="urgency-icon">⏰</span>
+                        <span>Registro gratuito limitado</span>
+                    </div>
+                    <div class="urgency-item">
+                        <span class="urgency-icon">🎁</span>
+                        <span>Primera sesión fotográfica gratis</span>
+                    </div>
+                    <div class="urgency-item">
+                        <span class="urgency-icon">🚀</span>
+                        <span>Soporte personalizado incluido</span>
+                    </div>
+                </div>
+                <div class="cta-actions">
+                    <a href="register.html?type=vendor" class="btn btn-accent btn-lg">
+                        🌾 Registrarme como Vendedor
+                    </a>
+                    <a href="contact.html?inquiry=vendor" class="btn btn-outline btn-lg">
+                        💬 Hablar con un Asesor
+                    </a>
+                </div>
+                <p class="cta-guarantee">
+                    <strong>💯 Garantía:</strong> Si no estás satisfecho en los primeros 30 días, 
+                    te ayudamos a optimizar tu estrategia sin costo adicional.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (mismo del index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-placeholder">
+                            LOGO ORIGINARIA
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Conectando productores locales con consumidores conscientes 
+                        para promover el comercio justo y la sostenibilidad en el Perú.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Para Vendedores</h4>
+                    <ul class="footer-links">
+                        <li><a href="why-sell-with-us.html">¿Por qué vender con nosotros?</a></li>
+                        <li><a href="register.html?type=vendor">Registrarse como Vendedor</a></li>
+                        <li><a href="#">Guía del Vendedor</a></li>
+                        <li><a href="#">Centro de Ayuda</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Soporte</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contacto</a></li>
+                        <li><a href="#">Términos para Vendedores</a></li>
+                        <li><a href="#">Política de Comisiones</a></li>
+                        <li><a href="#">FAQ Vendedores</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto Vendedores</h4>
+                    <div class="contact-info">
+                        <p>📧 vendedores@originaria.pe</p>
+                        <p>📞 +51 1 234-5678</p>
+                        <p>💬 WhatsApp: +51 987 654 321</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 ORIGINARIA. Todos los derechos reservados.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Términos para Vendedores</a>
+                        <a href="#">Política de Comisiones</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Overlay (mismo del index.html) -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <div class="logo-placeholder">LOGO</div>
+                <button class="mobile-menu-close" onclick="toggleMobileMenu()">&times;</button>
+            </div>
+            <nav class="mobile-nav">
+                <a href="index.html" onclick="toggleMobileMenu()">Inicio</a>
+                <a href="marketplace.html" onclick="toggleMobileMenu()">Productos</a>
+                <a href="about.html" onclick="toggleMobileMenu()">Nosotros</a>
+                <a href="why-sell-with-us.html" onclick="toggleMobileMenu()">Vende con Nosotros</a>
+                <a href="contact.html" onclick="toggleMobileMenu()">Contacto</a>
+            </nav>
+            <div class="mobile-menu-actions">
+                <a href="login.html" class="btn btn-outline">Iniciar Sesión</a>
+                <a href="register.html?type=vendor" class="btn btn-accent">Registrarse como Vendedor</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts con rutas corregidas -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/public.js"></script>
+    
+    <script>
+        // Mobile Menu Toggle (función reutilizada)
+        function toggleMobileMenu() {
+            const overlay = document.getElementById('mobileMenuOverlay');
+            const body = document.body;
+            
+            if (overlay.style.display === 'block') {
+                overlay.style.display = 'none';
+                body.style.overflow = 'auto';
+            } else {
+                overlay.style.display = 'block';
+                body.style.overflow = 'hidden';
+            }
+        }
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const icon = element.querySelector('.faq-icon');
+            
+            faqItem.classList.toggle('active');
+            
+            if (faqItem.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                icon.textContent = '−';
+            } else {
+                answer.style.maxHeight = '0';
+                icon.textContent = '+';
+            }
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('.benefit-card, .service-card, .testimonial-card, .step-item, .plan-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Track CTA clicks for analytics
+        document.querySelectorAll('a[href*="register"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // TODO: Agregar tracking de eventos
+                console.log('CTA clicked:', this.href);
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header-public');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,613 @@
+<!--
+ * Archivo: public/register.html
+ * Descripción: Página de registro para nuevos usuarios de ORIGINARIA
+ * Autor: Equipo ORIGINARIA
+ * Fecha: 2024
+ * Función: Registro diferenciado para compradores y vendedores con formularios específicos
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Regístrate en ORIGINARIA - Marketplace de productos orgánicos del Perú">
+    <title>Crear Cuenta | ORIGINARIA</title>
+    
+    <!-- CSS con rutas corregidas -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/public.css">
+    <link rel="stylesheet" href="../assets/css/register.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="auth-page">
+    <!-- Header simplificado ESTÁNDAR para páginas de auth -->
+    <header class="auth-header">
+        <nav class="auth-nav">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="logo-section">
+                        <a href="index.html" class="logo-link">
+                            <div class="logo-placeholder">
+                                <img src="../assets/images/logos/LogoOriginaria01.png" alt="ORIGINARIA" class="logo">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="nav-links">
+                        <a href="index.html" class="nav-link">
+                            <i class="fas fa-arrow-left"></i>
+                            Volver al inicio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Register Main Content -->
+    <main class="auth-main">
+        <div class="auth-container">
+            <!-- Register Form Section -->
+            <div class="auth-content">
+                <div class="auth-card">
+                    <!-- Form Header -->
+                    <div class="auth-header-content">
+                        <h1 class="auth-title">¡Únete a ORIGINARIA!</h1>
+                        <p class="auth-subtitle">Crea tu cuenta y forma parte de la revolución orgánica</p>
+                    </div>
+
+                    <!-- User Type Selection -->
+                    <div class="user-type-selector">
+                        <div class="type-options">
+                            <button class="type-option active" data-type="customer" onclick="selectUserType('customer')">
+                                <i class="fas fa-shopping-bag"></i>
+                                <span>Quiero Comprar</span>
+                                <small>Accede a productos orgánicos</small>
+                            </button>
+                            <button class="type-option" data-type="vendor" onclick="selectUserType('vendor')">
+                                <i class="fas fa-store"></i>
+                                <span>Quiero Vender</span>
+                                <small>Vende tus productos orgánicos</small>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Customer Registration Form -->
+                    <form class="auth-form" id="customerForm" onsubmit="handleRegister(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">Nombre</label>
+                                <div class="input-group">
+                                    <i class="fas fa-user input-icon"></i>
+                                    <input 
+                                        type="text" 
+                                        id="firstName" 
+                                        name="firstName" 
+                                        class="form-input" 
+                                        placeholder="Tu nombre"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Apellidos</label>
+                                <div class="input-group">
+                                    <i class="fas fa-user input-icon"></i>
+                                    <input 
+                                        type="text" 
+                                        id="lastName" 
+                                        name="lastName" 
+                                        class="form-input" 
+                                        placeholder="Tus apellidos"
+                                        required
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Correo electrónico</label>
+                            <div class="input-group">
+                                <i class="fas fa-envelope input-icon"></i>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    class="form-input" 
+                                    placeholder="tu@email.com"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Teléfono</label>
+                            <div class="input-group">
+                                <i class="fas fa-phone input-icon"></i>
+                                <input 
+                                    type="tel" 
+                                    id="phone" 
+                                    name="phone" 
+                                    class="form-input" 
+                                    placeholder="+51 999 999 999"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <div class="input-group">
+                                <i class="fas fa-lock input-icon"></i>
+                                <input 
+                                    type="password" 
+                                    id="password" 
+                                    name="password" 
+                                    class="form-input" 
+                                    placeholder="Mínimo 8 caracteres"
+                                    required
+                                    minlength="8"
+                                >
+                                <button type="button" class="password-toggle" onclick="togglePassword('password')">
+                                    <i class="fas fa-eye" id="passwordToggleIcon"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword" class="form-label">Confirmar contraseña</label>
+                            <div class="input-group">
+                                <i class="fas fa-lock input-icon"></i>
+                                <input 
+                                    type="password" 
+                                    id="confirmPassword" 
+                                    name="confirmPassword" 
+                                    class="form-input" 
+                                    placeholder="Repite tu contraseña"
+                                    required
+                                >
+                                <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
+                                    <i class="fas fa-eye" id="confirmPasswordToggleIcon"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="customer-preferences" id="customerPreferences">
+                            <label class="form-label">¿Qué productos te interesan más?</label>
+                            <div class="preferences-grid">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="coffee">
+                                    <span class="checkbox-custom"></span>
+                                    Café orgánico
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="quinoa">
+                                    <span class="checkbox-custom"></span>
+                                    Quinua y cereales
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="honey">
+                                    <span class="checkbox-custom"></span>
+                                    Miel natural
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="cacao">
+                                    <span class="checkbox-custom"></span>
+                                    Cacao y chocolate
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Vendor specific fields (hidden by default) -->
+                        <div class="vendor-fields" id="vendorFields" style="display: none;">
+                            <div class="form-group">
+                                <label for="businessName" class="form-label">Nombre del negocio</label>
+                                <div class="input-group">
+                                    <i class="fas fa-store input-icon"></i>
+                                    <input 
+                                        type="text" 
+                                        id="businessName" 
+                                        name="businessName" 
+                                        class="form-input" 
+                                        placeholder="Nombre de tu emprendimiento"
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="region" class="form-label">Región</label>
+                                    <div class="input-group">
+                                        <i class="fas fa-map-marker-alt input-icon"></i>
+                                        <select id="region" name="region" class="form-input">
+                                            <option value="">Selecciona tu región</option>
+                                            <option value="amazonas">Amazonas</option>
+                                            <option value="ancash">Áncash</option>
+                                            <option value="apurimac">Apurímac</option>
+                                            <option value="arequipa">Arequipa</option>
+                                            <option value="ayacucho">Ayacucho</option>
+                                            <option value="cajamarca">Cajamarca</option>
+                                            <option value="callao">Callao</option>
+                                            <option value="cusco">Cusco</option>
+                                            <option value="huancavelica">Huancavelica</option>
+                                            <option value="huanuco">Huánuco</option>
+                                            <option value="ica">Ica</option>
+                                            <option value="junin">Junín</option>
+                                            <option value="la-libertad">La Libertad</option>
+                                            <option value="lambayeque">Lambayeque</option>
+                                            <option value="lima">Lima</option>
+                                            <option value="loreto">Loreto</option>
+                                            <option value="madre-de-dios">Madre de Dios</option>
+                                            <option value="moquegua">Moquegua</option>
+                                            <option value="pasco">Pasco</option>
+                                            <option value="piura">Piura</option>
+                                            <option value="puno">Puno</option>
+                                            <option value="san-martin">San Martín</option>
+                                            <option value="tacna">Tacna</option>
+                                            <option value="tumbes">Tumbes</option>
+                                            <option value="ucayali">Ucayali</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="productType" class="form-label">Tipo de producto</label>
+                                    <div class="input-group">
+                                        <i class="fas fa-leaf input-icon"></i>
+                                        <select id="productType" name="productType" class="form-input">
+                                            <option value="">Selecciona categoría</option>
+                                            <option value="coffee">Café</option>
+                                            <option value="quinoa">Quinua</option>
+                                            <option value="cacao">Cacao</option>
+                                            <option value="honey">Miel</option>
+                                            <option value="cereals">Cereales</option>
+                                            <option value="fruits">Frutas deshidratadas</option>
+                                            <option value="spices">Especias</option>
+                                            <option value="other">Otros</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="experience" class="form-label">Experiencia</label>
+                                <div class="input-group">
+                                    <i class="fas fa-clock input-icon"></i>
+                                    <select id="experience" name="experience" class="form-input">
+                                        <option value="">Tiempo en el rubro</option>
+                                        <option value="less-1">Menos de 1 año</option>
+                                        <option value="1-3">1-3 años</option>
+                                        <option value="3-5">3-5 años</option>
+                                        <option value="5-10">5-10 años</option>
+                                        <option value="more-10">Más de 10 años</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="acceptTerms" name="acceptTerms" required>
+                                <span class="checkbox-custom"></span>
+                                Acepto los <a href="terms.html" target="_blank">términos y condiciones</a> y la <a href="privacy.html" target="_blank">política de privacidad</a>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="acceptMarketing" name="acceptMarketing">
+                                <span class="checkbox-custom"></span>
+                                Quiero recibir ofertas especiales y novedades por correo
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full" id="registerButton">
+                            <span class="btn-text">Crear mi cuenta</span>
+                            <span class="btn-loader hidden">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </span>
+                        </button>
+                    </form>
+
+                    <!-- Social Register -->
+                    <div class="social-login">
+                        <div class="divider">
+                            <span>O regístrate con</span>
+                        </div>
+                        
+                        <div class="social-buttons">
+                            <button class="btn btn-social btn-google" onclick="registerWithGoogle()">
+                                <i class="fab fa-google"></i>
+                                Google
+                            </button>
+                            <button class="btn btn-social btn-facebook" onclick="registerWithFacebook()">
+                                <i class="fab fa-facebook-f"></i>
+                                Facebook
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Login Link -->
+                    <div class="auth-footer">
+                        <p class="login-prompt">
+                            ¿Ya tienes cuenta? 
+                            <a href="login.html" class="login-link">Inicia sesión</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefits Section -->
+            <div class="auth-benefits">
+                <div class="benefits-content">
+                    <div class="benefits-header">
+                        <h2>¿Por qué elegir ORIGINARIA?</h2>
+                        <p>Únete a más de 1,200 personas que ya disfrutan de lo natural</p>
+                    </div>
+
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Productos Certificados</h3>
+                                <p>Todos nuestros productos cuentan con certificaciones orgánicas</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Impacto Social</h3>
+                                <p>Tu compra apoya directamente a familias productoras peruanas</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Entrega Rápida</h3>
+                                <p>Envíos seguros y rápidos a todo el territorio nacional</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Comunidad Activa</h3>
+                                <p>Forma parte de una comunidad comprometida con lo natural</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="stats-section">
+                        <div class="stat-item">
+                            <div class="stat-number">45+</div>
+                            <div class="stat-label">Productores</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">150+</div>
+                            <div class="stat-label">Productos</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1,200+</div>
+                            <div class="stat-label">Usuarios</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">18</div>
+                            <div class="stat-label">Regiones</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript con rutas corregidas -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/public.js"></script>
+    
+    <script>
+        let selectedUserType = 'customer';
+
+        // Selección de tipo de usuario
+        function selectUserType(type) {
+            selectedUserType = type;
+            
+            // Actualizar botones
+            document.querySelectorAll('.type-option').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-type="${type}"]`).classList.add('active');
+            
+            // Mostrar/ocultar campos específicos
+            const customerPreferences = document.getElementById('customerPreferences');
+            const vendorFields = document.getElementById('vendorFields');
+            const title = document.querySelector('.auth-title');
+            const subtitle = document.querySelector('.auth-subtitle');
+            
+            if (type === 'vendor') {
+                customerPreferences.style.display = 'none';
+                vendorFields.style.display = 'block';
+                title.textContent = '¡Únete como Vendedor!';
+                subtitle.textContent = 'Registra tu negocio y comienza a vender productos orgánicos';
+                
+                // Hacer campos de vendedor requeridos
+                document.getElementById('businessName').required = true;
+                document.getElementById('region').required = true;
+                document.getElementById('productType').required = true;
+            } else {
+                customerPreferences.style.display = 'block';
+                vendorFields.style.display = 'none';
+                title.textContent = '¡Únete a ORIGINARIA!';
+                subtitle.textContent = 'Crea tu cuenta y forma parte de la revolución orgánica';
+                
+                // Quitar requerido de campos de vendedor
+                document.getElementById('businessName').required = false;
+                document.getElementById('region').required = false;
+                document.getElementById('productType').required = false;
+            }
+        }
+
+        // Toggle password visibility
+        function togglePassword(fieldId) {
+            const passwordInput = document.getElementById(fieldId);
+            const toggleIcon = document.getElementById(fieldId + 'ToggleIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+
+        // Validación de contraseñas
+        function validatePasswords() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const confirmInput = document.getElementById('confirmPassword');
+            
+            if (password !== confirmPassword && confirmPassword !== '') {
+                confirmInput.setCustomValidity('Las contraseñas no coinciden');
+                confirmInput.classList.add('error');
+            } else {
+                confirmInput.setCustomValidity('');
+                confirmInput.classList.remove('error');
+            }
+        }
+
+        // Formateo de teléfono peruano
+        function formatPhoneNumber(input) {
+            let value = input.value.replace(/\D/g, '');
+            
+            if (value.startsWith('51')) {
+                value = value.substring(2);
+            }
+            
+            if (value.length > 0) {
+                if (value.length <= 3) {
+                    value = '+51 ' + value;
+                } else if (value.length <= 6) {
+                    value = '+51 ' + value.substring(0, 3) + ' ' + value.substring(3);
+                } else {
+                    value = '+51 ' + value.substring(0, 3) + ' ' + value.substring(3, 6) + ' ' + value.substring(6, 9);
+                }
+            }
+            
+            input.value = value;
+        }
+
+        // Handle registration form submission
+        function handleRegister(event) {
+            event.preventDefault();
+            
+            if (!validateForm()) {
+                return;
+            }
+            
+            // Show loading state
+            const button = document.getElementById('registerButton');
+            const btnText = button.querySelector('.btn-text');
+            const btnLoader = button.querySelector('.btn-loader');
+            
+            button.disabled = true;
+            btnText.classList.add('hidden');
+            btnLoader.classList.remove('hidden');
+            
+            // Collect form data
+            const formData = new FormData(event.target);
+            const userData = Object.fromEntries(formData.entries());
+            userData.userType = selectedUserType;
+            
+            // Simulate API call
+            setTimeout(() => {
+                alert(`Registro exitoso como ${selectedUserType === 'vendor' ? 'vendedor' : 'comprador'}. ¡Bienvenido a ORIGINARIA!`);
+                
+                // Redirect based on user type
+                if (selectedUserType === 'vendor') {
+                    window.location.href = '../vendor/onboarding/welcome.html';
+                } else {
+                    window.location.href = 'marketplace.html';
+                }
+                
+                // Reset button state
+                button.disabled = false;
+                btnText.classList.remove('hidden');
+                btnLoader.classList.add('hidden');
+            }, 2000);
+        }
+
+        // Form validation
+        function validateForm() {
+            const requiredFields = document.querySelectorAll('input[required], select[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.classList.add('error');
+                    isValid = false;
+                } else {
+                    field.classList.remove('error');
+                }
+            });
+            
+            // Validar contraseñas
+            validatePasswords();
+            
+            // Validar términos y condiciones
+            const acceptTerms = document.getElementById('acceptTerms');
+            if (!acceptTerms.checked) {
+                isValid = false;
+                alert('Debes aceptar los términos y condiciones para continuar');
+            }
+            
+            return isValid;
+        }
+
+        // Social registration functions
+        function registerWithGoogle() {
+            alert('Registro con Google (Demo)');
+        }
+
+        function registerWithFacebook() {
+            alert('Registro con Facebook (Demo)');
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Password validation
+            document.getElementById('password').addEventListener('input', validatePasswords);
+            document.getElementById('confirmPassword').addEventListener('input', validatePasswords);
+            
+            // Phone formatting
+            document.getElementById('phone').addEventListener('input', function() {
+                formatPhoneNumber(this);
+            });
+            
+            // Auto-focus first field
+            document.getElementById('firstName').focus();
+        });
+    </script>
+</body>
+</html>

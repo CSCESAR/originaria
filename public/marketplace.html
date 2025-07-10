@@ -1,0 +1,1205 @@
+<!--
+ * Archivo: public/marketplace.html
+ * Descripción: Catálogo público de productos orgánicos en ORIGINARIA
+ * Autor: Equipo ORIGINARIA
+ * Fecha: 2024
+ * Función: Marketplace principal donde los consumidores pueden explorar y comprar productos
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre productos orgánicos auténticos del Perú - ORIGINARIA Marketplace">
+    <meta name="keywords" content="productos orgánicos, marketplace, Perú, comercio justo, sostenibilidad, café orgánico, quinua">
+    <title>Marketplace - Productos Orgánicos del Perú | ORIGINARIA</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/public.css">
+    <link rel="stylesheet" href="../assets/css/marketplace.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Favicon placeholder -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-public">
+        <nav class="nav-container">
+            <div class="container">
+                <div class="nav-content">
+                    <!-- Logo -->
+                    <div class="logo-section">
+                        <div class="logo-placeholder">
+                            <a href="index.html">
+                                <img src="../assets/images/logos/LogoOriginaria01.png" alt="ORIGINARIA" class="logo">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <ul class="nav-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="marketplace.html" class="active">Productos</a></li>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="why-sell-with-us.html" class="nav-highlight">Vende con Nosotros</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                    </ul>
+
+                    <!-- Search -->
+                    <div class="header-search">
+                        <div class="search-input-group">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" placeholder="Buscar productos..." id="headerSearch">
+                        </div>
+                    </div>
+
+                    <!-- User Actions -->
+                    <div class="user-actions">
+                        <button class="cart-btn" onclick="toggleCart()">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">2</span>
+                        </button>
+                        <a href="login.html" class="btn btn-outline btn-sm">Iniciar Sesión</a>
+                        <a href="register.html" class="btn btn-primary btn-sm">Registrarse</a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Marketplace Hero -->
+    <section class="marketplace-hero">
+        <div class="hero-background-image">
+            <img src="../assets/images/marketplace-hero-bg.jpg" alt="Productos orgánicos del Perú" onerror="this.style.display='none'">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Productos Orgánicos del Perú</h1>
+                <p>Descubre la auténtica riqueza de nuestros productores locales</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">Productos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">45</span>
+                        <span class="stat-label">Productores</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">18</span>
+                        <span class="stat-label">Regiones</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters and Search -->
+    <section class="marketplace-filters">
+        <div class="container">
+            <div class="filters-container">
+                <div class="filters-left">
+                    <div class="category-filters">
+                        <button class="filter-btn active" data-category="all">
+                            <i class="fas fa-th"></i>
+                            Todos
+                        </button>
+                        <button class="filter-btn" data-category="cafe">
+                            <i class="fas fa-coffee"></i>
+                            Café y Cacao
+                        </button>
+                        <button class="filter-btn" data-category="granos">
+                            <i class="fas fa-seedling"></i>
+                            Granos y Cereales
+                        </button>
+                        <button class="filter-btn" data-category="frutas">
+                            <i class="fas fa-apple-alt"></i>
+                            Frutas Procesadas
+                        </button>
+                        <button class="filter-btn" data-category="lacteos">
+                            <i class="fas fa-cheese"></i>
+                            Lácteos Artesanales
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="filters-right">
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                    
+                    <select class="sort-select" id="sortSelect">
+                        <option value="relevance">Más relevantes</option>
+                        <option value="price-low">Precio: menor a mayor</option>
+                        <option value="price-high">Precio: mayor a menor</option>
+                        <option value="newest">Más recientes</option>
+                        <option value="rating">Mejor calificados</option>
+                    </select>
+                    
+                    <button class="filter-toggle-btn" onclick="toggleAdvancedFilters()">
+                        <i class="fas fa-filter"></i>
+                        Filtros
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Advanced Filters Panel -->
+            <div class="advanced-filters" id="advancedFilters">
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <h4>Precio</h4>
+                        <div class="price-range">
+                            <input type="number" placeholder="Min" class="price-input" id="priceMin">
+                            <span>-</span>
+                            <input type="number" placeholder="Max" class="price-input" id="priceMax">
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Región</h4>
+                        <select class="filter-select">
+                            <option value="">Todas las regiones</option>
+                            <option value="cusco">Cusco</option>
+                            <option value="cajamarca">Cajamarca</option>
+                            <option value="huancayo">Huancayo</option>
+                            <option value="lima">Lima</option>
+                            <option value="arequipa">Arequipa</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Certificaciones</h4>
+                        <div class="checkbox-filters">
+                            <label class="checkbox-filter">
+                                <input type="checkbox" value="organico">
+                                <span>Certificado Orgánico</span>
+                            </label>
+                            <label class="checkbox-filter">
+                                <input type="checkbox" value="comercio_justo">
+                                <span>Comercio Justo</span>
+                            </label>
+                            <label class="checkbox-filter">
+                                <input type="checkbox" value="sin_gluten">
+                                <span>Sin Gluten</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Calificación</h4>
+                        <div class="rating-filters">
+                            <label class="rating-filter">
+                                <input type="radio" name="rating" value="5">
+                                <span class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </span>
+                                <span>5 estrellas</span>
+                            </label>
+                            <label class="rating-filter">
+                                <input type="radio" name="rating" value="4">
+                                <span class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </span>
+                                <span>4+ estrellas</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filters-actions">
+                    <button class="btn btn-outline" onclick="clearAllFilters()">Limpiar filtros</button>
+                    <button class="btn btn-primary" onclick="applyFilters()">Aplicar filtros</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-header">
+                <h2>Productos Disponibles</h2>
+                <span class="results-count">Mostrando 24 de 150 productos</span>
+            </div>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Product Card 1 -->
+                <div class="product-card" data-category="cafe" data-price="45" data-rating="4.8">
+                    <div class="product-image">
+                        <div class="img-placeholder">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="product-badges">
+                            <span class="badge organic">Orgánico</span>
+                            <span class="badge new">Nuevo</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn quick-view" onclick="quickView(1)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-info">
+                        <div class="product-vendor">
+                            <img src="../assets/images/vendor-avatar.jpg" alt="Roberto Mamani" onerror="this.style.display='none'">
+                            <span>Café Andino Los Andes</span>
+                        </div>
+                        
+                        <h3 class="product-title">
+                            <a href="product-detail.html?id=1">Café Orgánico Premium Los Andes</a>
+                        </h3>
+                        
+                        <p class="product-description">Café de altura cultivado en las montañas de Cusco. Tueste medio con notas de chocolate.</p>
+                        
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-text">4.8 (24 reseñas)</span>
+                        </div>
+                        
+                        <div class="product-footer">
+                            <div class="price-section">
+                                <span class="current-price">S/ 45.00</span>
+                                <span class="price-unit">por kg</span>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-sm add-to-cart" onclick="addToCart(1)">
+                                <i class="fas fa-cart-plus"></i>
+                                Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card" data-category="granos" data-price="18" data-rating="4.6">
+                    <div class="product-image">
+                        <div class="img-placeholder">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div class="product-badges">
+                            <span class="badge organic">Orgánico</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn quick-view" onclick="quickView(2)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-info">
+                        <div class="product-vendor">
+                            <div class="vendor-avatar">JQ</div>
+                            <span>Quinua Real Boliviana</span>
+                        </div>
+                        
+                        <h3 class="product-title">
+                            <a href="product-detail.html?id=2">Quinua Tricolor Andina Premium</a>
+                        </h3>
+                        
+                        <p class="product-description">Quinua blanca, roja y negra seleccionada del altiplano. Rica en proteínas y minerales.</p>
+                        
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-text">4.6 (18 reseñas)</span>
+                        </div>
+                        
+                        <div class="product-footer">
+                            <div class="price-section">
+                                <span class="current-price">S/ 18.00</span>
+                                <span class="price-unit">por kg</span>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-sm add-to-cart" onclick="addToCart(2)">
+                                <i class="fas fa-cart-plus"></i>
+                                Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card" data-category="cafe" data-price="32" data-rating="4.9">
+                    <div class="product-image">
+                        <div class="img-placeholder">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <div class="product-badges">
+                            <span class="badge organic">Orgánico</span>
+                            <span class="badge bestseller">Más vendido</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn quick-view" onclick="quickView(3)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-info">
+                        <div class="product-vendor">
+                            <div class="vendor-avatar">CA</div>
+                            <span>Cacao Amazónico</span>
+                        </div>
+                        
+                        <h3 class="product-title">
+                            <a href="product-detail.html?id=3">Cacao en Grano Orgánico Raw</a>
+                        </h3>
+                        
+                        <p class="product-description">Cacao crudo de la Amazonía peruana. Perfecto para chocolates artesanales.</p>
+                        
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-text">4.9 (32 reseñas)</span>
+                        </div>
+                        
+                        <div class="product-footer">
+                            <div class="price-section">
+                                <span class="current-price">S/ 32.00</span>
+                                <span class="price-unit">por kg</span>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-sm add-to-cart" onclick="addToCart(3)">
+                                <i class="fas fa-cart-plus"></i>
+                                Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card" data-category="frutas" data-price="25" data-rating="4.7">
+                    <div class="product-image">
+                        <div class="img-placeholder">
+                            <i class="fas fa-jar"></i>
+                        </div>
+                        <div class="product-badges">
+                            <span class="badge organic">Orgánico</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn quick-view" onclick="quickView(4)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-info">
+                        <div class="product-vendor">
+                            <div class="vendor-avatar">MA</div>
+                            <span>Miel Andina Natural</span>
+                        </div>
+                        
+                        <h3 class="product-title">
+                            <a href="product-detail.html?id=4">Miel de Abeja Pura de Eucalipto</a>
+                        </h3>
+                        
+                        <p class="product-description">Miel 100% natural de flores de eucalipto. Propiedades antibacterianas.</p>
+                        
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-text">4.7 (15 reseñas)</span>
+                        </div>
+                        
+                        <div class="product-footer">
+                            <div class="price-section">
+                                <span class="current-price">S/ 25.00</span>
+                                <span class="price-unit">por 500ml</span>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-sm add-to-cart" onclick="addToCart(4)">
+                                <i class="fas fa-cart-plus"></i>
+                                Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 -->
+                <div class="product-card" data-category="lacteos" data-price="22" data-rating="4.5">
+                    <div class="product-image">
+                        <div class="img-placeholder">
+                            <i class="fas fa-cheese"></i>
+                        </div>
+                        <div class="product-badges">
+                            <span class="badge organic">Orgánico</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn quick-view" onclick="quickView(5)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-info">
+                        <div class="product-vendor">
+                            <div class="vendor-avatar">QA</div>
+                            <span>Quesos Artesanales</span>
+                        </div>
+                        
+                        <h3 class="product-title">
+                            <a href="product-detail.html?id=5">Queso Fresco de Cabra Orgánico</a>
+                        </h3>
+                        
+                        <p class="product-description">Queso fresco artesanal de leche de cabra. Textura cremosa y sabor suave.</p>
+                        
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-text">4.5 (12 reseñas)</span>
+                        </div>
+                        
+                        <div class="product-footer">
+                            <div class="price-section">
+                                <span class="current-price">S/ 22.00</span>
+                                <span class="price-unit">por kg</span>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-sm add-to-cart" onclick="addToCart(5)">
+                                <i class="fas fa-cart-plus"></i>
+                                Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 -->
+                <div class="product-card" data-category="granos" data-price="15" data-rating="4.4">
+                    <div class="product-image">
+                        <div class="img-placeholder">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="product-badges">
+                            <span class="badge organic">Orgánico</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn quick-view" onclick="quickView(6)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-info">
+                        <div class="product-vendor">
+                            <div class="vendor-avatar">SA</div>
+                            <span>Superfoods Andinos</span>
+                        </div>
+                        
+                        <h3 class="product-title">
+                            <a href="product-detail.html?id=6">Semillas de Chía Premium</a>
+                        </h3>
+                        
+                        <p class="product-description">Semillas de chía orgánicas ricas en omega-3. Perfectas para batidos y postres.</p>
+                        
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-text">4.4 (9 reseñas)</span>
+                        </div>
+                        
+                        <div class="product-footer">
+                            <div class="price-section">
+                                <span class="current-price">S/ 15.00</span>
+                                <span class="price-unit">por 250g</span>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-sm add-to-cart" onclick="addToCart(6)">
+                                <i class="fas fa-cart-plus"></i>
+                                Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Load More -->
+            <div class="load-more-section">
+                <button class="btn btn-outline btn-lg" onclick="loadMoreProducts()">
+                    <i class="fas fa-plus"></i>
+                    Cargar más productos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Tu carrito</h3>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="cart-content">
+            <div class="cart-items">
+                <div class="cart-item">
+                    <img src="../assets/images/products/cafe.jpg" alt="Café Orgánico" onerror="this.style.display='none'">
+                    <div class="item-details">
+                        <h4>Café Orgánico Premium</h4>
+                        <p>S/ 45.00 por kg</p>
+                        <div class="quantity-controls">
+                            <button onclick="changeQuantity(1, -1)">-</button>
+                            <span>1</span>
+                            <button onclick="changeQuantity(1, 1)">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-item" onclick="removeFromCart(1)">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+                
+                <div class="cart-item">
+                    <img src="../assets/images/products/quinua.jpg" alt="Quinua Tricolor" onerror="this.style.display='none'">
+                    <div class="item-details">
+                        <h4>Quinua Tricolor</h4>
+                        <p>S/ 18.00 por kg</p>
+                        <div class="quantity-controls">
+                            <button onclick="changeQuantity(2, -1)">-</button>
+                            <span>1</span>
+                            <button onclick="changeQuantity(2, 1)">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-item" onclick="removeFromCart(2)">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>S/ 63.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Envío</span>
+                    <span>S/ 10.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span>S/ 73.00</span>
+                </div>
+            </div>
+            
+            <div class="cart-actions">
+                <button class="btn btn-outline btn-block" onclick="toggleCart()">
+                    Seguir comprando
+                </button>
+                <button class="btn btn-primary btn-block">
+                    Proceder al checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+    <!-- Quick View Modal -->
+    <div class="quick-view-modal" id="quickViewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Vista rápida del producto</h3>
+                <button class="modal-close" onclick="closeQuickView()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="quickViewContent">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-placeholder">
+                            <img src="../assets/images/logos/LogoOriginaria01.png" alt="ORIGINARIA" class="logo">
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Conectando productores locales con consumidores conscientes 
+                        para promover el comercio justo y la sostenibilidad en el Perú.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Marketplace</h4>
+                    <ul class="footer-links">
+                        <li><a href="marketplace.html">Todos los Productos</a></li>
+                        <li><a href="marketplace.html?category=cafe">Café y Cacao</a></li>
+                        <li><a href="marketplace.html?category=granos">Granos y Cereales</a></li>
+                        <li><a href="marketplace.html?category=frutas">Frutas Procesadas</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Para Vendedores</h4>
+                    <ul class="footer-links">
+                        <li><a href="why-sell-with-us.html">¿Por qué vender con nosotros?</a></li>
+                        <li><a href="register.html?type=vendor">Registrarse como Vendedor</a></li>
+                        <li><a href="#">Guía del Vendedor</a></li>
+                        <li><a href="#">Términos para Vendedores</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Soporte</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Centro de Ayuda</a></li>
+                        <li><a href="#">Política de Devoluciones</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <div class="contact-info">
+                        <p>📧 info@originaria.pe</p>
+                        <p>📞 +51 1 234-5678</p>
+                        <p>📍 Lima, Perú</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 ORIGINARIA. Todos los derechos reservados.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Política de Privacidad</a>
+                        <a href="#">Términos de Uso</a>
+                        <a href="#">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <div class="logo-placeholder">
+                    <img src="../assets/images/logos/LogoOriginaria01.png" alt="ORIGINARIA" class="logo">
+                </div>
+                <button class="mobile-menu-close" onclick="toggleMobileMenu()">&times;</button>
+            </div>
+            <nav class="mobile-nav">
+                <a href="index.html" onclick="toggleMobileMenu()">Inicio</a>
+                <a href="marketplace.html" onclick="toggleMobileMenu()">Productos</a>
+                <a href="about.html" onclick="toggleMobileMenu()">Nosotros</a>
+                <a href="why-sell-with-us.html" onclick="toggleMobileMenu()">Vende con Nosotros</a>
+                <a href="contact.html" onclick="toggleMobileMenu()">Contacto</a>
+            </nav>
+            <div class="mobile-menu-actions">
+                <a href="login.html" class="btn btn-outline">Iniciar Sesión</a>
+                <a href="register.html" class="btn btn-primary">Registrarse</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/public.js"></script>
+    
+    <!-- Eliminar el estilo inline y dejar solo el JavaScript -->
+    <script>
+        // Marketplace functionality
+        let currentCategory = 'all';
+        let currentView = 'grid';
+        let cartItems = [];
+        
+        // Initialize marketplace
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeMarketplace();
+            setupEventListeners();
+        });
+        
+        function initializeMarketplace() {
+            loadCartFromStorage();
+            updateCartCount();
+            setupFilters();
+        }
+        
+        function setupEventListeners() {
+            // Category filters
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    filterByCategory(category);
+                });
+            });
+            
+            // View toggle
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const view = this.getAttribute('data-view');
+                    changeView(view);
+                });
+            });
+            
+            // Sort
+            document.getElementById('sortSelect').addEventListener('change', function() {
+                sortProducts(this.value);
+            });
+            
+            // Search
+            document.getElementById('headerSearch').addEventListener('input', function() {
+                searchProducts(this.value);
+            });
+        }
+        
+        function filterByCategory(category) {
+            currentCategory = category;
+            
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-category="${category}"]`).classList.add('active');
+            
+            // Filter products
+            const products = document.querySelectorAll('.product-card');
+            let visibleCount = 0;
+            
+            products.forEach(product => {
+                const productCategory = product.getAttribute('data-category');
+                
+                if (category === 'all' || productCategory === category) {
+                    product.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+            
+            updateResultsCount(visibleCount);
+        }
+        
+        function changeView(view) {
+            currentView = view;
+            
+            // Update active view button
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-view="${view}"]`).classList.add('active');
+            
+            // Change grid layout
+            const productsGrid = document.getElementById('productsGrid');
+            if (view === 'list') {
+                productsGrid.classList.add('list-view');
+            } else {
+                productsGrid.classList.remove('list-view');
+            }
+        }
+        
+        function sortProducts(sortBy) {
+            const productsGrid = document.getElementById('productsGrid');
+            const products = Array.from(productsGrid.querySelectorAll('.product-card:not([style*="display: none"])'));
+            
+            products.sort((a, b) => {
+                switch (sortBy) {
+                    case 'price-low':
+                        return parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price'));
+                    case 'price-high':
+                        return parseFloat(b.getAttribute('data-price')) - parseFloat(a.getAttribute('data-price'));
+                    case 'rating':
+                        return parseFloat(b.getAttribute('data-rating')) - parseFloat(a.getAttribute('data-rating'));
+                    case 'newest':
+                        // Random order for demo
+                        return Math.random() - 0.5;
+                    default:
+                        return 0;
+                }
+            });
+            
+            // Re-append sorted products
+            products.forEach(product => {
+                productsGrid.appendChild(product);
+            });
+        }
+        
+        function searchProducts(query) {
+            const products = document.querySelectorAll('.product-card');
+            let visibleCount = 0;
+            
+            products.forEach(product => {
+                const title = product.querySelector('.product-title a').textContent.toLowerCase();
+                const description = product.querySelector('.product-description').textContent.toLowerCase();
+                const vendor = product.querySelector('.product-vendor span').textContent.toLowerCase();
+                
+                const matchesSearch = !query || 
+                    title.includes(query.toLowerCase()) || 
+                    description.includes(query.toLowerCase()) ||
+                    vendor.includes(query.toLowerCase());
+                
+                const matchesCategory = currentCategory === 'all' || 
+                    product.getAttribute('data-category') === currentCategory;
+                
+                if (matchesSearch && matchesCategory) {
+                    product.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+            
+            updateResultsCount(visibleCount);
+        }
+        
+        function updateResultsCount(count) {
+            const resultsCount = document.querySelector('.results-count');
+            resultsCount.textContent = `Mostrando ${count} productos`;
+        }
+        
+        // Advanced filters
+        function toggleAdvancedFilters() {
+            const filters = document.getElementById('advancedFilters');
+            filters.classList.toggle('active');
+        }
+        
+        function clearAllFilters() {
+            // Reset all filter inputs
+            document.getElementById('priceMin').value = '';
+            document.getElementById('priceMax').value = '';
+            document.querySelectorAll('.filter-select').forEach(select => select.value = '');
+            document.querySelectorAll('.checkbox-filters input').forEach(cb => cb.checked = false);
+            document.querySelectorAll('.rating-filters input').forEach(radio => radio.checked = false);
+            
+            // Apply filters
+            applyFilters();
+        }
+        
+        function applyFilters() {
+            const priceMin = parseFloat(document.getElementById('priceMin').value) || 0;
+            const priceMax = parseFloat(document.getElementById('priceMax').value) || Infinity;
+            
+            const products = document.querySelectorAll('.product-card');
+            let visibleCount = 0;
+            
+            products.forEach(product => {
+                const price = parseFloat(product.getAttribute('data-price'));
+                const category = product.getAttribute('data-category');
+                
+                const matchesPrice = price >= priceMin && price <= priceMax;
+                const matchesCategory = currentCategory === 'all' || category === currentCategory;
+                
+                if (matchesPrice && matchesCategory) {
+                    product.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+            
+            updateResultsCount(visibleCount);
+            toggleAdvancedFilters();
+        }
+        
+        // Cart functionality
+        function addToCart(productId) {
+            const productCard = document.querySelector(`.product-card[data-category]`);
+            const productName = document.querySelector(`#productsGrid .product-card:nth-child(${productId}) .product-title a`).textContent;
+            const productPrice = document.querySelector(`#productsGrid .product-card:nth-child(${productId}) .current-price`).textContent;
+            
+            const item = {
+                id: productId,
+                name: productName,
+                price: productPrice,
+                quantity: 1
+            };
+            
+            // Check if item already exists
+            const existingItemIndex = cartItems.findIndex(item => item.id === productId);
+            
+            if (existingItemIndex > -1) {
+                cartItems[existingItemIndex].quantity += 1;
+            } else {
+                cartItems.push(item);
+            }
+            
+            updateCartDisplay();
+            saveCartToStorage();
+            showNotification('Producto agregado al carrito', 'success');
+        }
+        
+        function removeFromCart(productId) {
+            cartItems = cartItems.filter(item => item.id !== productId);
+            updateCartDisplay();
+            saveCartToStorage();
+        }
+        
+        function changeQuantity(productId, change) {
+            const itemIndex = cartItems.findIndex(item => item.id === productId);
+            
+            if (itemIndex > -1) {
+                cartItems[itemIndex].quantity += change;
+                
+                if (cartItems[itemIndex].quantity <= 0) {
+                    removeFromCart(productId);
+                } else {
+                    updateCartDisplay();
+                    saveCartToStorage();
+                }
+            }
+        }
+        
+        function updateCartDisplay() {
+            updateCartCount();
+            // Update cart sidebar content here if needed
+        }
+        
+        function updateCartCount() {
+            const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+            const cartCount = document.querySelector('.cart-count');
+            cartCount.textContent = totalItems;
+            cartCount.style.display = totalItems > 0 ? 'block' : 'none';
+        }
+        
+        function toggleCart() {
+            const cartSidebar = document.getElementById('cartSidebar');
+            const cartOverlay = document.getElementById('cartOverlay');
+            
+            cartSidebar.classList.toggle('active');
+            cartOverlay.classList.toggle('active');
+            document.body.classList.toggle('cart-open');
+        }
+        
+        function saveCartToStorage() {
+            localStorage.setItem('originaria_cart', JSON.stringify(cartItems));
+        }
+        
+        function loadCartFromStorage() {
+            const saved = localStorage.getItem('originaria_cart');
+            if (saved) {
+                cartItems = JSON.parse(saved);
+            }
+        }
+        
+        // Favorites
+        function toggleFavorite(button) {
+            const icon = button.querySelector('i');
+            
+            if (icon.classList.contains('far')) {
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+                button.classList.add('active');
+                showNotification('Agregado a favoritos', 'success');
+            } else {
+                icon.classList.remove('fas');
+                icon.classList.add('far');
+                button.classList.remove('active');
+                showNotification('Removido de favoritos', 'info');
+            }
+        }
+        
+        // Quick view
+        function quickView(productId) {
+            const modal = document.getElementById('quickViewModal');
+            const content = document.getElementById('quickViewContent');
+            
+            // Simulate loading product data
+            content.innerHTML = `
+                <div class="quick-view-loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Cargando información del producto...</p>
+                </div>
+            `;
+            
+            modal.classList.add('active');
+            
+            // Simulate API call
+            setTimeout(() => {
+                content.innerHTML = `
+                    <div class="quick-view-product">
+                        <div class="quick-view-image">
+                            <div class="img-placeholder">
+                                <i class="fas fa-coffee"></i>
+                            </div>
+                        </div>
+                        <div class="quick-view-info">
+                            <h3>Café Orgánico Premium Los Andes</h3>
+                            <div class="quick-view-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>4.8 (24 reseñas)</span>
+                            </div>
+                            <p class="quick-view-description">
+                                Café de altura cultivado en las montañas de Cusco. Tueste medio con notas de chocolate y caramelo. 
+                                Proceso de secado natural que preserva todos los aromas y sabores únicos de nuestra región.
+                            </p>
+                            <div class="quick-view-price">
+                                <span class="price">S/ 45.00</span>
+                                <span class="unit">por kg</span>
+                            </div>
+                            <div class="quick-view-actions">
+                                <button class="btn btn-primary" onclick="addToCart(${productId}); closeQuickView();">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Agregar al carrito
+                                </button>
+                                <a href="product-detail.html?id=${productId}" class="btn btn-outline">
+                                    Ver detalles completos
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }, 800);
+        }
+        
+        function closeQuickView() {
+            document.getElementById('quickViewModal').classList.remove('active');
+        }
+        
+        // Load more products
+        function loadMoreProducts() {
+            showNotification('Cargando más productos...', 'info');
+            // Simulate loading more products
+            setTimeout(() => {
+                showNotification('No hay más productos disponibles', 'info');
+            }, 1500);
+        }
+
+        // Mobile menu
+        function toggleMobileMenu() {
+            const overlay = document.getElementById('mobileMenuOverlay');
+            const body = document.body;
+            
+            if (overlay.style.display === 'block') {
+                overlay.style.display = 'none';
+                body.style.overflow = 'auto';
+            } else {
+                overlay.style.display = 'block';
+                body.style.overflow = 'hidden';
+            }
+        }
+        
+        // Utility functions
+        function showNotification(message, type = 'info') {
+            if (typeof Notifications !== 'undefined') {
+                Notifications.show(message, type);
+            }
+        }
+        
+        // Event listeners
+        document.addEventListener('click', function(e) {
+            // Close quick view if clicking outside
+            if (e.target.classList.contains('quick-view-modal')) {
+                closeQuickView();
+            }
+            
+            // Close advanced filters if clicking outside
+            if (!e.target.closest('.advanced-filters') && !e.target.closest('.filter-toggle-btn')) {
+                document.getElementById('advancedFilters').classList.remove('active');
+            }
+        });
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeQuickView();
+                document.getElementById('advancedFilters').classList.remove('active');
+                if (document.getElementById('cartSidebar').classList.contains('active')) {
+                    toggleCart();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1946 @@
+<!--
+ * Archivo: vendor/onboarding/welcome.html
+ * Descripción: Proceso de bienvenida y onboarding para nuevos vendedores en ORIGINARIA
+ * Autor: Equipo ORIGINARIA
+ * Fecha: 2024
+ * Función: Guía paso a paso para que nuevos productores configuren su tienda y publiquen su primer producto
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bienvenido a ORIGINARIA - Configuración inicial para vendedores">
+    <title>Bienvenido a ORIGINARIA | Configuración Inicial</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/vendor.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="onboarding-page">
+    <!-- Onboarding Header -->
+    <header class="onboarding-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-placeholder">ORIGINARIA</div>
+                <span class="logo-tagline">Donde lo natural conecta todo lo nuestro</span>
+            </div>
+            <div class="progress-indicator">
+                <span class="progress-text">Paso <span id="currentStepNumber">1</span> de 5</span>
+                <div class="progress-bar-small">
+                    <div class="progress-fill-small" id="progressFill"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Onboarding Content -->
+    <main class="onboarding-main">
+        <!-- Step 1: Welcome -->
+        <div class="onboarding-step active" id="step1">
+            <div class="step-container">
+                <div class="step-content">
+                    <div class="welcome-hero">
+                        <div class="welcome-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h1 class="welcome-title">¡Bienvenido a ORIGINARIA, Roberto!</h1>
+                        <p class="welcome-subtitle">
+                            Estamos emocionados de tenerte en nuestra comunidad de productores orgánicos. 
+                            Te ayudaremos a configurar tu tienda paso a paso.
+                        </p>
+                    </div>
+                    
+                    <div class="onboarding-benefits">
+                        <h2>¿Qué puedes lograr con ORIGINARIA?</h2>
+                        <div class="benefits-grid">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-store"></i>
+                                </div>
+                                <h3>Tu tienda online</h3>
+                                <p>Crea una tienda profesional sin conocimientos técnicos</p>
+                            </div>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h3>Alcanza más clientes</h3>
+                                <p>Conecta con consumidores conscientes en todo el Perú</p>
+                            </div>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3>Aumenta tus ventas</h3>
+                                <p>Herramientas de marketing y analytics incluidas</p>
+                            </div>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <h3>Soporte completo</h3>
+                                <p>Asesoría en costos, empaquetado y fotografía</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="estimated-time">
+                        <i class="fas fa-clock"></i>
+                        <span>Tiempo estimado: 10-15 minutos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Store Setup -->
+        <div class="onboarding-step" id="step2">
+            <div class="step-container">
+                <div class="step-header">
+                    <h1>Configura tu tienda</h1>
+                    <p>Esta información aparecerá en tu perfil público y ayudará a los clientes a conocerte mejor.</p>
+                </div>
+                
+                <div class="step-content">
+                    <form class="onboarding-form" id="storeForm">
+                        <div class="form-section">
+                            <h3 class="form-section-title">Información de tu negocio</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="storeName" class="form-label required">Nombre de tu tienda</label>
+                                    <input 
+                                        type="text" 
+                                        id="storeName" 
+                                        name="storeName" 
+                                        class="form-input" 
+                                        placeholder="Ej: Café Andino Los Andes"
+                                        value="Café Andino Los Andes"
+                                        required
+                                    >
+                                    <span class="form-hint">Este será el nombre público de tu tienda</span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="storeSlug" class="form-label">URL de tu tienda</label>
+                                    <div class="url-input-group">
+                                        <span class="url-prefix">originaria.pe/</span>
+                                        <input 
+                                            type="text" 
+                                            id="storeSlug" 
+                                            name="storeSlug" 
+                                            class="form-input" 
+                                            placeholder="cafe-andino-los-andes"
+                                            value="cafe-andino-los-andes"
+                                        >
+                                    </div>
+                                    <span class="form-hint">Tu dirección web personalizada</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="storeDescription" class="form-label required">Descripción de tu negocio</label>
+                                <textarea 
+                                    id="storeDescription" 
+                                    name="storeDescription" 
+                                    class="form-textarea" 
+                                    rows="4"
+                                    placeholder="Cuéntanos sobre tu historia, proceso de producción, valores..."
+                                    required
+                                >Somos una empresa familiar dedicada a la producción de café orgánico de altura en la región de Cusco. Nuestro compromiso es ofrecer granos de la más alta calidad, cultivados de manera sostenible y con respeto por el medio ambiente.</textarea>
+                                <div class="character-count">
+                                    <span id="descriptionCount">234</span>/500 caracteres
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="region" class="form-label required">Región de origen</label>
+                                    <select id="region" name="region" class="form-select" required>
+                                        <option value="">Selecciona tu región</option>
+                                        <option value="amazonas">Amazonas</option>
+                                        <option value="ancash">Áncash</option>
+                                        <option value="apurimac">Apurímac</option>
+                                        <option value="arequipa">Arequipa</option>
+                                        <option value="ayacucho">Ayacucho</option>
+                                        <option value="cajamarca">Cajamarca</option>
+                                        <option value="cusco" selected>Cusco</option>
+                                        <option value="huancavelica">Huancavelica</option>
+                                        <option value="huanuco">Huánuco</option>
+                                        <option value="ica">Ica</option>
+                                        <option value="junin">Junín</option>
+                                        <option value="la_libertad">La Libertad</option>
+                                        <option value="lambayeque">Lambayeque</option>
+                                        <option value="lima">Lima</option>
+                                        <option value="loreto">Loreto</option>
+                                        <option value="madre_de_dios">Madre de Dios</option>
+                                        <option value="moquegua">Moquegua</option>
+                                        <option value="pasco">Pasco</option>
+                                        <option value="piura">Piura</option>
+                                        <option value="puno">Puno</option>
+                                        <option value="san_martin">San Martín</option>
+                                        <option value="tacna">Tacna</option>
+                                        <option value="tumbes">Tumbes</option>
+                                        <option value="ucayali">Ucayali</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="established" class="form-label">Año de fundación</label>
+                                    <input 
+                                        type="number" 
+                                        id="established" 
+                                        name="established" 
+                                        class="form-input" 
+                                        placeholder="2020"
+                                        min="1900"
+                                        max="2024"
+                                        value="2018"
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="form-section-title">Categorías principales</h3>
+                            <p class="section-description">Selecciona las categorías de productos que vendes (puedes cambiar esto después)</p>
+                            
+                            <div class="categories-grid">
+                                <label class="category-option">
+                                    <input type="checkbox" name="categories[]" value="cafe" checked>
+                                    <div class="category-card">
+                                        <div class="category-icon">
+                                            <i class="fas fa-coffee"></i>
+                                        </div>
+                                        <h4>Café y Cacao</h4>
+                                        <p>Granos, molido, cacao</p>
+                                    </div>
+                                </label>
+                                
+                                <label class="category-option">
+                                    <input type="checkbox" name="categories[]" value="granos">
+                                    <div class="category-card">
+                                        <div class="category-icon">
+                                            <i class="fas fa-seedling"></i>
+                                        </div>
+                                        <h4>Granos y Cereales</h4>
+                                        <p>Quinua, kiwicha, chía</p>
+                                    </div>
+                                </label>
+                                
+                                <label class="category-option">
+                                    <input type="checkbox" name="categories[]" value="frutas">
+                                    <div class="category-card">
+                                        <div class="category-icon">
+                                            <i class="fas fa-apple-alt"></i>
+                                        </div>
+                                        <h4>Frutas Procesadas</h4>
+                                        <p>Mermeladas, deshidratadas</p>
+                                    </div>
+                                </label>
+                                
+                                <label class="category-option">
+                                    <input type="checkbox" name="categories[]" value="lacteos">
+                                    <div class="category-card">
+                                        <div class="category-icon">
+                                            <i class="fas fa-cheese"></i>
+                                        </div>
+                                        <h4>Lácteos Artesanales</h4>
+                                        <p>Quesos, yogurt, leche</p>
+                                    </div>
+                                </label>
+                                
+                                <label class="category-option">
+                                    <input type="checkbox" name="categories[]" value="condimentos">
+                                    <div class="category-card">
+                                        <div class="category-icon">
+                                            <i class="fas fa-pepper-hot"></i>
+                                        </div>
+                                        <h4>Condimentos</h4>
+                                        <p>Especias, hierbas, sal</p>
+                                    </div>
+                                </label>
+                                
+                                <label class="category-option">
+                                    <input type="checkbox" name="categories[]" value="bebidas">
+                                    <div class="category-card">
+                                        <div class="category-icon">
+                                            <i class="fas fa-glass-whiskey"></i>
+                                        </div>
+                                        <h4>Bebidas Naturales</h4>
+                                        <p>Infusiones, jugos</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Profile Setup -->
+        <div class="onboarding-step" id="step3">
+            <div class="step-container">
+                <div class="step-header">
+                    <h1>Tu perfil de vendedor</h1>
+                    <p>Completa tu información personal para generar confianza con los compradores.</p>
+                </div>
+                
+                <div class="step-content">
+                    <form class="onboarding-form" id="profileForm">
+                        <div class="profile-photo-section">
+                            <h3>Foto de perfil</h3>
+                            <div class="photo-upload-area">
+                                <div class="current-photo">
+                                    <div class="photo-placeholder">
+                                        <i class="fas fa-user"></i>
+                                        <span>RM</span>
+                                    </div>
+                                </div>
+                                <div class="photo-actions">
+                                    <button type="button" class="btn btn-outline" onclick="uploadPhoto()">
+                                        <i class="fas fa-camera"></i>
+                                        Subir foto
+                                    </button>
+                                    <p class="photo-hint">JPG o PNG, máximo 2MB</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="form-section-title">Información personal</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName" class="form-label required">Nombres</label>
+                                    <input 
+                                        type="text" 
+                                        id="firstName" 
+                                        name="firstName" 
+                                        class="form-input" 
+                                        value="Roberto"
+                                        required
+                                    >
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="lastName" class="form-label required">Apellidos</label>
+                                    <input 
+                                        type="text" 
+                                        id="lastName" 
+                                        name="lastName" 
+                                        class="form-input" 
+                                        value="Mamani Quispe"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email" class="form-label required">Correo electrónico</label>
+                                    <input 
+                                        type="email" 
+                                        id="email" 
+                                        name="email" 
+                                        class="form-input" 
+                                        value="roberto.mamani@cafeandino.pe"
+                                        required
+                                    >
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone" class="form-label required">Teléfono</label>
+                                    <input 
+                                        type="tel" 
+                                        id="phone" 
+                                        name="phone" 
+                                        class="form-input" 
+                                        value="+51 984 567 890"
+                                        required
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="form-section-title">Tu historia</h3>
+                            
+                            <div class="form-group">
+                                <label for="story" class="form-label">Cuéntanos tu historia</label>
+                                <textarea 
+                                    id="story" 
+                                    name="story" 
+                                    class="form-textarea" 
+                                    rows="4"
+                                    placeholder="¿Cómo comenzaste en la producción orgánica? ¿Qué te motiva?"
+                                >Soy Roberto Mamani, agricultor de tercera generación en las montañas de Cusco. Mi familia ha cultivado café por más de 50 años, pero hace 6 años decidimos hacer la transición a métodos completamente orgánicos. Nuestro compromiso es preservar las tradiciones ancestrales mientras cuidamos la tierra para las futuras generaciones.</textarea>
+                                <div class="character-count">
+                                    <span id="storyCount">312</span>/800 caracteres
+                                </div>
+                            </div>
+
+                            <div class="certifications-section">
+                                <h4>Certificaciones</h4>
+                                <div class="certifications-grid">
+                                    <label class="certification-option">
+                                        <input type="checkbox" name="certifications[]" value="organico" checked>
+                                        <div class="certification-card">
+                                            <i class="fas fa-leaf"></i>
+                                            <span>Certificado Orgánico</span>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="certification-option">
+                                        <input type="checkbox" name="certifications[]" value="comercio_justo">
+                                        <div class="certification-card">
+                                            <i class="fas fa-handshake"></i>
+                                            <span>Comercio Justo</span>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="certification-option">
+                                        <input type="checkbox" name="certifications[]" value="rainforest">
+                                        <div class="certification-card">
+                                            <i class="fas fa-tree"></i>
+                                            <span>Rainforest Alliance</span>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="certification-option">
+                                        <input type="checkbox" name="certifications[]" value="bird_friendly">
+                                        <div class="certification-card">
+                                            <i class="fas fa-dove"></i>
+                                            <span>Bird Friendly</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4: First Product -->
+        <div class="onboarding-step" id="step4">
+            <div class="step-container">
+                <div class="step-header">
+                    <h1>Tu primer producto</h1>
+                    <p>Vamos a crear tu primer producto para que puedas empezar a vender inmediatamente.</p>
+                </div>
+                
+                <div class="step-content">
+                    <div class="product-choice">
+                        <h3>¿Qué tipo de producto quieres agregar primero?</h3>
+                        <div class="product-options">
+                            <label class="product-option">
+                                <input type="radio" name="productType" value="existing" checked>
+                                <div class="option-card">
+                                    <div class="option-icon">
+                                        <i class="fas fa-box"></i>
+                                    </div>
+                                    <h4>Producto que ya tienes</h4>
+                                    <p>Agrega un producto que ya produces y vendes</p>
+                                </div>
+                            </label>
+                            
+                            <label class="product-option">
+                                <input type="radio" name="productType" value="sample">
+                                <div class="option-card">
+                                    <div class="option-icon">
+                                        <i class="fas fa-magic"></i>
+                                    </div>
+                                    <h4>Usar producto de ejemplo</h4>
+                                    <p>Te ayudamos con un producto de muestra que puedes editar</p>
+                                </div>
+                            </label>
+                            
+                            <label class="product-option">
+                                <input type="radio" name="productType" value="later">
+                                <div class="option-card">
+                                    <div class="option-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <h4>Agregar después</h4>
+                                    <p>Saltar este paso y agregar productos más tarde</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quick-product-form" id="quickProductForm">
+                        <h3>Información básica del producto</h3>
+                        <form class="onboarding-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="productName" class="form-label required">Nombre del producto</label>
+                                    <input 
+                                        type="text" 
+                                        id="productName" 
+                                        name="productName" 
+                                        class="form-input" 
+                                        placeholder="Ej: Café Orgánico Premium"
+                                        value="Café Orgánico Premium Los Andes"
+                                    >
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="productPrice" class="form-label required">Precio</label>
+                                    <div class="input-group">
+                                        <span class="input-prefix">S/</span>
+                                        <input 
+                                            type="number" 
+                                            id="productPrice" 
+                                            name="productPrice" 
+                                            class="form-input" 
+                                            placeholder="0.00"
+                                            step="0.01"
+                                            value="45.00"
+                                        >
+                                        <span class="input-suffix">por kg</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="quickDescription" class="form-label">Descripción breve</label>
+                                <textarea 
+                                    id="quickDescription" 
+                                    name="quickDescription" 
+                                    class="form-textarea" 
+                                    rows="3"
+                                    placeholder="Describe tu producto en pocas palabras..."
+                                >Café orgánico de altura cultivado en las montañas de Cusco. Grano entero, tueste medio, con notas de chocolate y caramelo. Comercio justo y cultivado de manera sostenible.</textarea>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="stock" class="form-label">Stock inicial</label>
+                                    <input 
+                                        type="number" 
+                                        id="stock" 
+                                        name="stock" 
+                                        class="form-input" 
+                                        placeholder="0"
+                                        value="25"
+                                    >
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="quickCategory" class="form-label">Categoría</label>
+                                    <select id="quickCategory" name="quickCategory" class="form-select">
+                                        <option value="cafe" selected>Café y Cacao</option>
+                                        <option value="granos">Granos y Cereales</option>
+                                        <option value="frutas">Frutas Procesadas</option>
+                                        <option value="lacteos">Lácteos Artesanales</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="product-note">
+                                <i class="fas fa-info-circle"></i>
+                                <p>No te preocupes, podrás agregar más detalles, imágenes y configuraciones después de completar el onboarding.</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 5: Completion -->
+        <div class="onboarding-step" id="step5">
+            <div class="step-container">
+                <div class="step-content">
+                    <div class="completion-hero">
+                        <div class="completion-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h1>¡Felicitaciones, Roberto!</h1>
+                        <p class="completion-subtitle">
+                            Has completado la configuración inicial de tu tienda en ORIGINARIA. 
+                            Ya puedes empezar a vender tus productos orgánicos.
+                        </p>
+                    </div>
+
+                    <div class="completion-summary">
+                        <h2>Resumen de tu configuración:</h2>
+                        <div class="summary-grid">
+                            <div class="summary-item">
+                                <i class="fas fa-store"></i>
+                                <div>
+                                    <h4>Tienda configurada</h4>
+                                    <p>Café Andino Los Andes</p>
+                                </div>
+                            </div>
+                            <div class="summary-item">
+                                <i class="fas fa-user-check"></i>
+                                <div>
+                                    <h4>Perfil completado</h4>
+                                    <p>Roberto Mamani Quispe</p>
+                                </div>
+                            </div>
+                            <div class="summary-item">
+                                <i class="fas fa-box"></i>
+                                <div>
+                                    <h4>Primer producto</h4>
+                                    <p>Café Orgánico Premium Los Andes</p>
+                                </div>
+                            </div>
+                            <div class="summary-item">
+                                <i class="fas fa-leaf"></i>
+                                <div>
+                                    <h4>Certificaciones</h4>
+                                    <p>Certificado Orgánico</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="next-steps">
+                        <h2>Próximos pasos recomendados:</h2>
+                        <div class="steps-list">
+                            <div class="next-step">
+                                <div class="step-icon">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>Agregar fotos a tu producto</h4>
+                                    <p>Las fotos de calidad aumentan las ventas hasta un 40%</p>
+                                    <button class="btn btn-outline btn-sm">Agregar fotos</button>
+                                </div>
+                            </div>
+                            
+                            <div class="next-step">
+                                <div class="step-icon">
+                                    <i class="fas fa-tags"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>Crear tu primera promoción</h4>
+                                    <p>Atrae a tus primeros clientes con descuentos especiales</p>
+                                    <button class="btn btn-outline btn-sm">Crear promoción</button>
+                                </div>
+                            </div>
+                            
+                            <div class="next-step">
+                                <div class="step-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>Conocer más herramientas</h4>
+                                    <p>Explora analytics, marketing y servicios adicionales</p>
+                                    <button class="btn btn-outline btn-sm">Ver tutorial</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="support-section">
+                        <div class="support-card">
+                            <div class="support-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="support-content">
+                                <h3>¿Necesitas ayuda?</h3>
+                                <p>Nuestro equipo está aquí para apoyarte en cada paso de tu journey como vendedor.</p>
+                                <div class="support-options">
+                                    <button class="btn btn-outline btn-sm" onclick="openSupport()">
+                                        <i class="fas fa-chat"></i>
+                                        Chat en vivo
+                                    </button>
+                                    <button class="btn btn-outline btn-sm" onclick="scheduleCall()">
+                                        <i class="fas fa-phone"></i>
+                                        Agendar llamada
+                                    </button>
+                                    <button class="btn btn-outline btn-sm" onclick="viewGuides()">
+                                        <i class="fas fa-book"></i>
+                                        Guías y tutoriales
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="onboarding-navigation">
+            <button type="button" class="btn btn-outline" id="prevBtn" onclick="previousStep()" style="display: none;">
+                <i class="fas fa-arrow-left"></i>
+                Anterior
+            </button>
+            
+            <div class="nav-spacer"></div>
+            
+            <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextStep()">
+                Continuar
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            
+            <button type="button" class="btn btn-primary" id="finishBtn" onclick="finishOnboarding()" style="display: none;">
+                <i class="fas fa-rocket"></i>
+                Ir a mi dashboard
+            </button>
+        </div>
+    </main>
+
+    <!-- Skip Modal -->
+    <div class="onboarding-modal" id="skipModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>¿Estás seguro?</h3>
+                <button class="modal-close" onclick="closeSkipModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Si saltas el onboarding, perderás algunos beneficios:</p>
+                <ul>
+                    <li>Configuración optimizada de tu tienda</li>
+                    <li>Tu primer producto listo para vender</li>
+                    <li>Consejos personalizados para aumentar ventas</li>
+                </ul>
+                <p>¿Prefieres continuar con la configuración o saltar al dashboard?</p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-outline" onclick="closeSkipModal()">Continuar onboarding</button>
+                <button class="btn btn-primary" onclick="skipTodashboard()">Saltar al dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/vendor.js"></script>
+    <script src="../../assets/js/components.js"></script>
+    
+    <script>
+        // Onboarding functionality
+        let currentStep = 1;
+        let totalSteps = 5;
+        let onboardingData = {};
+        
+        // Initialize onboarding
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeOnboarding();
+            setupEventListeners();
+        });
+        
+        function initializeOnboarding() {
+            updateStepDisplay();
+            setupCharacterCounters();
+            setupFormValidation();
+        }
+        
+        function setupEventListeners() {
+            // Product type change
+            document.querySelectorAll('input[name="productType"]').forEach(radio => {
+                radio.addEventListener('change', handleProductTypeChange);
+            });
+            
+            // Store name to slug
+            document.getElementById('storeName').addEventListener('input', generateStoreSlug);
+            
+            // Character counters
+            document.getElementById('storeDescription').addEventListener('input', function() {
+                updateCharacterCount('storeDescription', 'descriptionCount', 500);
+            });
+            
+            document.getElementById('story').addEventListener('input', function() {
+                updateCharacterCount('story', 'storyCount', 800);
+            });
+        }
+        
+        function generateStoreSlug() {
+            const storeName = document.getElementById('storeName').value;
+            const slug = storeName
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .replace(/[^a-z0-9\s-]/g, '')
+                .replace(/\s+/g, '-')
+                .replace(/-+/g, '-')
+                .trim();
+            
+            document.getElementById('storeSlug').value = slug;
+        }
+        
+        function handleProductTypeChange(e) {
+            const quickForm = document.getElementById('quickProductForm');
+            
+            if (e.target.value === 'existing') {
+                quickForm.style.display = 'block';
+            } else {
+                quickForm.style.display = 'none';
+            }
+        }
+        
+        function updateCharacterCount(textareaId, counterId, maxLength) {
+            const textarea = document.getElementById(textareaId);
+            const counter = document.getElementById(counterId);
+            const currentLength = textarea.value.length;
+            
+            counter.textContent = currentLength;
+            
+            if (currentLength > maxLength * 0.9) {
+                counter.style.color = '#F56565';
+            } else if (currentLength > maxLength * 0.7) {
+                counter.style.color = '#ED8936';
+            } else {
+                counter.style.color = '#4A5568';
+            }
+        }
+        
+        // Step navigation
+        function nextStep() {
+            if (validateCurrentStep()) {
+                saveStepData();
+                
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    updateStepDisplay();
+                    scrollToTop();
+                }
+            }
+        }
+        
+        function previousStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateStepDisplay();
+                scrollToTop();
+            }
+        }
+        
+        function updateStepDisplay() {
+            // Hide all steps
+            document.querySelectorAll('.onboarding-step').forEach(step => {
+                step.classList.remove('active');
+            });
+            
+            // Show current step
+            document.getElementById(`step${currentStep}`).classList.add('active');
+            
+            // Update progress
+            const progressPercentage = (currentStep / totalSteps) * 100;
+            document.getElementById('progressFill').style.width = `${progressPercentage}%`;
+            document.getElementById('currentStepNumber').textContent = currentStep;
+            
+            // Update navigation buttons
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const finishBtn = document.getElementById('finishBtn');
+            
+            prevBtn.style.display = currentStep > 1 ? 'flex' : 'none';
+            nextBtn.style.display = currentStep < totalSteps ? 'flex' : 'none';
+            finishBtn.style.display = currentStep === totalSteps ? 'flex' : 'none';
+            
+            // Update button text based on step
+            if (currentStep === 1) {
+                nextBtn.innerHTML = 'Comenzar <i class="fas fa-arrow-right"></i>';
+            } else if (currentStep === totalSteps - 1) {
+                nextBtn.innerHTML = 'Finalizar <i class="fas fa-check"></i>';
+            } else {
+                nextBtn.innerHTML = 'Continuar <i class="fas fa-arrow-right"></i>';
+            }
+        }
+        
+        function validateCurrentStep() {
+            let isValid = true;
+            
+            // Step-specific validation
+            switch (currentStep) {
+                case 2:
+                    isValid = validateStoreForm();
+                    break;
+                case 3:
+                    isValid = validateProfileForm();
+                    break;
+                case 4:
+                    isValid = validateProductForm();
+                    break;
+            }
+            
+            if (!isValid) {
+                showNotification('Por favor, completa todos los campos obligatorios', 'error');
+            }
+            
+            return isValid;
+        }
+        
+        function validateStoreForm() {
+            const storeName = document.getElementById('storeName').value.trim();
+            const storeDescription = document.getElementById('storeDescription').value.trim();
+            const region = document.getElementById('region').value;
+            const categories = document.querySelectorAll('input[name="categories[]"]:checked');
+            
+            if (!storeName) {
+                showFieldError('storeName', 'El nombre de la tienda es obligatorio');
+                return false;
+            }
+            
+            if (!storeDescription) {
+                showFieldError('storeDescription', 'La descripción es obligatoria');
+                return false;
+            }
+            
+            if (!region) {
+                showFieldError('region', 'Selecciona tu región');
+                return false;
+            }
+            
+            if (categories.length === 0) {
+                showNotification('Selecciona al menos una categoría de productos', 'error');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        function validateProfileForm() {
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            
+            if (!firstName) {
+                showFieldError('firstName', 'Los nombres son obligatorios');
+                return false;
+            }
+            
+            if (!lastName) {
+                showFieldError('lastName', 'Los apellidos son obligatorios');
+                return false;
+            }
+            
+            if (!email || !isValidEmail(email)) {
+                showFieldError('email', 'Ingresa un email válido');
+                return false;
+            }
+            
+            if (!phone) {
+                showFieldError('phone', 'El teléfono es obligatorio');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        function validateProductForm() {
+            const productType = document.querySelector('input[name="productType"]:checked').value;
+            
+            if (productType === 'existing') {
+                const productName = document.getElementById('productName').value.trim();
+                const productPrice = document.getElementById('productPrice').value;
+                
+                if (!productName) {
+                    showFieldError('productName', 'El nombre del producto es obligatorio');
+                    return false;
+                }
+                
+                if (!productPrice || parseFloat(productPrice) <= 0) {
+                    showFieldError('productPrice', 'Ingresa un precio válido');
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+        
+        function saveStepData() {
+            // Save current step data to onboardingData object
+            const currentStepElement = document.getElementById(`step${currentStep}`);
+            const form = currentStepElement.querySelector('form');
+            
+            if (form) {
+                const formData = new FormData(form);
+                const stepData = {};
+                
+                for (let [key, value] of formData.entries()) {
+                    if (stepData[key]) {
+                        // Handle multiple values (like checkboxes)
+                        if (Array.isArray(stepData[key])) {
+                            stepData[key].push(value);
+                        } else {
+                            stepData[key] = [stepData[key], value];
+                        }
+                    } else {
+                        stepData[key] = value;
+                    }
+                }
+                
+                onboardingData[`step${currentStep}`] = stepData;
+            }
+        }
+        
+        function finishOnboarding() {
+            // Save all data and redirect
+            saveStepData();
+            
+            showNotification('¡Configuración completada exitosamente!', 'success');
+            
+            // Show loading state
+            const finishBtn = document.getElementById('finishBtn');
+            finishBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Configurando...';
+            finishBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Redirect to dashboard
+                window.location.href = '../dashboard.html';
+            }, 2000);
+        }
+        
+        // Helper functions
+        function showFieldError(fieldId, message) {
+            const field = document.getElementById(fieldId);
+            clearFieldError(field);
+            
+            field.classList.add('field-error');
+            
+            const errorElement = document.createElement('div');
+            errorElement.className = 'field-error-message';
+            errorElement.textContent = message;
+            
+            field.parentNode.insertBefore(errorElement, field.nextSibling);
+        }
+        
+        function clearFieldError(field) {
+            field.classList.remove('field-error');
+            const errorElement = field.parentNode.querySelector('.field-error-message');
+            if (errorElement) {
+                errorElement.remove();
+            }
+        }
+        
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function setupCharacterCounters() {
+            // Initialize character counts
+            updateCharacterCount('storeDescription', 'descriptionCount', 500);
+            updateCharacterCount('story', 'storyCount', 800);
+        }
+        
+        function setupFormValidation() {
+            // Add real-time validation for key fields
+            document.getElementById('storeName').addEventListener('blur', function() {
+                if (!this.value.trim()) {
+                    showFieldError('storeName', 'El nombre de la tienda es obligatorio');
+                } else {
+                    clearFieldError(this);
+                }
+            });
+            
+            document.getElementById('email').addEventListener('blur', function() {
+                if (!this.value.trim() || !isValidEmail(this.value)) {
+                    showFieldError('email', 'Ingresa un email válido');
+                } else {
+                    clearFieldError(this);
+                }
+            });
+        }
+        
+        // Actions
+        function uploadPhoto() {
+            showNotification('Funci�n de upload de foto pr�ximamente', 'info');
+        }
+        
+        function openSupport() {
+            showNotification('Conectando con soporte...', 'info');
+        }
+        
+        function scheduleCall() {
+            showNotification('Abriendo calendario para agendar llamada...', 'info');
+        }
+        
+        function viewGuides() {
+            showNotification('Abriendo centro de ayuda...', 'info');
+        }
+        
+        // Skip functionality
+        function showSkipModal() {
+            document.getElementById('skipModal').classList.add('active');
+        }
+        
+        function closeSkipModal() {
+            document.getElementById('skipModal').classList.remove('active');
+        }
+        
+        function skipTodashboard() {
+            window.location.href = '../dashboard.html';
+        }
+        
+        // Utility functions
+        function showNotification(message, type = 'info') {
+            if (typeof Notifications !== 'undefined') {
+                Notifications.show(message, type);
+            }
+        }
+        
+        // Event listeners
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeSkipModal();
+            }
+            
+            if (e.key === 'Enter' && e.target.tagName === 'INPUT') {
+                e.preventDefault();
+                nextStep();
+            }
+        });
+        
+        // Prevent accidental page reload
+        window.addEventListener('beforeunload', function(e) {
+            if (currentStep > 1 && currentStep < totalSteps) {
+                e.preventDefault();
+                e.returnValue = '¿Estás seguro de que quieres salir? Perderás el progreso del onboarding.';
+            }
+        });
+        
+        // Add skip link in header
+        document.addEventListener('DOMContentLoaded', function() {
+            const headerContent = document.querySelector('.header-content');
+            const skipLink = document.createElement('button');
+            skipLink.className = 'btn btn-link btn-sm';
+            skipLink.innerHTML = 'Saltar configuraci�n';
+            skipLink.onclick = showSkipModal;
+            skipLink.style.color = '#6B7280';
+            
+            if (headerContent) {
+                headerContent.appendChild(skipLink);
+            }
+        });
+    </script>
+    
+    <style>
+        /* Onboarding specific styles */
+        .onboarding-page {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            min-height: 100vh;
+        }
+        
+        .onboarding-header {
+            background: var(--color-white);
+            border-bottom: 1px solid var(--color-gray-200);
+            padding: var(--space-4) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-6);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        .logo-placeholder {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--vendor-primary);
+            font-family: var(--font-primary);
+        }
+        
+        .logo-tagline {
+            font-size: var(--text-sm);
+            color: var(--color-gray-600);
+            font-style: italic;
+        }
+        
+        .progress-indicator {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+        
+        .progress-text {
+            font-size: var(--text-sm);
+            color: var(--color-gray-600);
+            font-weight: 500;
+        }
+        
+        .progress-bar-small {
+            width: 200px;
+            height: 6px;
+            background-color: var(--color-gray-200);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+        
+        .progress-fill-small {
+            height: 100%;
+            background-color: var(--vendor-primary);
+            transition: width 0.3s ease;
+            width: 20%;
+        }
+        
+        .onboarding-main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--space-8) var(--space-6);
+        }
+        
+        .onboarding-step {
+            display: none;
+        }
+        
+        .onboarding-step.active {
+            display: block;
+        }
+        
+        .step-container {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .step-header {
+            background: linear-gradient(135deg, var(--vendor-primary), var(--vendor-secondary));
+            color: var(--color-white);
+            padding: var(--space-8);
+            text-align: center;
+        }
+        
+        .step-header h1 {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            margin-bottom: var(--space-3);
+        }
+        
+        .step-header p {
+            font-size: var(--text-lg);
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .step-content {
+            padding: var(--space-8);
+        }
+        
+        /* Step 1 - Welcome */
+        .welcome-hero {
+            text-align: center;
+            margin-bottom: var(--space-8);
+        }
+        
+        .welcome-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--vendor-primary), var(--vendor-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-6);
+            color: var(--color-white);
+            font-size: var(--text-3xl);
+        }
+        
+        .welcome-title {
+            font-size: var(--text-4xl);
+            font-weight: 700;
+            color: var(--color-gray-800);
+            margin-bottom: var(--space-4);
+        }
+        
+        .welcome-subtitle {
+            font-size: var(--text-lg);
+            color: var(--color-gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .onboarding-benefits h2 {
+            text-align: center;
+            font-size: var(--text-2xl);
+            color: var(--color-gray-800);
+            margin-bottom: var(--space-6);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-6);
+            margin-bottom: var(--space-8);
+        }
+        
+        .benefit-card {
+            text-align: center;
+            padding: var(--space-6);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-lg);
+            transition: var(--transition-normal);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--vendor-primary);
+        }
+        
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--vendor-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-4);
+            color: var(--color-white);
+            font-size: var(--text-xl);
+        }
+        
+        .benefit-card h3 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--color-gray-800);
+            margin-bottom: var(--space-2);
+        }
+        
+        .benefit-card p {
+            color: var(--color-gray-600);
+            line-height: 1.5;
+        }
+        
+        .estimated-time {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            padding: var(--space-4);
+            background-color: var(--color-blue-50);
+            border-radius: var(--radius-lg);
+            color: var(--color-blue-700);
+            font-weight: 500;
+        }
+        
+        /* Categories grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-4);
+        }
+        
+        .category-option {
+            cursor: pointer;
+        }
+        
+        .category-option input {
+            display: none;
+        }
+        
+        .category-card {
+            padding: var(--space-4);
+            border: 2px solid var(--color-gray-200);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            transition: var(--transition-fast);
+        }
+        
+        .category-option input:checked + .category-card {
+            border-color: var(--vendor-primary);
+            background-color: var(--color-green-50);
+        }
+        
+        .category-icon {
+            font-size: var(--text-2xl);
+            color: var(--vendor-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .category-card h4 {
+            font-weight: 600;
+            color: var(--color-gray-800);
+            margin-bottom: var(--space-1);
+        }
+        
+        .category-card p {
+            font-size: var(--text-sm);
+            color: var(--color-gray-600);
+        }
+        
+        /* Profile photo section */
+        .profile-photo-section {
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-6);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .photo-upload-area {
+            display: flex;
+            align-items: center;
+            gap: var(--space-6);
+        }
+        
+        .current-photo {
+            position: relative;
+        }
+        
+        .photo-placeholder {
+            width: 80px;
+            height: 80px;
+            background-color: var(--vendor-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-size: var(--text-lg);
+            font-weight: 600;
+        }
+        
+        .photo-actions {
+            flex: 1;
+        }
+        
+        .photo-hint {
+            font-size: var(--text-sm);
+            color: var(--color-gray-500);
+            margin-top: var(--space-2);
+        }
+        
+        /* Certifications */
+        .certifications-section {
+            margin-top: var(--space-6);
+        }
+        
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: var(--space-3);
+        }
+        
+        .certification-option {
+            cursor: pointer;
+        }
+        
+        .certification-option input {
+            display: none;
+        }
+        
+        .certification-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-4);
+            border: 2px solid var(--color-gray-200);
+            border-radius: var(--radius-lg);
+            transition: var(--transition-fast);
+        }
+        
+        .certification-option input:checked + .certification-card {
+            border-color: var(--vendor-primary);
+            background-color: var(--color-green-50);
+        }
+        
+        .certification-card i {
+            font-size: var(--text-xl);
+            color: var(--vendor-primary);
+        }
+        
+        .certification-card span {
+            font-size: var(--text-sm);
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        /* Product options */
+        .product-choice {
+            margin-bottom: var(--space-8);
+        }
+        
+        .product-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-4);
+        }
+        
+        .product-option {
+            cursor: pointer;
+        }
+        
+        .product-option input {
+            display: none;
+        }
+        
+        .option-card {
+            padding: var(--space-6);
+            border: 2px solid var(--color-gray-200);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            transition: var(--transition-fast);
+        }
+        
+        .product-option input:checked + .option-card {
+            border-color: var(--vendor-primary);
+            background-color: var(--color-green-50);
+        }
+        
+        .option-icon {
+            font-size: var(--text-2xl);
+            color: var(--vendor-primary);
+            margin-bottom: var(--space-3);
+        }
+        
+        .option-card h4 {
+            font-weight: 600;
+            color: var(--color-gray-800);
+            margin-bottom: var(--space-2);
+        }
+        
+        .option-card p {
+            color: var(--color-gray-600);
+            font-size: var(--text-sm);
+        }
+        
+        .quick-product-form {
+            margin-top: var(--space-6);
+            padding-top: var(--space-6);
+            border-top: 1px solid var(--color-gray-200);
+        }
+        
+        .product-note {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-3);
+            padding: var(--space-4);
+            background-color: var(--color-blue-50);
+            border-radius: var(--radius-lg);
+            margin-top: var(--space-4);
+        }
+        
+        .product-note i {
+            color: var(--color-blue-600);
+            margin-top: 2px;
+        }
+        
+        .product-note p {
+            color: var(--color-blue-700);
+            font-size: var(--text-sm);
+            margin: 0;
+        }
+        
+        /* Completion step */
+        .completion-hero {
+            text-align: center;
+            margin-bottom: var(--space-8);
+        }
+        
+        .completion-icon {
+            width: 100px;
+            height: 100px;
+            background-color: var(--vendor-success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-6);
+            color: var(--color-white);
+            font-size: var(--text-4xl);
+        }
+        
+        .completion-subtitle {
+            font-size: var(--text-lg);
+            color: var(--color-gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .completion-summary {
+            margin-bottom: var(--space-8);
+        }
+        
+        .completion-summary h2 {
+            font-size: var(--text-xl);
+            color: var(--color-gray-800);
+            margin-bottom: var(--space-4);
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-4);
+        }
+        
+        .summary-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-4);
+            background-color: var(--color-gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .summary-item i {
+            font-size: var(--text-xl);
+            color: var(--vendor-primary);
+        }
+        
+        .summary-item h4 {
+            font-weight: 600;
+            color: var(--color-gray-800);
+            margin-bottom: var(--space-1);
+        }
+        
+        .summary-item p {
+            color: var(--color-gray-600);
+            font-size: var(--text-sm);
+            margin: 0;
+        }
+        
+        .next-steps {
+            margin-bottom: var(--space-8);
+        }
+        
+        .next-steps h2 {
+            font-size: var(--text-xl);
+            color: var(--color-gray-800);
+            margin-bottom: var(--space-4);
+        }
+        
+        .steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+        
+        .next-step {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-4);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-lg);
+            transition: var(--transition-fast);
+        }
+        
+        .next-step:hover {
+            border-color: var(--vendor-primary);
+            background-color: var(--color-gray-50);
+        }
+        
+        .next-step .step-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--vendor-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-size: var(--text-lg);
+        }
+        
+        .next-step .step-content {
+            flex: 1;
+        }
+        
+        .next-step h4 {
+            font-weight: 600;
+            color: var(--color-gray-800);
+            margin-bottom: var(--space-1);
+        }
+        
+        .next-step p {
+            color: var(--color-gray-600);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-3);
+        }
+        
+        .support-section {
+            background-color: var(--color-gray-50);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+        }
+        
+        .support-card {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-4);
+        }
+        
+        .support-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--vendor-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-size: var(--text-xl);
+            flex-shrink: 0;
+        }
+        
+        .support-content {
+            flex: 1;
+        }
+        
+        .support-content h3 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--color-gray-800);
+            margin-bottom: var(--space-2);
+        }
+        
+        .support-content p {
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-4);
+        }
+        
+        .support-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-3);
+        }
+        
+        /* Navigation */
+        .onboarding-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--space-8);
+            padding: var(--space-6);
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-spacer {
+            flex: 1;
+        }
+        
+        /* Form styles */
+        .url-input-group {
+            display: flex;
+            align-items: center;
+        }
+        
+        .url-prefix {
+            padding: var(--space-3);
+            background-color: var(--color-gray-100);
+            border: 1px solid var(--color-gray-300);
+            border-right: none;
+            border-radius: var(--radius-md) 0 0 var(--radius-md);
+            color: var(--color-gray-600);
+            font-size: var(--text-sm);
+            font-weight: 500;
+        }
+        
+        .url-input-group .form-input {
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+        
+        .required::after {
+            content: ' *';
+            color: var(--vendor-danger);
+        }
+        
+        .form-hint {
+            font-size: var(--text-xs);
+            color: var(--color-gray-500);
+            margin-top: var(--space-1);
+            display: block;
+        }
+        
+        .character-count {
+            text-align: right;
+            font-size: var(--text-xs);
+            color: var(--color-gray-500);
+            margin-top: var(--space-1);
+        }
+        
+        .section-description {
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-6);
+        }
+        
+        .field-error {
+            border-color: var(--vendor-danger) !important;
+        }
+        
+        .field-error-message {
+            color: var(--vendor-danger);
+            font-size: var(--text-xs);
+            margin-top: var(--space-1);
+            font-weight: 500;
+        }
+        
+        /* Modal */
+        .onboarding-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-normal);
+        }
+        
+        .onboarding-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .onboarding-modal .modal-content {
+            background-color: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            max-width: 500px;
+            width: 90%;
+            transform: scale(0.9);
+            transition: var(--transition-normal);
+        }
+        
+        .onboarding-modal.active .modal-content {
+            transform: scale(1);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-6);
+        }
+        
+        .modal-header h3 {
+            font-size: var(--text-xl);
+            font-weight: 600;
+            color: var(--color-gray-800);
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: var(--text-xl);
+            color: var(--color-gray-400);
+            cursor: pointer;
+            padding: var(--space-1);
+            border-radius: var(--radius-sm);
+            transition: var(--transition-fast);
+        }
+        
+        .modal-close:hover {
+            color: var(--color-gray-600);
+        }
+        
+        .modal-body ul {
+            margin: var(--space-4) 0;
+            padding-left: var(--space-6);
+        }
+        
+        .modal-body li {
+            margin-bottom: var(--space-2);
+            color: var(--color-gray-600);
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: var(--space-3);
+            justify-content: flex-end;
+            margin-top: var(--space-6);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .onboarding-main {
+                padding: var(--space-4);
+            }
+            
+            .step-content {
+                padding: var(--space-4);
+            }
+            
+            .step-header {
+                padding: var(--space-6) var(--space-4);
+            }
+            
+            .header-content {
+                padding: 0 var(--space-4);
+            }
+            
+            .logo-tagline {
+                display: none;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .product-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .support-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .support-options {
+                justify-content: center;
+            }
+            
+            .onboarding-navigation {
+                flex-direction: column;
+                gap: var(--space-3);
+            }
+            
+            .nav-spacer {
+                display: none;
+            }
+            
+            .photo-upload-area {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</body>
+</html>

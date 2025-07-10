@@ -1,0 +1,32 @@
+# Configuración para codificación UTF-8 y headers de seguridad
+AddDefaultCharset UTF-8
+
+# Configurar Content-Type con charset UTF-8
+<IfModule mod_mime.c>
+    AddCharset UTF-8 .html
+    AddCharset UTF-8 .css
+    AddCharset UTF-8 .js
+</IfModule>
+
+# Headers para forzar UTF-8
+<IfModule mod_headers.c>
+    Header always set Content-Type "text/html; charset=UTF-8"
+</IfModule>
+
+# Configuraciones adicionales de seguridad
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Configuración de caché para archivos estáticos
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+</IfModule>

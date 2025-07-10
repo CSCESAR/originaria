@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirigiendo a ORIGINARIA...</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #6B8E23 0%, #8FBC8F 100%);
+            color: white;
+        }
+        .loading {
+            text-align: center;
+        }
+        .spinner {
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading">
+        <div class="spinner"></div>
+        <h2>Redirigiendo a ORIGINARIA...</h2>
+        <p>Un momento por favor...</p>
+    </div>
+
+    <script>
+        // Redireccionar inmediatamente al marketplace
+        window.location.replace('./public/marketplace.html');
+    </script>
+</body>
+</html>

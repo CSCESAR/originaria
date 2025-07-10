@@ -1,0 +1,683 @@
+<!--
+ * Archivo: vendor/dashboard.html
+ * Descripción: Dashboard principal para vendedores/productores de ORIGINARIA
+ * Autor: Equipo ORIGINARIA
+ * Fecha: 2024
+ * Función: Panel de control con métricas, acceso rápido y gestión de productos
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard de vendedor - ORIGINARIA Marketplace">
+    <title>Dashboard Vendedor | ORIGINARIA</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/vendor.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="vendor-dashboard">
+    <!-- Header -->
+    <header class="vendor-header">
+        <div class="header-content">
+            <div class="header-left">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <div class="logo-placeholder">ORIGINARIA</div>
+                </div>
+            </div>
+            
+            <div class="header-center">
+                <div class="breadcrumb">
+                    <span class="breadcrumb-item active">Dashboard</span>
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <div class="header-actions">
+                    <button class="notification-btn" onclick="showNotifications()">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    
+                    <div class="user-menu">
+                        <div class="user-avatar">
+                            <img src="../assets/images/vendor-avatar.jpg" alt="Roberto Mamani" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <div class="avatar-placeholder">RM</div>
+                        </div>
+                        <div class="user-info">
+                            <span class="user-name">Roberto Mamani</span>
+                            <span class="user-role">Café Andino Los Andes</span>
+                        </div>
+                        <button class="user-menu-btn" onclick="toggleUserMenu()">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="vendor-sidebar" id="vendorSidebar">
+        <div class="sidebar-content">
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Principal</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item active">
+                            <a href="dashboard.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="products/list.html" class="nav-link">
+                                <i class="fas fa-box"></i>
+                                <span>Mis Productos</span>
+                                <span class="nav-badge">8</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="sales/orders.html" class="nav-link">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Pedidos</span>
+                                <span class="nav-badge pending">3</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="sales/reports.html" class="nav-link">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Reportes</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Marketing</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="marketing/campaigns.html" class="nav-link">
+                                <i class="fas fa-megaphone"></i>
+                                <span>Campañas</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="marketing/promotions.html" class="nav-link">
+                                <i class="fas fa-tags"></i>
+                                <span>Promociones</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Servicios</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="services/cost-advisory.html" class="nav-link">
+                                <i class="fas fa-calculator"></i>
+                                <span>Asesoría Costos</span>
+                                <span class="nav-badge new">¡Nuevo!</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="services/packaging.html" class="nav-link">
+                                <i class="fas fa-box-open"></i>
+                                <span>Empaquetado</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="services/photography.html" class="nav-link">
+                                <i class="fas fa-camera"></i>
+                                <span>Fotografía</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Configuración</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="profile/edit.html" class="nav-link">
+                                <i class="fas fa-user"></i>
+                                <span>Mi Perfil</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="profile/settings.html" class="nav-link">
+                                <i class="fas fa-cog"></i>
+                                <span>Configuración</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="upgrade-card">
+                    <div class="upgrade-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h4>Mejora a Premium</h4>
+                    <p>Desbloquea funciones avanzadas</p>
+                    <button class="btn btn-accent btn-sm">Upgradar</button>
+                </div>
+                
+                <div class="support-card">
+                    <i class="fas fa-headset"></i>
+                    <span>¿Necesitas ayuda?</span>
+                    <button onclick="openSupport()">Contactar Soporte</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="vendor-main">
+        <div class="dashboard-content">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-content">
+                    <div class="welcome-text">
+                        <h1>¡Bienvenido, Roberto!</h1>
+                        <p>Aquí tienes un resumen de tu actividad en ORIGINARIA</p>
+                    </div>
+                    <div class="welcome-actions">
+                        <button class="btn btn-primary" onclick="location.href='products/add.html'">
+                            <i class="fas fa-plus"></i>
+                            Agregar Producto
+                        </button>
+                        <button class="btn btn-outline" onclick="location.href='onboarding/welcome.html'">
+                            <i class="fas fa-graduation-cap"></i>
+                            Ver Tutorial
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Cards -->
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon revenue">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>S/ 15,240</h3>
+                            <p>Ventas este mes</p>
+                            <div class="stat-trend positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>+12%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon products">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>8</h3>
+                            <p>Productos activos</p>
+                            <div class="stat-trend neutral">
+                                <i class="fas fa-minus"></i>
+                                <span>Sin cambios</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon orders">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>3</h3>
+                            <p>Pedidos pendientes</p>
+                            <div class="stat-trend pending">
+                                <i class="fas fa-clock"></i>
+                                <span>Requiere atención</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon rating">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>4.8</h3>
+                            <p>Rating promedio</p>
+                            <div class="stat-trend positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>+0.2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions-section">
+                <h2>Acciones Rápidas</h2>
+                <div class="quick-actions-grid">
+                    <div class="quick-action-card" onclick="location.href='products/add.html'">
+                        <div class="quick-action-icon">
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <h3>Agregar Producto</h3>
+                        <p>Publica un nuevo producto en tu catálogo</p>
+                    </div>
+                    
+                    <div class="quick-action-card" onclick="location.href='sales/orders.html'">
+                        <div class="quick-action-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Gestionar Pedidos</h3>
+                        <p>Revisa y procesa tus pedidos pendientes</p>
+                    </div>
+                    
+                    <div class="quick-action-card" onclick="location.href='marketing/campaigns.html'">
+                        <div class="quick-action-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3>Crear Campaña</h3>
+                        <p>Promociona tus productos con marketing</p>
+                    </div>
+                    
+                    <div class="quick-action-card" onclick="location.href='services/cost-advisory.html'">
+                        <div class="quick-action-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>Asesoría Costos</h3>
+                        <p>Optimiza tus precios y márgenes</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Activity -->
+            <section class="activity-section">
+                <div class="section-header">
+                    <h2>Actividad Reciente</h2>
+                    <button class="btn btn-outline btn-sm" onclick="location.href='sales/reports.html'">
+                        Ver Todo
+                    </button>
+                </div>
+                
+                <div class="activity-grid">
+                    <div class="activity-card">
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon success">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>Pedido completado</h4>
+                                    <p>Café Orgánico Premium - 2kg</p>
+                                    <span class="activity-time">Hace 2 horas</span>
+                                </div>
+                                <div class="activity-amount">
+                                    <span>S/ 90.00</span>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon info">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>Nueva reseña</h4>
+                                    <p>Café Orgánico Premium - 5 estrellas</p>
+                                    <span class="activity-time">Hace 4 horas</span>
+                                </div>
+                                <div class="activity-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon warning">
+                                    <i class="fas fa-exclamation"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>Stock bajo</h4>
+                                    <p>Quinua Tricolor - Quedan 3 unidades</p>
+                                    <span class="activity-time">Hace 6 horas</span>
+                                </div>
+                                <div class="activity-action">
+                                    <button class="btn btn-sm btn-accent">Reponer</button>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon success">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>Producto agregado</h4>
+                                    <p>Miel de Abeja Andina - 500ml</p>
+                                    <span class="activity-time">Hace 1 día</span>
+                                </div>
+                                <div class="activity-status">
+                                    <span class="status-badge pending">En revisión</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Performance Chart -->
+            <section class="chart-section">
+                <div class="section-header">
+                    <h2>Ventas de los últimos 30 Días</h2>
+                    <div class="chart-controls">
+                        <button class="btn btn-outline btn-sm active" onclick="changeChartPeriod('30d')">30 días</button>
+                        <button class="btn btn-outline btn-sm" onclick="changeChartPeriod('90d')">90 días</button>
+                        <button class="btn btn-outline btn-sm" onclick="changeChartPeriod('1y')">1 año</button>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="salesChart" width="800" height="300"></canvas>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- User Menu Dropdown -->
+    <div class="user-menu-dropdown" id="userMenuDropdown">
+        <div class="user-menu-item">
+            <i class="fas fa-user"></i>
+            <span>Mi Perfil</span>
+        </div>
+        <div class="user-menu-item">
+            <i class="fas fa-cog"></i>
+            <span>Configuración</span>
+        </div>
+        <div class="user-menu-item">
+            <i class="fas fa-question-circle"></i>
+            <span>Ayuda</span>
+        </div>
+        <div class="user-menu-divider"></div>
+        <div class="user-menu-item logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Cerrar Sesión</span>
+        </div>
+    </div>
+
+    <!-- Notification Panel -->
+    <div class="notification-panel" id="notificationPanel">
+        <div class="notification-header">
+            <h3>Notificaciones</h3>
+            <button class="close-btn" onclick="hideNotifications()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="notification-list">
+            <div class="notification-item unread">
+                <div class="notification-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="notification-content">
+                    <h4>Nuevo pedido</h4>
+                    <p>Pedido #1234 - Café Orgánico Premium</p>
+                    <span class="notification-time">Hace 10 minutos</span>
+                </div>
+            </div>
+            
+            <div class="notification-item unread">
+                <div class="notification-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="notification-content">
+                    <h4>Nueva reseña</h4>
+                    <p>María López calificó tu producto con 5 estrellas</p>
+                    <span class="notification-time">Hace 2 horas</span>
+                </div>
+            </div>
+            
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="notification-content">
+                    <h4>Stock bajo</h4>
+                    <p>Quinua Tricolor tiene pocas unidades disponibles</p>
+                    <span class="notification-time">Hace 6 horas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/vendor.js"></script>
+    <script src="../assets/js/components.js"></script>
+    
+    <script>
+        // Dashboard specific functionality
+        let salesChart = null;
+        
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDashboard();
+            initializeSalesChart();
+        });
+        
+        function initializeDashboard() {
+            // Initialize tooltips
+            const tooltipElements = document.querySelectorAll('[data-tooltip]');
+            tooltipElements.forEach(element => {
+                // Initialize tooltip functionality
+            });
+            
+            // Initialize counter animations
+            animateCounters();
+            
+            // Set up periodic updates
+            setInterval(updateDashboardData, 30000); // Update every 30 seconds
+        }
+        
+        function initializeSalesChart() {
+            const ctx = document.getElementById('salesChart').getContext('2d');
+            
+            // Simulated sales data
+            const salesData = {
+                labels: ['1', '5', '10', '15', '20', '25', '30'],
+                datasets: [{
+                    label: 'Ventas (S/)',
+                    data: [450, 680, 520, 890, 1200, 980, 1540],
+                    borderColor: '#4A7023',
+                    backgroundColor: 'rgba(74, 112, 35, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4
+                }]
+            };
+            
+            // Draw simple chart manually (since we don't have Chart.js)
+            drawSimpleChart(ctx, salesData);
+        }
+        
+        function drawSimpleChart(ctx, data) {
+            const canvas = ctx.canvas;
+            const width = canvas.width;
+            const height = canvas.height;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, width, height);
+            
+            // Set styles
+            ctx.strokeStyle = '#4A7023';
+            ctx.fillStyle = 'rgba(74, 112, 35, 0.1)';
+            ctx.lineWidth = 2;
+            
+            // Draw axes
+            ctx.beginPath();
+            ctx.moveTo(50, height - 50);
+            ctx.lineTo(width - 50, height - 50);
+            ctx.moveTo(50, 50);
+            ctx.lineTo(50, height - 50);
+            ctx.strokeStyle = '#E2E8F0';
+            ctx.stroke();
+            
+            // Draw data points
+            const dataPoints = data.datasets[0].data;
+            const pointWidth = (width - 100) / (dataPoints.length - 1);
+            const maxValue = Math.max(...dataPoints);
+            
+            ctx.beginPath();
+            ctx.strokeStyle = '#4A7023';
+            
+            dataPoints.forEach((value, index) => {
+                const x = 50 + (index * pointWidth);
+                const y = height - 50 - ((value / maxValue) * (height - 100));
+                
+                if (index === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            });
+            
+            ctx.stroke();
+            
+            // Fill area under curve
+            ctx.lineTo(width - 50, height - 50);
+            ctx.lineTo(50, height - 50);
+            ctx.closePath();
+            ctx.fillStyle = 'rgba(74, 112, 35, 0.1)';
+            ctx.fill();
+        }
+        
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-content h3');
+            
+            counters.forEach(counter => {
+                const target = counter.textContent.replace(/[^\d]/g, '');
+                if (target) {
+                    animateCounter(counter, 0, parseInt(target), 1000);
+                }
+            });
+        }
+        
+        function animateCounter(element, start, end, duration) {
+            const startTime = Date.now();
+            const originalText = element.textContent;
+            
+            function update() {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const current = Math.floor(start + (end - start) * progress);
+                
+                element.textContent = originalText.replace(/\d+/, current);
+                
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+            
+            update();
+        }
+        
+        function updateDashboardData() {
+            // Simulate real-time updates
+            const pendingOrders = document.querySelector('.stat-card:nth-child(3) .stat-content h3');
+            const currentOrders = parseInt(pendingOrders.textContent);
+            
+            // Randomly update pending orders
+            if (Math.random() > 0.7) {
+                const newOrders = Math.max(0, currentOrders + (Math.random() > 0.5 ? 1 : -1));
+                pendingOrders.textContent = newOrders;
+                
+                if (newOrders > currentOrders) {
+                    showNotification('Nuevo pedido recibido', 'success');
+                }
+            }
+        }
+        
+        function changeChartPeriod(period) {
+            // Update chart based on period
+            const buttons = document.querySelectorAll('.chart-controls button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Here you would normally update the chart data
+            showNotification('Período cambiado a ' + period, 'info');
+        }
+        
+        function showNotification(message, type = 'info') {
+            if (typeof Notifications !== 'undefined') {
+                Notifications.show(message, type);
+            }
+        }
+        
+        // Sidebar toggle
+        function toggleSidebar() {
+            const sidebar = document.getElementById('vendorSidebar');
+            const main = document.querySelector('.vendor-main');
+            
+            sidebar.classList.toggle('collapsed');
+            main.classList.toggle('expanded');
+        }
+        
+        // User menu toggle
+        function toggleUserMenu() {
+            const dropdown = document.getElementById('userMenuDropdown');
+            dropdown.classList.toggle('show');
+        }
+        
+        // Notifications panel
+        function showNotifications() {
+            const panel = document.getElementById('notificationPanel');
+            panel.classList.add('show');
+        }
+        
+        function hideNotifications() {
+            const panel = document.getElementById('notificationPanel');
+            panel.classList.remove('show');
+        }
+        
+        // Support chat
+        function openSupport() {
+            showNotification('Conectando con soporte...', 'info');
+            // Here you would open a support chat or modal
+        }
+        
+        // Event listeners
+        document.addEventListener('click', function(e) {
+            // Close user menu if clicking outside
+            if (!e.target.closest('.user-menu') && !e.target.closest('.user-menu-dropdown')) {
+                document.getElementById('userMenuDropdown').classList.remove('show');
+            }
+            
+            // Close notifications if clicking outside
+            if (!e.target.closest('.notification-btn') && !e.target.closest('.notification-panel')) {
+                document.getElementById('notificationPanel').classList.remove('show');
+            }
+        });
+        
+        // Sidebar toggle button
+        document.getElementById('sidebarToggle').addEventListener('click', toggleSidebar);
+    </script>
+</body>
+</html>

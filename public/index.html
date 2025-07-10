@@ -1,0 +1,597 @@
+<!--
+ * Archivo: public/index.html
+ * Descripción: Página de inicio principal del marketplace ORIGINARIA - Landing page pública
+ * Autor: Equipo ORIGINARIA
+ * Fecha: 2024
+ * Función: Presentar la propuesta de valor y dirigir usuarios a registro/login
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ORIGINARIA - Marketplace de productos orgánicos y naturales del Perú. Conectamos productores locales con consumidores conscientes.">
+    <meta name="keywords" content="productos orgánicos, marketplace, Perú, comercio justo, sostenibilidad">
+    <title>ORIGINARIA - Donde lo natural conecta todo lo nuestro</title>
+    
+    <!-- CSS con rutas corregidas -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/public.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon placeholder -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-public">
+        <nav class="nav-container">
+            <div class="container">
+                <div class="nav-content">
+                    <!-- Logo -->
+                    <div class="logo-section">
+                        <div class="logo-placeholder">
+                            <a href="index.html">LOGO ORIGINARIA</a>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <ul class="nav-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="marketplace.html">Productos</a></li>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="why-sell-with-us.html" class="nav-highlight">Vende con Nosotros</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                    </ul>
+
+                    <!-- User Actions -->
+                    <div class="user-actions">
+                        <a href="login.html" class="btn btn-outline btn-sm">Iniciar Sesión</a>
+                        <a href="register.html" class="btn btn-primary btn-sm">Registrarse</a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="brand-name">ORIGINARIA</span>
+                        <span class="hero-subtitle">Donde lo natural conecta todo lo nuestro</span>
+                    </h1>
+                    <p class="hero-description">
+                        Conectamos a productores locales con consumidores conscientes, 
+                        promoviendo el comercio justo, la sostenibilidad y el desarrollo 
+                        económico de las comunidades peruanas.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="marketplace.html" class="btn btn-primary btn-lg">
+                            🛍️ Explorar Productos
+                        </a>
+                        <a href="why-sell-with-us.html" class="btn btn-accent btn-lg">
+                            🌾 Vender mis Productos
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Productores</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Productos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">20</span>
+                            <span class="stat-label">Regiones</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="img-placeholder hero-img-placeholder">
+                        <!-- Placeholder para imagen principal del hero -->
+                        <div>
+                            <p>Imagen Hero Principal</p>
+                            <small>Sugerencia: Productos orgánicos peruanos, productores locales</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="value-proposition">
+        <div class="container">
+            <h2 class="section-title">¿Por qué elegir ORIGINARIA?</h2>
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <div class="icon-placeholder">🌱</div>
+                    </div>
+                    <h3>100% Orgánico</h3>
+                    <p>Productos certificados y verificados directamente de pequeños productores locales.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <div class="icon-placeholder">🤝</div>
+                    </div>
+                    <h3>Comercio Justo</h3>
+                    <p>Eliminamos intermediarios para que los productores reciban el precio justo por su trabajo.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <div class="icon-placeholder">🚚</div>
+                    </div>
+                    <h3>Entrega Segura</h3>
+                    <p>Logística especializada que mantiene la calidad de los productos hasta tu hogar.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <div class="icon-placeholder">🌍</div>
+                    </div>
+                    <h3>Impacto Social</h3>
+                    <p>Cada compra apoya el desarrollo de comunidades productoras en todo el Perú.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Preview -->
+    <section class="categories-preview" id="productos">
+        <div class="container">
+            <h2 class="section-title">Nuestras Categorías</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-image">
+                        <div class="img-placeholder">
+                            <p>Café y Cacao</p>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Café y Cacao</h3>
+                        <p>Granos selectos de las mejores regiones cafetaleras y cacaoteras del Perú.</p>
+                        <span class="category-count">45+ productos</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <div class="img-placeholder">
+                            <p>Granos y Cereales</p>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Granos y Cereales</h3>
+                        <p>Quinua, kiwicha, chía y superfoods andinos con certificación orgánica.</p>
+                        <span class="category-count">60+ productos</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <div class="img-placeholder">
+                            <p>Frutas Procesadas</p>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Frutas Procesadas</h3>
+                        <p>Frutas deshidratadas, mermeladas y conservas naturales sin preservantes.</p>
+                        <span class="category-count">35+ productos</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <div class="img-placeholder">
+                            <p>Lácteos Artesanales</p>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Lácteos Artesanales</h3>
+                        <p>Quesos y productos lácteos de granjas familiares con tradición.</p>
+                        <span class="category-count">25+ productos</span>
+                    </div>
+                </div>
+            </div>
+            <div class="categories-action">
+                <a href="marketplace.html" class="btn btn-primary">Ver Todos los Productos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vendor CTA Section -->
+    <section class="vendor-cta">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2>¿Eres Productor de Alimentos Orgánicos?</h2>
+                    <p>Únete a nuestra plataforma y llega a miles de consumidores que buscan productos auténticos y sostenibles.</p>
+                    <div class="cta-benefits">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✅</span>
+                            <span>Sin comisiones por los primeros 3 meses</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✅</span>
+                            <span>Asesoría gratuita en marketing y empaquetado</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✅</span>
+                            <span>Capacitación en comercio digital</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✅</span>
+                            <span>Apoyo logístico y de distribución</span>
+                        </div>
+                    </div>
+                    <div class="cta-actions">
+                        <a href="why-sell-with-us.html" class="btn btn-accent btn-lg">
+                            Conoce los Beneficios
+                        </a>
+                        <a href="register.html?type=vendor" class="btn btn-outline btn-lg">
+                            Registrarme como Vendedor
+                        </a>
+                    </div>
+                </div>
+                <div class="cta-image">
+                    <div class="img-placeholder">
+                        <div>
+                            <p>Imagen de Productores</p>
+                            <small>Sugerencia: Agricultor peruano mostrando sus productos</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="nosotros">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Nuestra Misión</h2>
+                    <p class="about-description">
+                        Promover la riqueza cultural y natural del Perú mediante una plataforma 
+                        que conecta a consumidores conscientes con productores locales, fomentando 
+                        el comercio justo, la sostenibilidad y el desarrollo económico de las comunidades.
+                    </p>
+                    <div class="values-list">
+                        <div class="value-item">
+                            <strong>Autenticidad:</strong> Productos que honran nuestras raíces culturales
+                        </div>
+                        <div class="value-item">
+                            <strong>Sostenibilidad:</strong> Prácticas responsables con el medio ambiente
+                        </div>
+                        <div class="value-item">
+                            <strong>Inclusión:</strong> Oportunidades para productores de todas las regiones
+                        </div>
+                        <div class="value-item">
+                            <strong>Transparencia:</strong> Relaciones honestas en toda la cadena de valor
+                        </div>
+                    </div>
+                    <a href="about.html" class="btn btn-outline">Conoce Más Sobre Nosotros</a>
+                </div>
+                <div class="about-image">
+                    <div class="img-placeholder">
+                        <div>
+                            <p>Imagen Misión/Valores</p>
+                            <small>Sugerencia: Mapa del Perú con productos regionales</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-placeholder">
+                            LOGO ORIGINARIA
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Conectando productores locales con consumidores conscientes 
+                        para promover el comercio justo y la sostenibilidad en el Perú.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Marketplace</h4>
+                    <ul class="footer-links">
+                        <li><a href="marketplace.html">Todos los Productos</a></li>
+                        <li><a href="marketplace.html?category=cafe">Café y Cacao</a></li>
+                        <li><a href="marketplace.html?category=granos">Granos y Cereales</a></li>
+                        <li><a href="marketplace.html?category=frutas">Frutas Procesadas</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Para Vendedores</h4>
+                    <ul class="footer-links">
+                        <li><a href="why-sell-with-us.html">¿Por qué vender con nosotros?</a></li>
+                        <li><a href="register.html?type=vendor">Registrarse como Vendedor</a></li>
+                        <li><a href="#">Guía del Vendedor</a></li>
+                        <li><a href="#">Términos para Vendedores</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Soporte</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Centro de Ayuda</a></li>
+                        <li><a href="#">Política de Devoluciones</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <div class="contact-info">
+                        <p>📧 info@originaria.pe</p>
+                        <p>📞 +51 1 234-5678</p>
+                        <p>📍 Lima, Perú</p>
+                    </div>
+                    <div class="newsletter">
+                        <h5>Suscríbete a nuestro boletín</h5>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Tu email" class="newsletter-input">
+                            <button type="submit" class="btn btn-primary btn-sm">Suscribirse</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 ORIGINARIA. Todos los derechos reservados.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Política de Privacidad</a>
+                        <a href="#">Términos de Uso</a>
+                        <a href="#">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <div class="logo-placeholder">LOGO</div>
+                <button class="mobile-menu-close" onclick="toggleMobileMenu()">&times;</button>
+            </div>
+            <nav class="mobile-nav">
+                <a href="#inicio" onclick="toggleMobileMenu()">Inicio</a>
+                <a href="#productos" onclick="toggleMobileMenu()">Productos</a>
+                <a href="#nosotros" onclick="toggleMobileMenu()">Nosotros</a>
+                <a href="why-sell-with-us.html" onclick="toggleMobileMenu()">Vende con Nosotros</a>
+                <a href="#contacto" onclick="toggleMobileMenu()">Contacto</a>
+            </nav>
+            <div class="mobile-menu-actions">
+                <a href="login.html" class="btn btn-outline">Iniciar Sesión</a>
+                <a href="register.html" class="btn btn-primary">Registrarse</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>Cargando...</p>
+        </div>
+    </div>
+
+    <!-- Scripts al final con rutas corregidas -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/public.js"></script>
+    
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const overlay = document.getElementById('mobileMenuOverlay');
+            const body = document.body;
+            
+            if (overlay.style.display === 'block') {
+                overlay.style.display = 'none';
+                body.style.overflow = 'auto';
+            } else {
+                overlay.style.display = 'block';
+                body.style.overflow = 'hidden';
+            }
+        }
+
+        // Newsletter Form
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            
+            if (email) {
+                showLoading();
+                
+                // Simular envío
+                setTimeout(() => {
+                    hideLoading();
+                    showAlert('¡Gracias por suscribirte! Te mantendremos informado sobre nuestros productos.', 'success');
+                    this.reset();
+                }, 1500);
+            }
+        });
+
+        // Smooth Scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.value-card, .category-card, .hero-content').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Utility functions
+        function showLoading() {
+            document.getElementById('loadingOverlay').style.display = 'flex';
+        }
+
+        function hideLoading() {
+            document.getElementById('loadingOverlay').style.display = 'none';
+        }
+
+        function showAlert(message, type = 'info') {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} fixed-alert`;
+            alertDiv.innerHTML = `
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()" style="background: none; border: none; font-size: 18px; margin-left: 10px;">&times;</button>
+            `;
+            
+            document.body.appendChild(alertDiv);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (alertDiv.parentElement) {
+                    alertDiv.remove();
+                }
+            }, 5000);
+        }
+
+        // Hero stats counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace('+', ''));
+                const increment = target / 50; // Animation duration control
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target + (counter.textContent.includes('+') ? '+' : '');
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current) + (counter.textContent.includes('+') ? '+' : '');
+                    }
+                }, 30);
+            });
+        }
+
+        // Trigger counter animation when hero is visible
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    heroObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const heroSection = document.querySelector('.hero-section');
+        if (heroSection) {
+            heroObserver.observe(heroSection);
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const overlay = document.getElementById('mobileMenuOverlay');
+            
+            if (overlay.style.display === 'block' && 
+                !mobileMenu.contains(e.target) && 
+                !mobileMenuBtn.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header-public');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Form validation helper
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // Add loading states to buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.href && this.href.includes('register.html')) {
+                    this.innerHTML = '<div class="spinner"></div> Cargando...';
+                    this.disabled = true;
+                }
+            });
+        });
+    </script>
+
+    <!-- Google Analytics placeholder -->
+    <script>
+        // TODO: Agregar Google Analytics
+        // gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+
+    <!-- Facebook Pixel placeholder -->
+    <script>
+        // TODO: Agregar Facebook Pixel para remarketing
+        // fbq('init', 'PIXEL_ID');
+    </script>
+
+</body>
+</html>

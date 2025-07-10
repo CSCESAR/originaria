@@ -1,0 +1,701 @@
+<!--
+ * Archivo: public/contact.html
+ * Descripción: Página de contacto de ORIGINARIA
+ * Autor: Equipo ORIGINARIA
+ * Fecha: 2024
+ * Función: Información de contacto, formulario y mapa de ubicación
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacta con ORIGINARIA - Estamos aquí para ayudarte con productos orgánicos del Perú">
+    <meta name="keywords" content="contacto originaria, soporte, ayuda, productos orgánicos">
+    <title>Contacto | ORIGINARIA</title>
+    
+    <!-- CSS Principal + Específico de Contact -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/public.css">
+    <link rel="stylesheet" href="../assets/css/contact.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="contact-page">
+    <!-- Header con estructura estándar -->
+    <header class="header-public">
+        <nav class="nav-container">
+            <div class="container">
+                <div class="nav-content">
+                    <!-- Logo -->
+                    <div class="logo-section">
+                        <div class="logo-placeholder">
+                            <a href="index.html">
+                                <img src="../assets/images/logos/LogoOriginaria01.png" alt="ORIGINARIA" class="logo">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <ul class="nav-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="marketplace.html">Productos</a></li>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="why-sell-with-us.html" class="nav-highlight">Vende con Nosotros</a></li>
+                        <li><a href="contact.html" class="active">Contacto</a></li>
+                    </ul>
+
+                    <!-- User Actions -->
+                    <div class="user-actions">
+                        <a href="login.html" class="btn btn-outline btn-sm">Iniciar Sesión</a>
+                        <a href="register.html" class="btn btn-primary btn-sm">Registrarse</a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">¿Necesitas ayuda?</h1>
+                <p class="hero-subtitle">
+                    Estamos aquí para resolver tus dudas y brindarte la mejor experiencia en ORIGINARIA
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="contact-methods">
+        <div class="container">
+            <div class="methods-grid">
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Teléfono</h3>
+                    <p>Lunes a Viernes 9:00 AM - 6:00 PM</p>
+                    <a href="tel:+5114567890" class="method-link">+51 1 456-7890</a>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Correo Electrónico</h3>
+                    <p>Respuesta en menos de 24 horas</p>
+                    <a href="mailto:hola@originaria.pe" class="method-link">hola@originaria.pe</a>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p>Atención inmediata</p>
+                    <a href="https://wa.me/51987654321" class="method-link" target="_blank">+51 987 654 321</a>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-comment"></i>
+                    </div>
+                    <h3>Chat en Vivo</h3>
+                    <p>Lunes a Sábado 9:00 AM - 8:00 PM</p>
+                    <button class="method-link btn-link" onclick="openLiveChat()">Iniciar Chat</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="form-container">
+                    <div class="form-header">
+                        <h2>Envíanos un mensaje</h2>
+                        <p>Completa el formulario y nos pondremos en contacto contigo pronto</p>
+                    </div>
+
+                    <form class="contact-form" id="contactForm" onsubmit="handleContactSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">Nombre *</label>
+                                <input 
+                                    type="text" 
+                                    id="firstName" 
+                                    name="firstName" 
+                                    class="form-input" 
+                                    placeholder="Tu nombre"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Apellidos *</label>
+                                <input 
+                                    type="text" 
+                                    id="lastName" 
+                                    name="lastName" 
+                                    class="form-input" 
+                                    placeholder="Tus apellidos"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Correo electrónico *</label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    class="form-input" 
+                                    placeholder="tu@email.com"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Teléfono</label>
+                                <input 
+                                    type="tel" 
+                                    id="phone" 
+                                    name="phone" 
+                                    class="form-input" 
+                                    placeholder="+51 999 999 999"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Asunto *</label>
+                            <select id="subject" name="subject" class="form-input" required>
+                                <option value="">Selecciona un tema</option>
+                                <option value="general">Consulta general</option>
+                                <option value="order">Problema con un pedido</option>
+                                <option value="product">Consulta sobre productos</option>
+                                <option value="vendor">Quiero ser vendedor</option>
+                                <option value="technical">Problema técnico</option>
+                                <option value="partnership">Alianzas comerciales</option>
+                                <option value="press">Prensa y medios</option>
+                                <option value="other">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="orderNumber" class="form-label">Número de pedido (opcional)</label>
+                            <input 
+                                type="text" 
+                                id="orderNumber" 
+                                name="orderNumber" 
+                                class="form-input" 
+                                placeholder="ORD-2024-001"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Mensaje *</label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                class="form-textarea" 
+                                placeholder="Describe tu consulta o problema en detalle..."
+                                rows="6"
+                                required
+                            ></textarea>
+                            <div class="character-count">
+                                <span id="messageCount">0</span>/500 caracteres
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <span class="checkbox-custom"></span>
+                                Quiero recibir noticias y ofertas especiales por correo
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <span class="checkbox-custom"></span>
+                                Acepto la <a href="privacy.html" target="_blank">política de privacidad</a> *
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large" id="submitBtn">
+                            <span class="btn-text">
+                                <i class="fas fa-paper-plane"></i>
+                                Enviar Mensaje
+                            </span>
+                            <span class="btn-loader hidden">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                Enviando...
+                            </span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <h3>Información de Contacto</h3>
+                        <div class="info-items">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="info-text">
+                                    <strong>Dirección</strong>
+                                    <p>Av. Universitaria 1801, San Miguel<br>Lima, Perú</p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <div class="info-text">
+                                    <strong>Horarios de Atención</strong>
+                                    <p>Lunes a Viernes: 9:00 AM - 6:00 PM<br>
+                                    Sábados: 9:00 AM - 2:00 PM<br>
+                                    Domingos: Cerrado</p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <i class="fas fa-envelope"></i>
+                                <div class="info-text">
+                                    <strong>Correos Departamentales</strong>
+                                    <p>
+                                        Ventas: <a href="mailto:ventas@originaria.pe">ventas@originaria.pe</a>
+                                    </p>
+                                    <p>
+                                        Soporte: <a href="mailto:soporte@originaria.pe">soporte@originaria.pe</a>
+                                    </p>
+                                    <p>
+                                        Proveedores: <a href="mailto:proveedores@originaria.pe">proveedores@originaria.pe</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-card">
+                        <h3>Síguenos en Redes Sociales</h3>
+                        <div class="social-links-large">
+                            <a href="#" class="social-link facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </a>
+                            <a href="#" class="social-link instagram">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="#" class="social-link twitter">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                            <a href="#" class="social-link linkedin">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="#" class="social-link youtube">
+                                <i class="fab fa-youtube"></i>
+                                <span>YouTube</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="faq-card">
+                        <h3>Preguntas Frecuentes</h3>
+                        <div class="faq-links">
+                            <a href="faq.html#shipping">¿Cómo funcionan los envíos?</a>
+                            <a href="faq.html#returns">¿Puedo devolver un producto?</a>
+                            <a href="faq.html#vendors">¿Cómo me uno como vendedor?</a>
+                            <a href="faq.html#payments">¿Qué métodos de pago aceptan?</a>
+                            <a href="faq.html">Ver todas las preguntas</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-header">
+                <h2>Nuestra Ubicación</h2>
+                <p>Visítanos en nuestras oficinas en Lima</p>
+            </div>
+            
+            <div class="map-container">
+                <!-- Placeholder para mapa - en producción se usaría Google Maps o similar -->
+                <div class="map-placeholder">
+                    <div class="map-content">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>ORIGINARIA</h3>
+                        <p>Av. Universitaria 1801, San Miguel<br>Lima, Perú</p>
+                        <div class="map-actions">
+                            <a href="https://maps.google.com/?q=Av.+Universitaria+1801+San+Miguel+Lima" 
+                               target="_blank" 
+                               class="btn btn-outline btn-sm">
+                                <i class="fas fa-external-link-alt"></i>
+                                Ver en Google Maps
+                            </a>
+                            <button class="btn btn-primary btn-sm" onclick="getDirections()">
+                                <i class="fas fa-route"></i>
+                                Cómo llegar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="location-details">
+                <div class="location-grid">
+                    <div class="location-item">
+                        <i class="fas fa-subway"></i>
+                        <div class="location-text">
+                            <strong>Transporte Público</strong>
+                            <p>Estación Universitaria del Metropolitano<br>Líneas de buses: 2, 7, 18</p>
+                        </div>
+                    </div>
+                    
+                    <div class="location-item">
+                        <i class="fas fa-car"></i>
+                        <div class="location-text">
+                            <strong>En Auto</strong>
+                            <p>Estacionamiento disponible<br>Acceso por Av. Universitaria</p>
+                        </div>
+                    </div>
+                    
+                    <div class="location-item">
+                        <i class="fas fa-wheelchair"></i>
+                        <div class="location-text">
+                            <strong>Accesibilidad</strong>
+                            <p>Instalaciones accesibles<br>Entrada adaptada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Contact -->
+    <section class="emergency-contact">
+        <div class="container">
+            <div class="emergency-card">
+                <div class="emergency-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="emergency-content">
+                    <h3>¿Problema urgente con tu pedido?</h3>
+                    <p>Si tienes un problema urgente con tu pedido o necesitas ayuda inmediata, contáctanos:</p>
+                    <div class="emergency-actions">
+                        <a href="tel:+5114567890" class="btn btn-primary">
+                            <i class="fas fa-phone"></i>
+                            Llamar Ahora
+                        </a>
+                        <a href="https://wa.me/51987654321" class="btn btn-outline" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer estándar -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo-placeholder">
+                        <img src="../assets/images/logos/LogoOriginaria01.png" alt="ORIGINARIA" class="logo">
+                    </div>
+                    <p class="footer-description">
+                        Conectando productores locales con consumidores conscientes 
+                        para promover el comercio justo y la sostenibilidad en el Perú.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Marketplace</h4>
+                    <ul class="footer-links">
+                        <li><a href="marketplace.html">Todos los Productos</a></li>
+                        <li><a href="marketplace.html?category=cafe">Café y Cacao</a></li>
+                        <li><a href="marketplace.html?category=granos">Granos y Cereales</a></li>
+                        <li><a href="marketplace.html?category=frutas">Frutas Procesadas</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Para Vendedores</h4>
+                    <ul class="footer-links">
+                        <li><a href="why-sell-with-us.html">¿Por qué vender con nosotros?</a></li>
+                        <li><a href="register.html?type=vendor">Registrarse como Vendedor</a></li>
+                        <li><a href="#">Guía del Vendedor</a></li>
+                        <li><a href="#">Términos para Vendedores</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Soporte</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Centro de Ayuda</a></li>
+                        <li><a href="#">Política de Devoluciones</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <div class="contact-info">
+                        <p>📧 info@originaria.pe</p>
+                        <p>📞 +51 1 234-5678</p>
+                        <p>📍 Lima, Perú</p>
+                    </div>
+                    <div class="newsletter">
+                        <h5>Suscríbete a nuestro boletín</h5>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Tu email" class="newsletter-input">
+                            <button type="submit" class="btn btn-primary btn-sm">Suscribirse</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 ORIGINARIA. Todos los derechos reservados.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Política de Privacidad</a>
+                        <a href="#">Términos de Uso</a>
+                        <a href="#">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>¡Mensaje Enviado!</h3>
+                <button class="modal-close" onclick="closeModal('successModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <p>Gracias por contactarnos. Hemos recibido tu mensaje y nos pondremos en contacto contigo dentro de las próximas 24 horas.</p>
+                <p><strong>Número de referencia:</strong> <span id="referenceNumber"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="closeModal('successModal')">
+                    Entendido
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeAllModals()"></div>
+
+    <!-- Mobile Menu Overlay estándar -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <div class="logo-placeholder">
+                    <img src="../assets/images/logos/LogoOriginaria01.png" alt="ORIGINARIA" class="logo">
+                </div>
+                <button class="mobile-menu-close" onclick="toggleMobileMenu()">&times;</button>
+            </div>
+            <nav class="mobile-nav">
+                <a href="index.html" onclick="toggleMobileMenu()">Inicio</a>
+                <a href="marketplace.html" onclick="toggleMobileMenu()">Productos</a>
+                <a href="about.html" onclick="toggleMobileMenu()">Nosotros</a>
+                <a href="why-sell-with-us.html" onclick="toggleMobileMenu()">Vende con Nosotros</a>
+                <a href="contact.html" onclick="toggleMobileMenu()">Contacto</a>
+            </nav>
+            <div class="mobile-menu-actions">
+                <a href="login.html" class="btn btn-outline">Iniciar Sesión</a>
+                <a href="register.html" class="btn btn-primary">Registrarse</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript con rutas corregidas -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/public.js"></script>
+    
+    <script>
+        // Character count for message textarea
+        document.getElementById('message').addEventListener('input', function() {
+            const count = this.value.length;
+            document.getElementById('messageCount').textContent = count;
+            
+            if (count > 500) {
+                this.value = this.value.substring(0, 500);
+                document.getElementById('messageCount').textContent = 500;
+            }
+        });
+
+        // Handle contact form submission
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoader = submitBtn.querySelector('.btn-loader');
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            btnText.classList.add('hidden');
+            btnLoader.classList.remove('hidden');
+            
+            // Collect form data
+            const formData = new FormData(event.target);
+            const contactData = Object.fromEntries(formData.entries());
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Generate reference number
+                const refNumber = 'CNT-' + Date.now().toString().slice(-6);
+                document.getElementById('referenceNumber').textContent = refNumber;
+                
+                // Show success modal
+                showModal('successModal');
+                
+                // Reset form
+                event.target.reset();
+                document.getElementById('messageCount').textContent = '0';
+                
+                // Reset button state
+                submitBtn.disabled = false;
+                btnText.classList.remove('hidden');
+                btnLoader.classList.add('hidden');
+                
+            }, 2000);
+        }
+
+        // Modal functions
+        function showModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.getElementById('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeAllModals() {
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.classList.remove('active');
+            });
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Live chat function
+        function openLiveChat() {
+            alert('Función de chat en vivo (Demo). En producción se integraría con un servicio como Intercom, Zendesk Chat, etc.');
+        }
+
+        // Get directions function
+        function getDirections() {
+            alert('Abrir direcciones en Google Maps (Demo)');
+        }
+
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const overlay = document.getElementById('mobileMenuOverlay');
+            const body = document.body;
+            
+            if (overlay.style.display === 'block') {
+                overlay.style.display = 'none';
+                body.style.overflow = 'auto';
+            } else {
+                overlay.style.display = 'block';
+                body.style.overflow = 'hidden';
+            }
+        }
+
+        // Form validation
+        function validateForm() {
+            const requiredFields = document.querySelectorAll('input[required], select[required], textarea[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.classList.add('error');
+                    isValid = false;
+                } else {
+                    field.classList.remove('error');
+                }
+            });
+            
+            return isValid;
+        }
+
+        // Add real-time validation
+        document.querySelectorAll('input[required], select[required], textarea[required]').forEach(field => {
+            field.addEventListener('blur', function() {
+                if (!this.value.trim()) {
+                    this.classList.add('error');
+                } else {
+                    this.classList.remove('error');
+                }
+            });
+            
+            field.addEventListener('input', function() {
+                if (this.classList.contains('error') && this.value.trim()) {
+                    this.classList.remove('error');
+                }
+            });
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Página de contacto cargada correctamente');
+            
+            // Auto-focus first field
+            document.getElementById('firstName').focus();
+        });
+    </script>
+</body>
+</html>

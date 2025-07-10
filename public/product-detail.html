@@ -1,0 +1,1066 @@
+<!--
+ * Archivo: public/product-detail.html
+ * Descripción: Página de detalle de producto individual en ORIGINARIA
+ * Autor: Equipo ORIGINARIA
+ * Fecha: 2024
+ * Función: Vista completa del producto con galería, información, reseñas y compra
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Café Orgánico Premium Los Andes - Producto orgánico certificado de Roberto Mamani">
+    <meta name="keywords" content="café orgánico, café peruano, cusco, comercio justo">
+    <title>Café Orgánico Premium Los Andes | ORIGINARIA</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/public.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "Café Orgánico Premium Los Andes",
+        "image": "../assets/images/coffee-premium.jpg",
+        "description": "Café orgánico de altura cultivado en los Andes peruanos",
+        "brand": {
+            "@type": "Brand",
+            "name": "Café Andino Los Andes"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "45.00",
+            "priceCurrency": "PEN",
+            "availability": "https://schema.org/InStock"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-public">
+        <nav class="nav-container">
+            <div class="container">
+                <div class="nav-content">
+                    <!-- Logo -->
+                    <div class="logo-section">
+                        <div class="logo-placeholder">
+                            <a href="index.html">
+                                <img src="../assets/images/logos/LogoOriginaria01.png" alt="ORIGINARIA" class="logo">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <ul class="nav-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="marketplace.html">Productos</a></li>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="why-sell-with-us.html" class="nav-highlight">Vende con Nosotros</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                    </ul>
+
+                    <!-- Search -->
+                    <div class="header-search">
+                        <div class="search-input-group">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" placeholder="Buscar productos..." id="headerSearch">
+                        </div>
+                    </div>
+
+                    <!-- User Actions -->
+                    <div class="user-actions">
+                        <button class="cart-btn" onclick="toggleCart()">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">2</span>
+                        </button>
+                        <a href="login.html" class="btn btn-outline btn-sm">Iniciar Sesión</a>
+                        <a href="register.html" class="btn btn-primary btn-sm">Registrarse</a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html" class="breadcrumb-item">Inicio</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="marketplace.html" class="breadcrumb-item">Productos</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="marketplace.html?category=coffee" class="breadcrumb-item">Café</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-item active">Café Orgánico Premium Los Andes</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Product Detail -->
+    <main class="product-detail-main">
+        <div class="container">
+            <div class="product-detail-grid">
+                <!-- Product Gallery -->
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img 
+                            src="../assets/images/coffee-premium-main.jpg" 
+                            alt="Café Orgánico Premium Los Andes - Imagen principal"
+                            id="mainProductImage"
+                            onerror="this.src='../assets/images/placeholder-product.jpg'"
+                        >
+                        <div class="image-badges">
+                            <span class="badge organic">Orgánico</span>
+                            <span class="badge best-seller">Más Vendido</span>
+                        </div>
+                        <button class="zoom-btn" onclick="openImageZoom()">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" onclick="changeMainImage(this, '../assets/images/coffee-premium-main.jpg')">
+                            <img src="../assets/images/coffee-premium-main.jpg" alt="Vista principal" onerror="this.src='../assets/images/placeholder-product.jpg'">
+                        </div>
+                        <div class="thumbnail" onclick="changeMainImage(this, '../assets/images/coffee-premium-detail.jpg')">
+                            <img src="../assets/images/coffee-premium-detail.jpg" alt="Detalle del grano" onerror="this.src='../assets/images/placeholder-product.jpg'">
+                        </div>
+                        <div class="thumbnail" onclick="changeMainImage(this, '../assets/images/coffee-premium-packaging.jpg')">
+                            <img src="../assets/images/coffee-premium-packaging.jpg" alt="Empaque" onerror="this.src='../assets/images/placeholder-product.jpg'">
+                        </div>
+                        <div class="thumbnail" onclick="changeMainImage(this, '../assets/images/coffee-premium-plantation.jpg')">
+                            <img src="../assets/images/coffee-premium-plantation.jpg" alt="Plantación" onerror="this.src='../assets/images/placeholder-product.jpg'">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info">
+                    <div class="product-header">
+                        <h1 class="product-title">Café Orgánico Premium Los Andes</h1>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-score">4.9</span>
+                            <span class="rating-count">(127 reseñas)</span>
+                        </div>
+                    </div>
+
+                    <div class="product-pricing">
+                        <div class="price-main">S/ 45.00</div>
+                        <div class="price-per-unit">S/ 45.00 por 500g</div>
+                        <div class="price-savings">
+                            <span class="original-price">S/ 52.00</span>
+                            <span class="discount">13% OFF</span>
+                        </div>
+                    </div>
+
+                    <div class="product-summary">
+                        <p>Café de altura cultivado en las montañas de Cusco a más de 1,800 metros sobre el nivel del mar. Tostado artesanal con notas a chocolate y frutos secos. Certificación orgánica y comercio justo.</p>
+                    </div>
+
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label class="option-label">Presentación:</label>
+                            <div class="option-buttons">
+                                <button class="option-btn active" data-variant="500g" data-price="45.00">
+                                    500g - S/ 45.00
+                                </button>
+                                <button class="option-btn" data-variant="1kg" data-price="85.00">
+                                    1kg - S/ 85.00
+                                </button>
+                                <button class="option-btn" data-variant="250g" data-price="25.00">
+                                    250g - S/ 25.00
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="option-group">
+                            <label class="option-label">Molienda:</label>
+                            <div class="option-buttons">
+                                <button class="option-btn active" data-grind="whole">
+                                    Grano Entero
+                                </button>
+                                <button class="option-btn" data-grind="medium">
+                                    Molido Medio
+                                </button>
+                                <button class="option-btn" data-grind="fine">
+                                    Molido Fino
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-quantity">
+                        <label class="quantity-label">Cantidad:</label>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                            <input type="number" id="productQuantity" value="1" min="1" max="50">
+                            <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                        </div>
+                        <span class="stock-info">
+                            <i class="fas fa-check-circle"></i>
+                            23 unidades disponibles
+                        </span>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="btn btn-primary btn-large add-to-cart-btn" onclick="addToCart()">
+                            <i class="fas fa-shopping-cart"></i>
+                            Agregar al Carrito
+                        </button>
+                        <button class="btn btn-outline btn-large" onclick="addToWishlist()">
+                            <i class="fas fa-heart"></i>
+                            Favoritos
+                        </button>
+                        <button class="btn btn-secondary btn-large" onclick="buyNow()">
+                            <i class="fas fa-bolt"></i>
+                            Comprar Ahora
+                        </button>
+                    </div>
+
+                    <div class="delivery-info">
+                        <div class="delivery-item">
+                            <i class="fas fa-truck"></i>
+                            <div class="delivery-text">
+                                <strong>Envío gratis</strong> en pedidos mayores a S/ 80
+                            </div>
+                        </div>
+                        <div class="delivery-item">
+                            <i class="fas fa-clock"></i>
+                            <div class="delivery-text">
+                                <strong>Entrega en 2-4 días</strong> a Lima y Callao
+                            </div>
+                        </div>
+                        <div class="delivery-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div class="delivery-text">
+                                <strong>Garantía de frescura</strong> o te devolvemos tu dinero
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vendor-info-card">
+                        <div class="vendor-avatar">
+                            <img src="../assets/images/vendor-roberto.jpg" alt="Roberto Mamani" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <div class="avatar-placeholder">RM</div>
+                        </div>
+                        <div class="vendor-details">
+                            <h3 class="vendor-name">Roberto Mamani</h3>
+                            <p class="vendor-business">Café Andino Los Andes</p>
+                            <p class="vendor-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Machu Picchu, Cusco
+                            </p>
+                            <div class="vendor-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>4.9/5 - 89 reseñas</span>
+                            </div>
+                            <a href="vendor-profile.html?id=roberto-mamani" class="btn btn-outline btn-sm">
+                                Ver Tienda
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Product Details Tabs -->
+    <section class="product-tabs-section">
+        <div class="container">
+            <div class="tabs-navigation">
+                <button class="tab-btn active" onclick="showTab('description')">Descripción</button>
+                <button class="tab-btn" onclick="showTab('specifications')">Especificaciones</button>
+                <button class="tab-btn" onclick="showTab('reviews')">Reseñas (127)</button>
+                <button class="tab-btn" onclick="showTab('shipping')">Envío</button>
+                <button class="tab-btn" onclick="showTab('story')">Historia del Productor</button>
+            </div>
+
+            <div class="tabs-content">
+                <!-- Description Tab -->
+                <div class="tab-content active" id="description">
+                    <div class="tab-grid">
+                        <div class="content-column">
+                            <h3>Sobre este producto</h3>
+                            <p>Nuestro Café Orgánico Premium Los Andes representa la excelencia de los cafés de altura peruanos. Cultivado a más de 1,800 metros sobre el nivel del mar en las montañas sagradas de Cusco, cada grano es cuidadosamente seleccionado por Roberto Mamani y su familia, quienes han perfeccionado el arte del cultivo del café durante más de 20 años.</p>
+                            
+                            <h4>Características destacadas:</h4>
+                            <ul class="features-list">
+                                <li><strong>Altitud excepcional:</strong> Cultivado entre 1,800 y 2,100 metros</li>
+                                <li><strong>Proceso artesanal:</strong> Selección manual y secado al sol</li>
+                                <li><strong>Tostado perfecto:</strong> Tueste medio que resalta sus sabores naturales</li>
+                                <li><strong>Certificación orgánica:</strong> Sin químicos ni pesticidas</li>
+                                <li><strong>Comercio justo:</strong> Precio justo directo al productor</li>
+                            </ul>
+
+                            <h4>Perfil de sabor:</h4>
+                            <p>Un café equilibrado con cuerpo medio-alto, acidez brillante y notas complejas que incluyen chocolate oscuro, frutos secos tostados y un sutil toque floral. El final es limpio y duradero, dejando una agradable sensación de dulzura natural.</p>
+                        </div>
+                        
+                        <div class="image-column">
+                            <img src="../assets/images/coffee-process.jpg" alt="Proceso de producción del café" onerror="this.src='../assets/images/placeholder-process.jpg'">
+                            <p class="image-caption">Proceso artesanal de selección y secado</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Specifications Tab -->
+                <div class="tab-content" id="specifications">
+                    <div class="specifications-grid">
+                        <div class="spec-category">
+                            <h4>Características del Producto</h4>
+                            <div class="spec-list">
+                                <div class="spec-item">
+                                    <span class="spec-label">Origen:</span>
+                                    <span class="spec-value">Machu Picchu, Cusco, Perú</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Altitud:</span>
+                                    <span class="spec-value">1,800 - 2,100 m.s.n.m.</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Variedad:</span>
+                                    <span class="spec-value">Typica, Bourbon</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Proceso:</span>
+                                    <span class="spec-value">Lavado</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Tueste:</span>
+                                    <span class="spec-value">Medio</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Puntuación SCA:</span>
+                                    <span class="spec-value">85+ puntos</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spec-category">
+                            <h4>Certificaciones</h4>
+                            <div class="certifications">
+                                <div class="cert-item">
+                                    <i class="fas fa-leaf"></i>
+                                    <span>Certificación Orgánica SENASA</span>
+                                </div>
+                                <div class="cert-item">
+                                    <i class="fas fa-handshake"></i>
+                                    <span>Comercio Justo</span>
+                                </div>
+                                <div class="cert-item">
+                                    <i class="fas fa-mountain"></i>
+                                    <span>Café de Altura</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spec-category">
+                            <h4>Información Nutricional</h4>
+                            <p class="nutrition-note">Por 100g de café preparado:</p>
+                            <div class="spec-list">
+                                <div class="spec-item">
+                                    <span class="spec-label">Calorías:</span>
+                                    <span class="spec-value">2 kcal</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Cafeína:</span>
+                                    <span class="spec-value">80-100 mg</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Antioxidantes:</span>
+                                    <span class="spec-value">Alto contenido</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Tab -->
+                <div class="tab-content" id="reviews">
+                    <div class="reviews-section">
+                        <div class="reviews-summary">
+                            <div class="rating-overview">
+                                <div class="rating-score-large">4.9</div>
+                                <div class="rating-details">
+                                    <div class="stars-large">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p>Basado en 127 reseñas</p>
+                                </div>
+                            </div>
+                            
+                            <div class="rating-breakdown">
+                                <div class="rating-bar">
+                                    <span>5 estrellas</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 85%"></div>
+                                    </div>
+                                    <span>108</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>4 estrellas</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 12%"></div>
+                                    </div>
+                                    <span>15</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>3 estrellas</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 2%"></div>
+                                    </div>
+                                    <span>3</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>2 estrellas</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 1%"></div>
+                                    </div>
+                                    <span>1</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>1 estrella</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 0%"></div>
+                                    </div>
+                                    <span>0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="reviews-list">
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">MG</div>
+                                        <div class="reviewer-details">
+                                            <span class="reviewer-name">María Gonzáles</span>
+                                            <span class="review-date">15 de diciembre, 2024</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="review-content">
+                                    <p>Excelente café! El sabor es excepcional, se nota la calidad del tueste artesanal. Mi familia y yo lo disfrutamos todas las mañanas. Definitivamente volveré a comprarlo.</p>
+                                </div>
+                                <div class="review-actions">
+                                    <button class="helpful-btn">
+                                        <i class="fas fa-thumbs-up"></i>
+                                        ¿Útil (12)
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">CS</div>
+                                        <div class="reviewer-details">
+                                            <span class="reviewer-name">Carlos Silva</span>
+                                            <span class="review-date">10 de diciembre, 2024</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="review-content">
+                                    <p>Como barista profesional, puedo confirmar que este café tiene un perfil de sabor muy bien balanceado. Las notas a chocolate son evidentes y la acidez es perfecta. Recomendado 100%.</p>
+                                </div>
+                                <div class="review-actions">
+                                    <button class="helpful-btn">
+                                        <i class="fas fa-thumbs-up"></i>
+                                        ¿Útil (8)
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">LP</div>
+                                        <div class="reviewer-details">
+                                            <span class="reviewer-name">Lucia Paredes</span>
+                                            <span class="review-date">5 de diciembre, 2024</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="review-content">
+                                    <p>Muy buen café, llegó en perfectas condiciones y el empaque es hermoso. Me gusta poder apoyar directamente a los productores peruanos. El envío fue rápido.</p>
+                                </div>
+                                <div class="review-actions">
+                                    <button class="helpful-btn">
+                                        <i class="fas fa-thumbs-up"></i>
+                                        ¿Útil (5)
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-outline load-more-reviews">
+                            Ver más reseñas
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Shipping Tab -->
+                <div class="tab-content" id="shipping">
+                    <div class="shipping-info">
+                        <h3>Información de Envío</h3>
+                        
+                        <div class="shipping-options">
+                            <div class="shipping-option">
+                                <div class="shipping-icon">
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                                <div class="shipping-details">
+                                    <h4>Envío Estándar</h4>
+                                    <p>Entrega en 3-5 días hábiles</p>
+                                    <span class="shipping-price">S/ 15.00</span>
+                                </div>
+                            </div>
+                            
+                            <div class="shipping-option featured">
+                                <div class="shipping-icon">
+                                    <i class="fas fa-shipping-fast"></i>
+                                </div>
+                                <div class="shipping-details">
+                                    <h4>Envío Express</h4>
+                                    <p>Entrega en 1-2 días hábiles</p>
+                                    <span class="shipping-price">S/ 25.00</span>
+                                </div>
+                                <span class="shipping-badge">Recomendado</span>
+                            </div>
+                        </div>
+
+                        <div class="shipping-zones">
+                            <h4>Zonas de Entrega</h4>
+                            <div class="zones-grid">
+                                <div class="zone">
+                                    <strong>Lima y Callao:</strong> 1-2 días
+                                </div>
+                                <div class="zone">
+                                    <strong>Costa Norte/Sur:</strong> 2-3 días
+                                </div>
+                                <div class="zone">
+                                    <strong>Sierra:</strong> 3-4 días
+                                </div>
+                                <div class="zone">
+                                    <strong>Selva:</strong> 4-5 días
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="shipping-notes">
+                            <h4>Notas importantes:</h4>
+                            <ul>
+                                <li>Envío gratis en pedidos mayores a S/ 80</li>
+                                <li>Empaque especializado para preservar la frescura</li>
+                                <li>Seguimiento en tiempo real de tu pedido</li>
+                                <li>Política de devolución de 30 días</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producer Story Tab -->
+                <div class="tab-content" id="story">
+                    <div class="producer-story">
+                        <div class="story-hero">
+                            <img src="../assets/images/producer-story.jpg" alt="Roberto Mamani en su plantación" onerror="this.src='../assets/images/placeholder-story.jpg'">
+                        </div>
+                        
+                        <div class="story-content">
+                            <h3>La Historia de Roberto Mamani</h3>
+                            <p class="story-intro">Desde las alturas de Cusco, Roberto Mamani cultiva más que café: cultiva tradición, sostenibilidad y esperanza para su comunidad.</p>
+                            
+                            <div class="story-section">
+                                <h4>Herencia Familiar</h4>
+                                <p>Roberto aprendió el arte del cultivo de café de su padre y su abuelo, quienes comenzaron esta tradición hace más de 60 años en las montañas sagradas de Machu Picchu. Cada planta de café en su finca tiene una historia, cada grano lleva consigo generaciones de conocimiento ancestral.</p>
+                            </div>
+
+                            <div class="story-section">
+                                <h4>Compromiso con lo Orgánico</h4>
+                                <p>Hace 15 años, Roberto tomó la decisión de convertir completamente su finca a agricultura orgánica. "No solo es mejor para la tierra," dice Roberto, "es mejor para nuestras familias y para las personas que disfrutan nuestro café en todo el mundo."</p>
+                            </div>
+
+                            <div class="story-section">
+                                <h4>Impacto en la Comunidad</h4>
+                                <p>A través de ORIGINARIA, Roberto no solo vende su café; está construyendo un futuro para su comunidad. Los ingresos justos le han permitido:</p>
+                                <ul>
+                                    <li>Mejorar la educación de sus tres hijos</li>
+                                    <li>Invertir en tecnología sostenible para el procesamiento</li>
+                                    <li>Capacitar a otros agricultores en técnicas orgánicas</li>
+                                    <li>Preservar las variedades nativas de café</li>
+                                </ul>
+                            </div>
+
+                            <div class="impact-stats">
+                                <div class="stat">
+                                    <span class="stat-number">20+</span>
+                                    <span class="stat-label">Años de experiencia</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">5</span>
+                                    <span class="stat-label">Hectáreas cultivadas</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">12</span>
+                                    <span class="stat-label">Familias beneficiadas</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">100%</span>
+                                    <span class="stat-label">Orgánico certificado</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products-section">
+        <div class="container">
+            <h2 class="section-title">Productos Relacionados</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="../assets/images/quinoa-premium.jpg" alt="Quinua Orgánica Premium" onerror="this.src='../assets/images/placeholder-product.jpg'">
+                        <div class="product-badges">
+                            <span class="badge organic">Orgánico</span>
+                        </div>
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Quinua Orgánica Premium</h3>
+                        <p class="product-vendor">María Quispe - Puno</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>(45)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">S/ 32.00</span>
+                        </div>
+                        <button class="btn btn-primary btn-sm add-to-cart-quick">
+                            <i class="fas fa-shopping-cart"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="../assets/images/honey-natural.jpg" alt="Miel de Abeja Natural" onerror="this.src='../assets/images/placeholder-product.jpg'">
+                        <div class="product-badges">
+                            <span class="badge organic">Orgánico</span>
+                        </div>
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Miel de Abeja Natural</h3>
+                        <p class="product-vendor">Jorge Huamán - Ayacucho</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span>(28)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">S/ 28.00</span>
+                        </div>
+                        <button class="btn btn-primary btn-sm add-to-cart-quick">
+                            <i class="fas fa-shopping-cart"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="../assets/images/cacao-premium.jpg" alt="Cacao Orgánico Premium" onerror="this.src='../assets/images/placeholder-product.jpg'">
+                        <div class="product-badges">
+                            <span class="badge organic">Orgánico</span>
+                            <span class="badge new">Nuevo</span>
+                        </div>
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Cacao Orgánico Premium</h3>
+                        <p class="product-vendor">Carmen Flores - San Martín</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>(12)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">S/ 38.00</span>
+                        </div>
+                        <button class="btn btn-primary btn-sm add-to-cart-quick">
+                            <i class="fas fa-shopping-cart"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="../assets/images/coffee-blend.jpg" alt="Café Blend Especial" onerror="this.src='../assets/images/placeholder-product.jpg'">
+                        <div class="product-badges">
+                            <span class="badge organic">Orgánico</span>
+                        </div>
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Café Blend Especial</h3>
+                        <p class="product-vendor">Roberto Mamani - Cusco</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span>(67)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">S/ 42.00</span>
+                        </div>
+                        <button class="btn btn-primary btn-sm add-to-cart-quick">
+                            <i class="fas fa-shopping-cart"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Mi Carrito</h3>
+            <button class="cart-close" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="cart-items">
+            <div class="cart-item">
+                <img src="../assets/images/quinoa-premium.jpg" alt="Quinua Orgánica" onerror="this.src='../assets/images/placeholder-product.jpg'">
+                <div class="cart-item-details">
+                    <h4>Quinua Orgánica Premium</h4>
+                    <p>500g - María Quispe</p>
+                    <div class="cart-item-price">S/ 32.00</div>
+                </div>
+                <div class="cart-item-quantity">
+                    <button onclick="updateCartQuantity('quinoa', -1)">-</button>
+                    <span>1</span>
+                    <button onclick="updateCartQuantity('quinoa', 1)">+</button>
+                </div>
+            </div>
+            
+            <div class="cart-item">
+                <img src="../assets/images/honey-natural.jpg" alt="Miel Natural" onerror="this.src='../assets/images/placeholder-product.jpg'">
+                <div class="cart-item-details">
+                    <h4>Miel de Abeja Natural</h4>
+                    <p>250g - Jorge Huamán</p>
+                    <div class="cart-item-price">S/ 28.00</div>
+                </div>
+                <div class="cart-item-quantity">
+                    <button onclick="updateCartQuantity('honey', -1)">-</button>
+                    <span>1</span>
+                    <button onclick="updateCartQuantity('honey', 1)">+</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cart-summary">
+            <div class="cart-total">
+                <span>Total: S/ 60.00</span>
+            </div>
+            <button class="btn btn-primary btn-full">
+                Proceder al Pago
+            </button>
+            <button class="btn btn-outline btn-full">
+                Ver Carrito Completo
+            </button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo-placeholder">
+                        <img src="../assets/images/logos/LogoOriginaria01.png" alt="ORIGINARIA" class="logo">
+                    </div>
+                    <p>Conectando lo natural con lo nuestro. Marketplace de productos orgánicos del Perú.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="marketplace.html">Productos</a></li>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 ORIGINARIA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        let currentProduct = {
+            id: 'coffee-premium',
+            name: 'Café Orgánico Premium Los Andes',
+            price: 45.00,
+            variant: '500g',
+            grind: 'whole',
+            quantity: 1,
+            stock: 23
+        };
+
+        // Product gallery functionality
+        function changeMainImage(thumbnail, imageSrc) {
+            document.getElementById('mainProductImage').src = imageSrc;
+            
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            thumbnail.classList.add('active');
+        }
+
+        function openImageZoom() {
+            alert('Abrir zoom de imagen (funcionalidad de demo)');
+        }
+
+        // Product options
+        document.addEventListener('DOMContentLoaded', function() {
+            // Variant selection
+            document.querySelectorAll('[data-variant]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('[data-variant]').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const price = parseFloat(this.dataset.price);
+                    currentProduct.price = price;
+                    currentProduct.variant = this.dataset.variant;
+                    
+                    document.querySelector('.price-main').textContent = `S/ ${price.toFixed(2)}`;
+                    document.querySelector('.price-per-unit').textContent = `S/ ${price.toFixed(2)} por ${this.dataset.variant}`;
+                });
+            });
+
+            // Grind selection
+            document.querySelectorAll('[data-grind]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('[data-grind]').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentProduct.grind = this.dataset.grind;
+                });
+            });
+        });
+
+        // Quantity controls
+        function changeQuantity(change) {
+            const quantityInput = document.getElementById('productQuantity');
+            let newQuantity = parseInt(quantityInput.value) + change;
+            
+            if (newQuantity < 1) newQuantity = 1;
+            if (newQuantity > currentProduct.stock) newQuantity = currentProduct.stock;
+            
+            quantityInput.value = newQuantity;
+            currentProduct.quantity = newQuantity;
+        }
+
+        // Product actions
+        function addToCart() {
+            const button = document.querySelector('.add-to-cart-btn');
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Agregando...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-check"></i> ¡Agregado!';
+                
+                // Update cart count
+                const cartCount = document.querySelector('.cart-count');
+                cartCount.textContent = parseInt(cartCount.textContent) + currentProduct.quantity;
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                }, 1000);
+            }, 1000);
+        }
+
+        function addToWishlist() {
+            const button = event.target.closest('button');
+            const icon = button.querySelector('i');
+            
+            if (icon.classList.contains('fas')) {
+                icon.classList.remove('fas');
+                icon.classList.add('far');
+                alert('Producto removido de favoritos');
+            } else {
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+                alert('Producto agregado a favoritos');
+            }
+        }
+
+        function buyNow() {
+            alert('Redirigiendo al proceso de compra...');
+        }
+
+        // Tabs functionality
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Cart functionality
+        function toggleCart() {
+            const sidebar = document.getElementById('cartSidebar');
+            const overlay = document.getElementById('cartOverlay');
+            
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('active');
+        }
+
+        function updateCartQuantity(itemId, change) {
+            // Demo functionality
+            console.log(`Updating ${itemId} quantity by ${change}`);
+        }
+
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            alert('Mostrar menú móvil (funcionalidad de demo)');
+        }
+
+        // Search functionality
+        document.getElementById('headerSearch').addEventListener('input', function(e) {
+            if (e.target.value.length > 2) {
+                console.log('Buscando:', e.target.value);
+            }
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Página de detalle de producto cargada');
+        });
+    </script>
+</body>
+</html>

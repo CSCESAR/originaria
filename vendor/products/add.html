@@ -1,0 +1,1967 @@
+<!--
+ * Archivo: vendor/products/add.html
+ * Descripción: Formulario para agregar nuevo producto en el marketplace ORIGINARIA
+ * Autor: Equipo ORIGINARIA
+ * Fecha: 2024
+ * Función: Formulario completo con validaciones, categorías, precios, stock y multimedia
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agregar nuevo producto - ORIGINARIA Marketplace">
+    <title>Agregar Producto | ORIGINARIA</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/vendor.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="vendor-dashboard">
+    <!-- Header -->
+    <header class="vendor-header">
+        <div class="header-content">
+            <div class="header-left">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <div class="logo-placeholder">ORIGINARIA</div>
+                </div>
+            </div>
+            
+            <div class="header-center">
+                <div class="breadcrumb">
+                    <a href="../dashboard.html" class="breadcrumb-item">Dashboard</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <a href="list.html" class="breadcrumb-item">Mis Productos</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span class="breadcrumb-item active">Agregar Producto</span>
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <div class="header-actions">
+                    <button class="notification-btn" onclick="showNotifications()">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    
+                    <div class="user-menu">
+                        <div class="user-avatar">
+                            <img src="../../assets/images/vendor-avatar.jpg" alt="Roberto Mamani" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <div class="avatar-placeholder">RM</div>
+                        </div>
+                        <div class="user-info">
+                            <span class="user-name">Roberto Mamani</span>
+                            <span class="user-role">Café Andino Los Andes</span>
+                        </div>
+                        <button class="user-menu-btn" onclick="toggleUserMenu()">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="vendor-sidebar" id="vendorSidebar">
+        <div class="sidebar-content">
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Principal</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="../dashboard.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="list.html" class="nav-link">
+                                <i class="fas fa-box"></i>
+                                <span>Mis Productos</span>
+                                <span class="nav-badge">8</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../sales/orders.html" class="nav-link">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Pedidos</span>
+                                <span class="nav-badge pending">3</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../sales/reports.html" class="nav-link">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Reportes</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Marketing</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="../marketing/campaigns.html" class="nav-link">
+                                <i class="fas fa-megaphone"></i>
+                                <span>Campañas</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../marketing/promotions.html" class="nav-link">
+                                <i class="fas fa-tags"></i>
+                                <span>Promociones</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Servicios</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="../services/cost-advisory.html" class="nav-link">
+                                <i class="fas fa-calculator"></i>
+                                <span>Asesoría Costos</span>
+                                <span class="nav-badge new">¡Nuevo!</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../services/packaging.html" class="nav-link">
+                                <i class="fas fa-box-open"></i>
+                                <span>Empaquetado</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../services/photography.html" class="nav-link">
+                                <i class="fas fa-camera"></i>
+                                <span>Fotografía</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Configuración</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="../profile/edit.html" class="nav-link">
+                                <i class="fas fa-user"></i>
+                                <span>Mi Perfil</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../profile/settings.html" class="nav-link">
+                                <i class="fas fa-cog"></i>
+                                <span>Configuración</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="upgrade-card">
+                    <div class="upgrade-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h4>Mejora a Premium</h4>
+                    <p>Desbloquea funciones avanzadas</p>
+                    <button class="btn btn-accent btn-sm">Upgradar</button>
+                </div>
+                
+                <div class="support-card">
+                    <i class="fas fa-headset"></i>
+                    <span>¿Necesitas ayuda?</span>
+                    <button onclick="openSupport()">Contactar Soporte</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="vendor-main">
+        <div class="vendor-content">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-title-section">
+                    <h1 class="page-title">Agregar Nuevo Producto</h1>
+                    <p class="page-subtitle">Completa la información de tu producto orgánico</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-outline" onclick="saveDraft()">
+                        <i class="fas fa-save"></i>
+                        Guardar borrador
+                    </button>
+                    <button class="btn btn-outline" onclick="previewProduct()">
+                        <i class="fas fa-eye"></i>
+                        Vista previa
+                    </button>
+                </div>
+            </div>
+
+            <!-- Progress Indicator -->
+            <div class="form-progress">
+                <div class="progress-steps">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <span class="step-label">Información básica</span>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-number">2</div>
+                        <span class="step-label">Precios y stock</span>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-number">3</div>
+                        <span class="step-label">Imágenes</span>
+                    </div>
+                    <div class="progress-step" data-step="4">
+                        <div class="step-number">4</div>
+                        <span class="step-label">Envío y publicación</span>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 25%"></div>
+                </div>
+            </div>
+
+            <!-- Product Form -->
+            <form id="productForm" data-validate-form class="product-form">
+                <!-- Step 1: Basic Information -->
+                <div class="form-step active" id="step1">
+                    <div class="form-card">
+                        <div class="form-section">
+                            <h3 class="form-section-title">Información Básica</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="productName" class="form-label required">Nombre del producto</label>
+                                    <input 
+                                        type="text" 
+                                        id="productName" 
+                                        name="productName" 
+                                        class="form-input" 
+                                        placeholder="Ej: Café Orgánico Premium"
+                                        data-validate='["required", {"rule": "minLength", "params": {"min": 3}, "message": "Mínimo 3 caracteres"}]'
+                                        required
+                                    >
+                                    <span class="form-hint">El nombre que verán los compradores</span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="productSku" class="form-label">SKU (Código de producto)</label>
+                                    <input 
+                                        type="text" 
+                                        id="productSku" 
+                                        name="productSku" 
+                                        class="form-input" 
+                                        placeholder="Ej: CAF-001"
+                                    >
+                                    <span class="form-hint">Código único para identificar tu producto</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="category" class="form-label required">Categoría</label>
+                                    <select 
+                                        id="category" 
+                                        name="category" 
+                                        class="form-select"
+                                        data-validate='["required"]'
+                                        required
+                                        onchange="updateSubcategories()"
+                                    >
+                                        <option value="">Selecciona una categoría</option>
+                                        <option value="cafe">Café y Cacao</option>
+                                        <option value="granos">Granos y Cereales</option>
+                                        <option value="frutas">Frutas Procesadas</option>
+                                        <option value="lacteos">Lácteos Artesanales</option>
+                                        <option value="condimentos">Condimentos y Especias</option>
+                                        <option value="bebidas">Bebidas Naturales</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subcategory" class="form-label">Subcategoría</label>
+                                    <select id="subcategory" name="subcategory" class="form-select" disabled>
+                                        <option value="">Selecciona primero una categoría</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description" class="form-label required">Descripción del producto</label>
+                                <textarea 
+                                    id="description" 
+                                    name="description" 
+                                    class="form-textarea" 
+                                    rows="4"
+                                    placeholder="Describe tu producto: origen, proceso de producción, características especiales..."
+                                    data-validate='["required", {"rule": "minLength", "params": {"min": 20}, "message": "Mínimo 20 caracteres"}]'
+                                    required
+                                ></textarea>
+                                <div class="character-count">
+                                    <span id="descriptionCount">0</span>/500 caracteres
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="shortDescription" class="form-label">Descripción corta</label>
+                                <input 
+                                    type="text" 
+                                    id="shortDescription" 
+                                    name="shortDescription" 
+                                    class="form-input" 
+                                    placeholder="Descripción breve para mostrar en las listas"
+                                    maxlength="100"
+                                >
+                                <span class="form-hint">Máximo 100 caracteres</span>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="form-section-title">Características del Producto</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="origin" class="form-label">Origen/Región</label>
+                                    <input 
+                                        type="text" 
+                                        id="origin" 
+                                        name="origin" 
+                                        class="form-input" 
+                                        placeholder="Ej: Cusco, Huancayo, Cajamarca"
+                                    >
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="brand" class="form-label">Marca (opcional)</label>
+                                    <input 
+                                        type="text" 
+                                        id="brand" 
+                                        name="brand" 
+                                        class="form-input" 
+                                        placeholder="Nombre de tu marca"
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Certificaciones</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="certifications[]" value="organico">
+                                        <span class="checkbox-mark"></span>
+                                        <span class="checkbox-label">Certificado Orgánico</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="certifications[]" value="comercio_justo">
+                                        <span class="checkbox-mark"></span>
+                                        <span class="checkbox-label">Comercio Justo</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="certifications[]" value="sin_gluten">
+                                        <span class="checkbox-mark"></span>
+                                        <span class="checkbox-label">Sin Gluten</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="certifications[]" value="vegano">
+                                        <span class="checkbox-mark"></span>
+                                        <span class="checkbox-label">Vegano</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tags" class="form-label">Etiquetas</label>
+                                <input 
+                                    type="text" 
+                                    id="tags" 
+                                    name="tags" 
+                                    class="form-input" 
+                                    placeholder="Palabras clave separadas por comas"
+                                >
+                                <span class="form-hint">Ej: orgánico, natural, premium, artesanal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Pricing and Stock -->
+                <div class="form-step" id="step2">
+                    <div class="form-card">
+                        <div class="form-section">
+                            <h3 class="form-section-title">Precios y Costos</h3>
+                            
+                            <div class="pricing-calculator">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="costPrice" class="form-label">Costo de producción</label>
+                                        <div class="input-group">
+                                            <span class="input-prefix">S/</span>
+                                            <input 
+                                                type="number" 
+                                                id="costPrice" 
+                                                name="costPrice" 
+                                                class="form-input" 
+                                                placeholder="0.00"
+                                                step="0.01"
+                                                min="0"
+                                                onchange="calculatePricing()"
+                                            >
+                                        </div>
+                                        <span class="form-hint">Tu costo real de producción</span>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="markup" class="form-label">Margen deseado (%)</label>
+                                        <input 
+                                            type="number" 
+                                            id="markup" 
+                                            name="markup" 
+                                            class="form-input" 
+                                            placeholder="50"
+                                            min="0"
+                                            max="300"
+                                            onchange="calculatePricing()"
+                                        >
+                                        <span class="form-hint">Margen de ganancia deseado</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="price" class="form-label required">Precio de venta</label>
+                                        <div class="input-group">
+                                            <span class="input-prefix">S/</span>
+                                            <input 
+                                                type="number" 
+                                                id="price" 
+                                                name="price" 
+                                                class="form-input" 
+                                                placeholder="0.00"
+                                                step="0.01"
+                                                min="0.01"
+                                                data-validate='["required", "positive"]'
+                                                required
+                                                onchange="calculateMargin()"
+                                            >
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="unit" class="form-label required">Unidad de medida</label>
+                                        <select 
+                                            id="unit" 
+                                            name="unit" 
+                                            class="form-select"
+                                            data-validate='["required"]'
+                                            required
+                                        >
+                                            <option value="">Selecciona unidad</option>
+                                            <option value="kg">Kilogramo (kg)</option>
+                                            <option value="g">Gramo (g)</option>
+                                            <option value="lb">Libra (lb)</option>
+                                            <option value="l">Litro (l)</option>
+                                            <option value="ml">Mililitro (ml)</option>
+                                            <option value="unidad">Unidad</option>
+                                            <option value="paquete">Paquete</option>
+                                            <option value="frasco">Frasco</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="pricing-summary">
+                                    <div class="summary-item">
+                                        <span class="summary-label">Costo:</span>
+                                        <span class="summary-value" id="summaryCost">S/ 0.00</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">Precio de venta:</span>
+                                        <span class="summary-value" id="summaryPrice">S/ 0.00</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">Comisión ORIGINARIA (15%):</span>
+                                        <span class="summary-value" id="summaryCommission">S/ 0.00</span>
+                                    </div>
+                                    <div class="summary-item highlight">
+                                        <span class="summary-label">Tu ganancia:</span>
+                                        <span class="summary-value" id="summaryProfit">S/ 0.00</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">Margen:</span>
+                                        <span class="summary-value" id="summaryMargin">0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="form-section-title">Inventario</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="stock" class="form-label required">Stock inicial</label>
+                                    <input 
+                                        type="number" 
+                                        id="stock" 
+                                        name="stock" 
+                                        class="form-input" 
+                                        placeholder="0"
+                                        min="0"
+                                        data-validate='["required", "numeric"]'
+                                        required
+                                    >
+                                    <span class="form-hint">Cantidad disponible para venta</span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="minStock" class="form-label">Stock mínimo</label>
+                                    <input 
+                                        type="number" 
+                                        id="minStock" 
+                                        name="minStock" 
+                                        class="form-input" 
+                                        placeholder="5"
+                                        min="0"
+                                    >
+                                    <span class="form-hint">Te avisaremos cuando llegues a este nivel</span>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="trackStock" value="1" checked>
+                                        <span class="checkbox-mark"></span>
+                                        <span class="checkbox-label">Controlar stock automáticamente</span>
+                                    </label>
+                                    <span class="form-hint">ORIGINARIA reducirá el stock automáticamente con cada venta</span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="allowBackorder" value="1">
+                                        <span class="checkbox-mark"></span>
+                                        <span class="checkbox-label">Permitir pedidos sin stock</span>
+                                    </label>
+                                    <span class="form-hint">Los clientes pueden comprar incluso sin stock disponible</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="form-section-title">Variaciones de Producto (Opcional)</h3>
+                            
+                            <div class="variations-container">
+                                <div class="variation-type">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="hasVariations" name="hasVariations" value="1" onchange="toggleVariations()">
+                                        <span class="checkbox-mark"></span>
+                                        <span class="checkbox-label">Este producto tiene variaciones (tamaños, sabores, etc.)</span>
+                                    </label>
+                                </div>
+                                
+                                <div class="variations-content" id="variationsContent" style="display: none;">
+                                    <div class="variation-row">
+                                        <div class="form-group">
+                                            <label class="form-label">Tipo de variación</label>
+                                            <select class="form-select">
+                                                <option value="size">Tamaño</option>
+                                                <option value="weight">Peso</option>
+                                                <option value="flavor">Sabor</option>
+                                                <option value="color">Color</option>
+                                                <option value="custom">Personalizado</option>
+                                            </select>
+                                        </div>
+                                        <button type="button" class="btn btn-outline btn-sm" onclick="addVariation()">
+                                            <i class="fas fa-plus"></i>
+                                            Agregar variación
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="variations-list" id="variationsList">
+                                        <!-- Variations will be added here dynamically -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Images -->
+                <div class="form-step" id="step3">
+                    <div class="form-card">
+                        <div class="form-section">
+                            <h3 class="form-section-title">Imágenes del Producto</h3>
+                            <p class="section-description">Sube imágenes de alta calidad que muestren tu producto. La primera imagen será la principal.</p>
+                            
+                            <div class="image-upload-area">
+                                <div class="main-image-upload">
+                                    <div class="upload-zone" id="mainImageUpload" onclick="triggerFileInput('mainImageInput')">
+                                        <div class="upload-placeholder">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                            <h4>Imagen principal</h4>
+                                            <p>Arrastra una imagen aquí o haz clic para seleccionar</p>
+                                            <span class="upload-hint">JPG, PNG, WEBP hasta 5MB</span>
+                                        </div>
+                                        <input type="file" id="mainImageInput" accept="image/*" style="display: none;" onchange="handleImageUpload(this, 'main')">
+                                    </div>
+                                </div>
+                                
+                                <div class="additional-images">
+                                    <h4>Imágenes adicionales</h4>
+                                    <div class="images-grid" id="additionalImagesGrid">
+                                        <div class="upload-slot" onclick="triggerFileInput('additionalImageInput1')">
+                                            <i class="fas fa-plus"></i>
+                                            <span>Agregar imagen</span>
+                                            <input type="file" id="additionalImageInput1" accept="image/*" style="display: none;" onchange="handleImageUpload(this, 'additional')">
+                                        </div>
+                                        <div class="upload-slot" onclick="triggerFileInput('additionalImageInput2')">
+                                            <i class="fas fa-plus"></i>
+                                            <span>Agregar imagen</span>
+                                            <input type="file" id="additionalImageInput2" accept="image/*" style="display: none;" onchange="handleImageUpload(this, 'additional')">
+                                        </div>
+                                        <div class="upload-slot" onclick="triggerFileInput('additionalImageInput3')">
+                                            <i class="fas fa-plus"></i>
+                                            <span>Agregar imagen</span>
+                                            <input type="file" id="additionalImageInput3" accept="image/*" style="display: none;" onchange="handleImageUpload(this, 'additional')">
+                                        </div>
+                                        <div class="upload-slot" onclick="triggerFileInput('additionalImageInput4')">
+                                            <i class="fas fa-plus"></i>
+                                            <span>Agregar imagen</span>
+                                            <input type="file" id="additionalImageInput4" accept="image/*" style="display: none;" onchange="handleImageUpload(this, 'additional')">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="image-guidelines">
+                                <h4>Consejos para mejores imágenes:</h4>
+                                <ul>
+                                    <li>Usa buena iluminación natural</li>
+                                    <li>Fondo limpio y neutro</li>
+                                    <li>Muestra el producto desde diferentes ángulos</li>
+                                    <li>Incluye imágenes del empaque y etiquetas</li>
+                                    <li>Resolución mínima recomendada: 800x800px</li>
+                                </ul>
+                                
+                                <div class="photography-service">
+                                    <div class="service-card">
+                                        <i class="fas fa-camera"></i>
+                                        <div class="service-info">
+                                            <h5>Servicio de Fotografía Profesional</h5>
+                                            <p>¿Necesitas ayuda con las fotos? Nuestro servicio incluye sesión fotográfica profesional.</p>
+                                        </div>
+                                        <button type="button" class="btn btn-outline btn-sm" onclick="requestPhotographyService()">
+                                            Solicitar servicio
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Shipping and Publication -->
+                <div class="form-step" id="step4">
+                    <div class="form-card">
+                        <div class="form-section">
+                            <h3 class="form-section-title">Envío y Logística</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="weight" class="form-label">Peso del producto</label>
+                                    <div class="input-group">
+                                        <input 
+                                            type="number" 
+                                            id="weight" 
+                                            name="weight" 
+                                            class="form-input" 
+                                            placeholder="0.0"
+                                            step="0.1"
+                                            min="0"
+                                        >
+                                        <span class="input-suffix">kg</span>
+                                    </div>
+                                    <span class="form-hint">Peso para cálculo de envío</span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="dimensions" class="form-label">Dimensiones (L x A x H)</label>
+                                    <div class="dimensions-input">
+                                        <input type="number" name="length" placeholder="L" class="form-input" step="0.1" min="0">
+                                        <span>×</span>
+                                        <input type="number" name="width" placeholder="A" class="form-input" step="0.1" min="0">
+                                        <span>×</span>
+                                        <input type="number" name="height" placeholder="H" class="form-input" step="0.1" min="0">
+                                        <span class="dimension-unit">cm</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Opciones de envío</label>
+                                <div class="shipping-options">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="shippingMethods[]" value="standard" checked>
+                                        <span class="checkbox-mark"></span>
+                                        <span class="checkbox-label">
+                                            <strong>Envío estándar</strong>
+                                            <span class="option-description">3-5 días hábiles</span>
+                                        </span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="shippingMethods[]" value="express">
+                                        <span class="checkbox-mark"></span>
+                                        <span class="checkbox-label">
+                                            <strong>Envío express</strong>
+                                            <span class="option-description">1-2 días hábiles (+S/10)</span>
+                                        </span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="shippingMethods[]" value="pickup">
+                                        <span class="checkbox-mark"></span>
+                                        <span class="checkbox-label">
+                                            <strong>Recojo en tienda</strong>
+                                            <span class="option-description">Sin costo adicional</span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="handlingTime" class="form-label">Tiempo de preparación</label>
+                                <select id="handlingTime" name="handlingTime" class="form-select">
+                                    <option value="1">1 día hábil</option>
+                                    <option value="2">2 días hábiles</option>
+                                    <option value="3">3 días hábiles</option>
+                                    <option value="5">5 días hábiles</option>
+                                    <option value="7">1 semana</option>
+                                    <option value="14">2 semanas</option>
+                                </select>
+                                <span class="form-hint">Tiempo que necesitas para preparar el producto antes del envío</span>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="form-section-title">Publicación</h3>
+                            
+                            <div class="form-group">
+                                <label for="status" class="form-label">Estado de publicación</label>
+                                <div class="radio-group">
+                                    <label class="radio-item">
+                                        <input type="radio" name="status" value="draft" checked>
+                                        <span class="radio-mark"></span>
+                                        <span class="radio-label">
+                                            <strong>Borrador</strong>
+                                            <span class="option-description">Guardar sin publicar</span>
+                                        </span>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="status" value="pending">
+                                        <span class="radio-mark"></span>
+                                        <span class="radio-label">
+                                            <strong>Enviar para revisión</strong>
+                                            <span class="option-description">El equipo de ORIGINARIA revisará tu producto</span>
+                                        </span>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="status" value="published">
+                                        <span class="radio-mark"></span>
+                                        <span class="radio-label">
+                                            <strong>Publicar inmediatamente</strong>
+                                            <span class="option-description">Tu producto será visible en el marketplace</span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="scheduledDate" class="form-label">Programar publicación (opcional)</label>
+                                <input 
+                                    type="datetime-local" 
+                                    id="scheduledDate" 
+                                    name="scheduledDate" 
+                                    class="form-input"
+                                >
+                                <span class="form-hint">Deja vacío para publicar inmediatamente</span>
+                            </div>
+
+                            <div class="publication-summary">
+                                <h4>Resumen de publicación</h4>
+                                <div class="summary-grid">
+                                    <div class="summary-item">
+                                        <span class="summary-label">Comisión por venta:</span>
+                                        <span class="summary-value">15%</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">Tiempo de revisión:</span>
+                                        <span class="summary-value">24-48 horas</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">Soporte incluido:</span>
+                                        <span class="summary-value">Asesoría y marketing</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Navigation -->
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-outline" id="prevBtn" onclick="previousStep()" style="display: none;">
+                        <i class="fas fa-arrow-left"></i>
+                        Anterior
+                    </button>
+                    
+                    <div class="nav-spacer"></div>
+                    
+                    <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextStep()">
+                        Siguiente
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    
+                    <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">
+                        <i class="fas fa-check"></i>
+                        Crear Producto
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- User Menu Dropdown -->
+    <div class="user-menu-dropdown" id="userMenuDropdown">
+        <div class="user-menu-item">
+            <i class="fas fa-user"></i>
+            <span>Mi Perfil</span>
+        </div>
+        <div class="user-menu-item">
+            <i class="fas fa-cog"></i>
+            <span>Configuración</span>
+        </div>
+        <div class="user-menu-item">
+            <i class="fas fa-question-circle"></i>
+            <span>Ayuda</span>
+        </div>
+        <div class="user-menu-divider"></div>
+        <div class="user-menu-item logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Cerrar Sesión</span>
+        </div>
+    </div>
+
+    <!-- Notification Panel -->
+    <div class="notification-panel" id="notificationPanel">
+        <div class="notification-header">
+            <h3>Notificaciones</h3>
+            <button class="close-btn" onclick="hideNotifications()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="notification-list">
+            <div class="notification-item unread">
+                <div class="notification-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="notification-content">
+                    <h4>Consejo</h4>
+                    <p>Productos con al menos 3 imágenes venden 40% más</p>
+                    <span class="notification-time">Consejo del día</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/vendor.js"></script>
+    <script src="../../assets/js/components.js"></script>
+    
+    <script>
+        // Product form functionality
+        let currentStep = 1;
+        let totalSteps = 4;
+        let formData = {};
+        
+        // Subcategories data
+        const subcategories = {
+            cafe: ['Grano entero', 'Molido', 'Instantáneo', 'Cacao en polvo', 'Cacao en grano'],
+            granos: ['Quinua', 'Kiwicha', 'Chía', 'Lenteja', 'Frijoles', 'Arroz integral'],
+            frutas: ['Mermeladas', 'Frutas deshidratadas', 'Néctares', 'Miel', 'Encurtidos'],
+            lacteos: ['Quesos frescos', 'Quesos madurados', 'Yogurt', 'Mantequilla', 'Leche'],
+            condimentos: ['Sal', 'Especias', 'Hierbas aromáticas', 'Aderezos', 'Vinagres'],
+            bebidas: ['Infusiones', 'Jugos naturales', 'Bebidas fermentadas', 'Agua saborizada']
+        };
+        
+        // Initialize form
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeForm();
+            setupFormValidation();
+            setupEventListeners();
+        });
+        
+        function initializeForm() {
+            updateStepDisplay();
+            generateSKU();
+            setupCharacterCounters();
+        }
+        
+        function setupEventListeners() {
+            // Description character counter
+            document.getElementById('description').addEventListener('input', function() {
+                updateCharacterCount('description', 'descriptionCount', 500);
+            });
+            
+            // Auto SKU generation
+            document.getElementById('productName').addEventListener('input', generateSKU);
+            document.getElementById('category').addEventListener('change', generateSKU);
+        }
+        
+        function updateCharacterCount(textareaId, counterId, maxLength) {
+            const textarea = document.getElementById(textareaId);
+            const counter = document.getElementById(counterId);
+            const currentLength = textarea.value.length;
+            
+            counter.textContent = currentLength;
+            
+            if (currentLength > maxLength * 0.9) {
+                counter.style.color = '#F56565';
+            } else if (currentLength > maxLength * 0.7) {
+                counter.style.color = '#ED8936';
+            } else {
+                counter.style.color = '#4A5568';
+            }
+        }
+        
+        function generateSKU() {
+            const productName = document.getElementById('productName').value;
+            const category = document.getElementById('category').value;
+            
+            if (productName && category) {
+                const namePrefix = productName.substring(0, 3).toUpperCase();
+                const categoryPrefix = category.substring(0, 3).toUpperCase();
+                const randomNum = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+                
+                const sku = categoryPrefix + '-' + namePrefix + '-' + randomNum;
+                document.getElementById('productSku').value = sku;
+            }
+        }
+        
+        function updateSubcategories() {
+            const category = document.getElementById('category').value;
+            const subcategorySelect = document.getElementById('subcategory');
+            
+            // Clear existing options
+            subcategorySelect.innerHTML = '<option value="">Selecciona una subcategoría</option>';
+            
+            if (category && subcategories[category]) {
+                subcategorySelect.disabled = false;
+                
+                subcategories[category].forEach(sub => {
+                    const option = document.createElement('option');
+                    option.value = sub.toLowerCase().replace(/\s+/g, '_');
+                    option.textContent = sub;
+                    subcategorySelect.appendChild(option);
+                });
+            } else {
+                subcategorySelect.disabled = true;
+            }
+        }
+        
+        // Step navigation
+        function nextStep() {
+            if (validateCurrentStep()) {
+                saveStepData();
+                
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    updateStepDisplay();
+                }
+            }
+        }
+        
+        function previousStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateStepDisplay();
+            }
+        }
+        
+        function goToStep(stepNumber) {
+            if (stepNumber >= 1 && stepNumber <= totalSteps) {
+                currentStep = stepNumber;
+                updateStepDisplay();
+            }
+        }
+        
+        function updateStepDisplay() {
+            // Hide all steps
+            document.querySelectorAll('.form-step').forEach(step => {
+                step.classList.remove('active');
+            });
+            
+            // Show current step
+            document.getElementById('step' + currentStep).classList.add('active');
+            
+            // Update progress indicators
+            document.querySelectorAll('.progress-step').forEach((step, index) => {
+                const stepNumber = index + 1;
+                
+                step.classList.remove('active', 'completed');
+                
+                if (stepNumber < currentStep) {
+                    step.classList.add('completed');
+                } else if (stepNumber === currentStep) {
+                    step.classList.add('active');
+                }
+            });
+            
+            // Update progress bar
+            const progressPercentage = (currentStep / totalSteps) * 100;
+            document.querySelector('.progress-fill').style.width = progressPercentage + '%';
+            
+            // Update navigation buttons
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            prevBtn.style.display = currentStep > 1 ? 'flex' : 'none';
+            nextBtn.style.display = currentStep < totalSteps ? 'flex' : 'none';
+            submitBtn.style.display = currentStep === totalSteps ? 'flex' : 'none';
+            
+            // Add click handlers to progress steps
+            document.querySelectorAll('.progress-step').forEach((step, index) => {
+                step.onclick = () => goToStep(index + 1);
+                step.style.cursor = 'pointer';
+            });
+        }
+        
+        function validateCurrentStep() {
+            const currentStepElement = document.getElementById('step' + currentStep);
+            const requiredFields = currentStepElement.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    showFieldError(field, 'Este campo es obligatorio');
+                    isValid = false;
+                } else {
+                    clearFieldError(field);
+                }
+            });
+            
+            // Step-specific validation
+            if (currentStep === 2) {
+                isValid = validatePricingStep() && isValid;
+            } else if (currentStep === 3) {
+                isValid = validateImagesStep() && isValid;
+            }
+            
+            if (!isValid) {
+                showNotification('Por favor, completa todos los campos obligatorios', 'error');
+            }
+            
+            return isValid;
+        }
+        
+        function validatePricingStep() {
+            const price = parseFloat(document.getElementById('price').value);
+            const stock = parseInt(document.getElementById('stock').value);
+            
+            if (price <= 0) {
+                showFieldError(document.getElementById('price'), 'El precio debe ser mayor a 0');
+                return false;
+            }
+            
+            if (stock < 0) {
+                showFieldError(document.getElementById('stock'), 'El stock no puede ser negativo');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        function validateImagesStep() {
+            const mainImage = document.getElementById('mainImageInput');
+            if (!mainImage.files.length) {
+                showNotification('Por favor, sube al menos una imagen principal', 'warning');
+                return false;
+            }
+            return true;
+        }
+        
+        function saveStepData() {
+            const currentStepElement = document.getElementById('step' + currentStep);
+            const formData = new FormData(document.getElementById('productForm'));
+            
+            // Save current step data
+            // In a real application, you might save this to localStorage or send to server
+        }
+        
+        // Pricing calculator
+        function calculatePricing() {
+            const costPrice = parseFloat(document.getElementById('costPrice').value) || 0;
+            const markup = parseFloat(document.getElementById('markup').value) || 0;
+            
+            if (costPrice > 0 && markup > 0) {
+                const suggestedPrice = costPrice * (1 + markup / 100);
+                document.getElementById('price').value = suggestedPrice.toFixed(2);
+                calculateMargin();
+            }
+        }
+        
+        function calculateMargin() {
+            const costPrice = parseFloat(document.getElementById('costPrice').value) || 0;
+            const price = parseFloat(document.getElementById('price').value) || 0;
+            const commissionRate = 0.15; // 15% commission
+            
+            const commission = price * commissionRate;
+            const profit = price - costPrice - commission;
+            const margin = costPrice > 0 ? ((profit / costPrice) * 100) : 0;
+            
+            // Update summary
+            document.getElementById('summaryPrice').textContent = 'S/ ' + price.toFixed(2);
+            document.getElementById('summaryCost').textContent = 'S/ ' + costPrice.toFixed(2);
+            document.getElementById('summaryCommission').textContent = 'S/ ' + commission.toFixed(2);
+            document.getElementById('summaryProfit').textContent = 'S/ ' + profit.toFixed(2);
+            document.getElementById('summaryMargin').textContent = margin.toFixed(1) + '%';
+            
+            // Color coding for profit
+            const profitElement = document.getElementById('summaryProfit');
+            if (profit < 0) {
+                profitElement.style.color = '#F56565';
+            } else if (profit < costPrice * 0.2) {
+                profitElement.style.color = '#ED8936';
+            } else {
+                profitElement.style.color = '#48BB78';
+            }
+        }
+        
+        // Variations management
+        function toggleVariations() {
+            const checkbox = document.getElementById('hasVariations');
+            const content = document.getElementById('variationsContent');
+            
+            if (checkbox.checked) {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+                clearVariations();
+            }
+        }
+        
+        function addVariation() {
+            // Implementation for adding product variations
+            showNotification('Función de variaciones próximamente', 'info');
+        }
+        
+        function clearVariations() {
+            document.getElementById('variationsList').innerHTML = '';
+        }
+        
+        // Image handling
+        function triggerFileInput(inputId) {
+            document.getElementById(inputId).click();
+        }
+        
+        function handleImageUpload(input, type) {
+            const file = input.files[0];
+            if (!file) return;
+            
+            // Validate file
+            if (!file.type.startsWith('image/')) {
+                showNotification('Por favor selecciona un archivo de imagen válido', 'error');
+                return;
+            }
+            
+            if (file.size > 5 * 1024 * 1024) { // 5MB
+                showNotification('La imagen debe ser menor a 5MB', 'error');
+                return;
+            }
+            
+            // Create preview
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                createImagePreview(e.target.result, input, type);
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        function createImagePreview(src, input, type) {
+            const container = input.parentElement;
+            
+            // Clear existing preview
+            const existingPreview = container.querySelector('.image-preview');
+            if (existingPreview) {
+                existingPreview.remove();
+            }
+            
+            // Create preview element
+            const preview = document.createElement('div');
+            preview.className = 'image-preview';
+            preview.innerHTML = '<img src="' + src + '" alt="Preview"><div class="image-actions"><button type="button" class="btn btn-sm btn-outline" onclick="removeImage(this)"><i class="fas fa-trash"></i></button></div>';
+            
+            container.appendChild(preview);
+            
+            if (type === 'main') {
+                container.querySelector('.upload-placeholder').style.display = 'none';
+            }
+        }
+        
+        function removeImage(button) {
+            const preview = button.closest('.image-preview');
+            const container = preview.parentElement;
+            const input = container.querySelector('input[type="file"]');
+            
+            preview.remove();
+            input.value = '';
+            
+            // Show upload placeholder for main image
+            const placeholder = container.querySelector('.upload-placeholder');
+            if (placeholder) {
+                placeholder.style.display = 'flex';
+            }
+        }
+        
+        function requestPhotographyService() {
+            showNotification('Solicitud de servicio de fotografía enviada', 'success');
+            // Here you would implement the photography service request
+        }
+        
+        // Form actions
+        function saveDraft() {
+            showNotification('Borrador guardado exitosamente', 'success');
+            // Save draft logic here
+        }
+        
+        function previewProduct() {
+            // Open product preview in new window or modal
+            showNotification('Abriendo vista previa...', 'info');
+        }
+        
+        // Form submission
+        document.getElementById('productForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validateCurrentStep()) {
+                submitProduct();
+            }
+        });
+        
+        function submitProduct() {
+            const formData = new FormData(document.getElementById('productForm'));
+            const status = formData.get('status');
+            
+            showNotification('Creando producto...', 'info');
+            
+            // Simulate API call
+            setTimeout(() => {
+                let message = '';
+                switch (status) {
+                    case 'draft':
+                        message = 'Producto guardado como borrador';
+                        break;
+                    case 'pending':
+                        message = 'Producto enviado para revisión. Te notificaremos cuando sea aprobado.';
+                        break;
+                    case 'published':
+                        message = 'Producto publicado exitosamente en el marketplace';
+                        break;
+                }
+                
+                showNotification(message, 'success');
+                
+                // Redirect after success
+                setTimeout(() => {
+                    window.location.href = 'list.html';
+                }, 2000);
+            }, 2000);
+        }
+        
+        // Utility functions
+        function showFieldError(field, message) {
+            clearFieldError(field);
+            
+            field.classList.add('field-error');
+            
+            const errorElement = document.createElement('div');
+            errorElement.className = 'field-error-message';
+            errorElement.textContent = message;
+            
+            field.parentNode.insertBefore(errorElement, field.nextSibling);
+        }
+        
+        function clearFieldError(field) {
+            field.classList.remove('field-error');
+            const errorElement = field.parentNode.querySelector('.field-error-message');
+            if (errorElement) {
+                errorElement.remove();
+            }
+        }
+        
+        function showNotification(message, type = 'info') {
+            if (typeof Notifications !== 'undefined') {
+                Notifications.show(message, type);
+            }
+        }
+        
+        // Setup form validation
+        function setupFormValidation() {
+            // Add real-time validation for key fields
+            const priceField = document.getElementById('price');
+            priceField.addEventListener('blur', function() {
+                const price = parseFloat(this.value);
+                if (price <= 0) {
+                    showFieldError(this, 'El precio debe ser mayor a 0');
+                } else {
+                    clearFieldError(this);
+                }
+            });
+            
+            const stockField = document.getElementById('stock');
+            stockField.addEventListener('blur', function() {
+                const stock = parseInt(this.value);
+                if (stock < 0) {
+                    showFieldError(this, 'El stock no puede ser negativo');
+                } else {
+                    clearFieldError(this);
+                }
+            });
+        }
+        
+        function setupCharacterCounters() {
+            const description = document.getElementById('description');
+            if (description) {
+                description.addEventListener('input', function() {
+                    updateCharacterCount('description', 'descriptionCount', 500);
+                });
+            }
+        }
+        
+        // Sidebar toggle
+        function toggleSidebar() {
+            const sidebar = document.getElementById('vendorSidebar');
+            const main = document.querySelector('.vendor-main');
+            
+            sidebar.classList.toggle('collapsed');
+            main.classList.toggle('expanded');
+        }
+        
+        // User menu toggle
+        function toggleUserMenu() {
+            const dropdown = document.getElementById('userMenuDropdown');
+            dropdown.classList.toggle('show');
+        }
+        
+        // Notifications panel
+        function showNotifications() {
+            const panel = document.getElementById('notificationPanel');
+            panel.classList.add('show');
+        }
+        
+        function hideNotifications() {
+            const panel = document.getElementById('notificationPanel');
+            panel.classList.remove('show');
+        }
+        
+        // Support chat
+        function openSupport() {
+            showNotification('Conectando con soporte...', 'info');
+        }
+        
+        // Event listeners
+        document.addEventListener('click', function(e) {
+            // Close user menu if clicking outside
+            if (!e.target.closest('.user-menu') && !e.target.closest('.user-menu-dropdown')) {
+                document.getElementById('userMenuDropdown').classList.remove('show');
+            }
+            
+            // Close notifications if clicking outside
+            if (!e.target.closest('.notification-btn') && !e.target.closest('.notification-panel')) {
+                document.getElementById('notificationPanel').classList.remove('show');
+            }
+        });
+        
+        // Sidebar toggle button
+        document.getElementById('sidebarToggle').addEventListener('click', toggleSidebar);
+        
+        // Prevent form submission on Enter key in input fields
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && e.target.tagName === 'INPUT') {
+                e.preventDefault();
+                nextStep();
+            }
+        });
+    </script>
+    
+    <style>
+        /* Additional styles specific to add product form */
+        .form-progress {
+            margin-bottom: var(--space-8);
+        }
+        
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--space-4);
+        }
+        
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-2);
+            flex: 1;
+            position: relative;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        
+        .progress-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 16px;
+            left: 60%;
+            right: -40%;
+            height: 2px;
+            background-color: var(--color-gray-300);
+            z-index: -1;
+        }
+        
+        .progress-step.completed:not(:last-child)::after {
+            background-color: var(--vendor-primary);
+        }
+        
+        .step-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--color-gray-300);
+            color: var(--color-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: var(--text-sm);
+            transition: var(--transition-fast);
+        }
+        
+        .progress-step.active .step-number {
+            background-color: var(--vendor-primary);
+        }
+        
+        .progress-step.completed .step-number {
+            background-color: var(--vendor-success);
+        }
+        
+        .step-label {
+            font-size: var(--text-xs);
+            color: var(--color-gray-600);
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .progress-step.active .step-label {
+            color: var(--vendor-primary);
+            font-weight: 600;
+        }
+        
+        .progress-bar {
+            height: 4px;
+            background-color: var(--color-gray-200);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background-color: var(--vendor-primary);
+            transition: width 0.3s ease;
+        }
+        
+        .form-step {
+            display: none;
+        }
+        
+        .form-step.active {
+            display: block;
+        }
+        
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--space-8);
+            padding-top: var(--space-6);
+            border-top: 1px solid var(--color-gray-200);
+        }
+        
+        .nav-spacer {
+            flex: 1;
+        }
+        
+        .section-description {
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-6);
+        }
+        
+        .required::after {
+            content: ' *';
+            color: var(--vendor-danger);
+        }
+        
+        .form-hint {
+            font-size: var(--text-xs);
+            color: var(--color-gray-500);
+            margin-top: var(--space-1);
+            display: block;
+        }
+        
+        .character-count {
+            text-align: right;
+            font-size: var(--text-xs);
+            color: var(--color-gray-500);
+            margin-top: var(--space-1);
+        }
+        
+        .input-group {
+            display: flex;
+            align-items: center;
+        }
+        
+        .input-prefix, .input-suffix {
+            padding: var(--space-3);
+            background-color: var(--color-gray-100);
+            border: 1px solid var(--color-gray-300);
+            color: var(--color-gray-600);
+            font-weight: 500;
+            font-size: var(--text-sm);
+        }
+        
+        .input-prefix {
+            border-right: none;
+            border-radius: var(--radius-md) 0 0 var(--radius-md);
+        }
+        
+        .input-suffix {
+            border-left: none;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+        
+        .input-group .form-input {
+            border-radius: 0;
+        }
+        
+        .input-group .form-input:first-child {
+            border-radius: var(--radius-md) 0 0 var(--radius-md);
+        }
+        
+        .input-group .form-input:last-child {
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+        
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-3);
+        }
+        
+        .checkbox-item, .radio-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-3);
+            cursor: pointer;
+            padding: var(--space-3);
+            border-radius: var(--radius-md);
+            transition: var(--transition-fast);
+        }
+        
+        .checkbox-item:hover, .radio-item:hover {
+            background-color: var(--color-gray-50);
+        }
+        
+        .checkbox-mark, .radio-mark {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-sm);
+            position: relative;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .radio-mark {
+            border-radius: 50%;
+        }
+        
+        .checkbox-item input:checked + .checkbox-mark {
+            background-color: var(--vendor-primary);
+            border-color: var(--vendor-primary);
+        }
+        
+        .radio-item input:checked + .radio-mark {
+            background-color: var(--vendor-primary);
+            border-color: var(--vendor-primary);
+        }
+        
+        .checkbox-item input:checked + .checkbox-mark::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 2px;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .radio-item input:checked + .radio-mark::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: white;
+        }
+        
+        .checkbox-label, .radio-label {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-1);
+        }
+        
+        .option-description {
+            font-size: var(--text-xs);
+            color: var(--color-gray-500);
+        }
+        
+        .pricing-calculator {
+            background-color: var(--color-gray-50);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-6);
+        }
+        
+        .pricing-summary {
+            margin-top: var(--space-6);
+            padding: var(--space-4);
+            background-color: var(--color-white);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-200);
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-2) 0;
+        }
+        
+        .summary-item.highlight {
+            border-top: 1px solid var(--color-gray-200);
+            margin-top: var(--space-2);
+            padding-top: var(--space-3);
+            font-weight: 600;
+        }
+        
+        .summary-label {
+            color: var(--color-gray-600);
+        }
+        
+        .summary-value {
+            font-weight: 600;
+            color: var(--color-gray-800);
+        }
+        
+        .dimensions-input {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .dimensions-input .form-input {
+            width: 80px;
+        }
+        
+        .dimension-unit {
+            color: var(--color-gray-500);
+            font-size: var(--text-sm);
+        }
+        
+        .variations-container {
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+        }
+        
+        .variations-content {
+            margin-top: var(--space-4);
+            padding-top: var(--space-4);
+            border-top: 1px solid var(--color-gray-200);
+        }
+        
+        .variation-row {
+            display: flex;
+            gap: var(--space-4);
+            align-items: end;
+            margin-bottom: var(--space-4);
+        }
+        
+        .image-upload-area {
+            display: grid;
+            gap: var(--space-6);
+        }
+        
+        .main-image-upload {
+            grid-column: 1 / -1;
+        }
+        
+        .upload-zone {
+            border: 2px dashed var(--color-gray-300);
+            border-radius: var(--radius-lg);
+            padding: var(--space-8);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            background-color: var(--color-gray-50);
+        }
+        
+        .upload-zone:hover {
+            border-color: var(--vendor-primary);
+            background-color: var(--color-white);
+        }
+        
+        .upload-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        .upload-placeholder i {
+            font-size: var(--text-4xl);
+            color: var(--color-gray-400);
+        }
+        
+        .upload-placeholder h4 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--color-gray-700);
+            margin: 0;
+        }
+        
+        .upload-placeholder p {
+            color: var(--color-gray-600);
+            margin: 0;
+        }
+        
+        .upload-hint {
+            font-size: var(--text-xs);
+            color: var(--color-gray-500);
+        }
+        
+        .images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: var(--space-3);
+        }
+        
+        .upload-slot {
+            aspect-ratio: 1;
+            border: 2px dashed var(--color-gray-300);
+            border-radius: var(--radius-md);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            background-color: var(--color-gray-50);
+        }
+        
+        .upload-slot:hover {
+            border-color: var(--vendor-primary);
+            background-color: var(--color-white);
+        }
+        
+        .upload-slot i {
+            font-size: var(--text-xl);
+            color: var(--color-gray-400);
+        }
+        
+        .upload-slot span {
+            font-size: var(--text-xs);
+            color: var(--color-gray-600);
+            text-align: center;
+        }
+        
+        .image-preview {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+        
+        .image-preview img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .image-actions {
+            position: absolute;
+            top: var(--space-2);
+            right: var(--space-2);
+            display: flex;
+            gap: var(--space-1);
+        }
+        
+        .image-guidelines {
+            margin-top: var(--space-6);
+            padding: var(--space-4);
+            background-color: var(--color-blue-50);
+            border-radius: var(--radius-md);
+        }
+        
+        .image-guidelines h4 {
+            color: var(--color-blue-800);
+            margin-bottom: var(--space-3);
+        }
+        
+        .image-guidelines ul {
+            color: var(--color-blue-700);
+            margin-bottom: var(--space-4);
+        }
+        
+        .photography-service {
+            margin-top: var(--space-4);
+        }
+        
+        .service-card {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-4);
+            background-color: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-md);
+        }
+        
+        .service-card i {
+            font-size: var(--text-2xl);
+            color: var(--vendor-primary);
+        }
+        
+        .service-info {
+            flex: 1;
+        }
+        
+        .service-info h5 {
+            font-weight: 600;
+            margin-bottom: var(--space-1);
+        }
+        
+        .service-info p {
+            font-size: var(--text-sm);
+            color: var(--color-gray-600);
+            margin: 0;
+        }
+        
+        .shipping-options {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+        
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+        
+        .publication-summary {
+            margin-top: var(--space-6);
+            padding: var(--space-4);
+            background-color: var(--color-green-50);
+            border-radius: var(--radius-md);
+        }
+        
+        .publication-summary h4 {
+            color: var(--color-green-800);
+            margin-bottom: var(--space-4);
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-3);
+        }
+        
+        .field-error {
+            border-color: var(--vendor-danger) !important;
+        }
+        
+        .field-error-message {
+            color: var(--vendor-danger);
+            font-size: var(--text-xs);
+            margin-top: var(--space-1);
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .form-navigation {
+                flex-direction: column;
+                gap: var(--space-3);
+            }
+            
+            .nav-spacer {
+                display: none;
+            }
+            
+            .progress-steps {
+                flex-wrap: wrap;
+                gap: var(--space-2);
+            }
+            
+            .progress-step {
+                flex: none;
+                min-width: 120px;
+            }
+            
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .images-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</body>
+</html>

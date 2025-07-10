@@ -1,0 +1,553 @@
+<!--
+ * Archivo: public/about.html
+ * Descripción: Página "Nosotros" de ORIGINARIA
+ * Autor: Equipo ORIGINARIA
+ * Fecha: 2024
+ * Función: Presentación de la empresa, misión, visión, valores y equipo
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conoce la historia de ORIGINARIA - Conectamos productores orgánicos peruanos con consumidores conscientes">
+    <meta name="keywords" content="originaria, productos orgánicos, comercio justo, perú, sostenibilidad, agricultura">
+    <title>Nosotros | ORIGINARIA - Donde lo natural conecta todo lo nuestro</title>
+    
+    <!-- CSS Principal + Específico de About -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/public.css">
+    <link rel="stylesheet" href="../assets/css/about.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-public">
+        <nav class="nav-container">
+            <div class="container">
+                <div class="nav-content">
+                    <!-- Logo -->
+                    <div class="logo-section">
+                        <a href="index.html">
+                            <div class="logo-placeholder">
+                                <img src="../assets/images/logos/LogoOriginaria01.png" alt="ORIGINARIA" class="logo">
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <ul class="nav-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="marketplace.html">Productos</a></li>
+                        <li><a href="about.html" class="active">Nosotros</a></li>
+                        <li><a href="why-sell-with-us.html" class="nav-highlight">Vende con Nosotros</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                    </ul>
+
+                    <!-- User Actions -->
+                    <div class="user-actions">
+                        <a href="login.html" class="btn btn-outline btn-sm">Iniciar Sesión</a>
+                        <a href="register.html" class="btn btn-primary btn-sm">Registrarse</a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="hero-background">
+            <img src="../assets/images/about-hero.jpg" alt="Productores peruanos trabajando en el campo" onerror="this.style.display='none'">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Donde lo natural conecta todo lo nuestro</h1>
+                <p class="hero-subtitle">
+                    Somos el puente que une a los productores orgánicos peruanos con consumidores conscientes, 
+                    creando un impacto positivo en nuestras comunidades y medio ambiente.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">45+</span>
+                        <span class="stat-label">Productores Unidos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1,200+</span>
+                        <span class="stat-label">Familias Beneficiadas</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">18</span>
+                        <span class="stat-label">Regiones del Perú</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="our-story">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-content">
+                    <h2 class="section-title">Nuestra Historia</h2>
+                    <div class="story-text">
+                        <p class="lead">
+                            ORIGINARIA nació en 2022 como respuesta a una necesidad urgente: conectar la riqueza agrícola 
+                            del Perú con consumidores que valoran la calidad, la sostenibilidad y el comercio justo.
+                        </p>
+                        <p>
+                            Fundada por un equipo de estudiantes de la Universidad Nacional Mayor de San Marcos, 
+                            ORIGINARIA surgió al observar que muchos productores orgánicos peruanos tenían productos 
+                            excepcionales pero limitado acceso a mercados urbanos.
+                        </p>
+                        <p>
+                            Hoy, somos más que un marketplace. Somos una comunidad que celebra la agricultura peruana, 
+                            empodera a nuestros productores y ofrece a las familias acceso directo a alimentos 
+                            nutritivos y sostenibles.
+                        </p>
+                    </div>
+                </div>
+                <div class="story-image">
+                    <img src="../assets/images/products/productor01.jpg" alt="ORIGINARIA" >
+                    <div class="image-caption">
+                        Nuestro equipo fundador visitando productores en Cusco
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Vision Values -->
+    <section class="mission-vision-values">
+        <div class="container">
+            <div class="mvv-grid">
+                <div class="mvv-card mission">
+                    <div class="mvv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Nuestra Misión</h3>
+                    <p>
+                        Conectar a productores orgánicos peruanos con consumidores conscientes a través de una 
+                        plataforma digital que garantiza comercio justo, productos de calidad y sostenibilidad ambiental.
+                    </p>
+                </div>
+
+                <div class="mvv-card vision">
+                    <div class="mvv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Nuestra Visión</h3>
+                    <p>
+                        Ser el marketplace líder de productos orgánicos en Perú, reconocido por empoderar a 
+                        comunidades rurales y promover el consumo responsable en todo el país.
+                    </p>
+                </div>
+
+                <div class="mvv-card values">
+                    <div class="mvv-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Nuestros Valores</h3>
+                    <ul>
+                        <li><strong>Transparencia:</strong> Información clara sobre origen y procesos</li>
+                        <li><strong>Sostenibilidad:</strong> Cuidado del medio ambiente</li>
+                        <li><strong>Comercio Justo:</strong> Precios justos para productores</li>
+                        <li><strong>Calidad:</strong> Productos excepcionales certificados</li>
+                        <li><strong>Comunidad:</strong> Fortalecimiento de lazos sociales</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestro Impacto</h2>
+                <p class="section-subtitle">
+                    Cada compra genera un impacto positivo en las comunidades rurales del Perú
+                </p>
+            </div>
+            
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="impact-stats">
+                        <span class="impact-number">45+</span>
+                        <span class="impact-label">Productores Asociados</span>
+                    </div>
+                    <p class="impact-description">
+                        Trabajamos directamente con productores de 18 regiones del Perú, 
+                        garantizando precios justos y relaciones a largo plazo.
+                    </p>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="impact-stats">
+                        <span class="impact-number">500+</span>
+                        <span class="impact-label">Hectáreas Orgánicas</span>
+                    </div>
+                    <p class="impact-description">
+                        Promovemos la agricultura orgánica que conserva la biodiversidad 
+                        y protege los ecosistemas naturales.
+                    </p>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="impact-stats">
+                        <span class="impact-number">S/ 2.5M</span>
+                        <span class="impact-label">Ingresos Generados</span>
+                    </div>
+                    <p class="impact-description">
+                        Hemos facilitado más de 2.5 millones de soles en ventas directas 
+                        para nuestras familias productoras.
+                    </p>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="impact-stats">
+                        <span class="impact-number">120</span>
+                        <span class="impact-label">Capacitaciones Realizadas</span>
+                    </div>
+                    <p class="impact-description">
+                        Ofrecemos capacitación continua en técnicas orgánicas, 
+                        marketing digital y gestión empresarial.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestro Equipo</h2>
+                <p class="section-subtitle">
+                    Conoce a las personas apasionadas que hacen posible ORIGINARIA
+                </p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <!-- Placeholder en lugar de imagen que no existe -->
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: #6B8E23; color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2rem; font-weight: bold;">AR</div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Ana Rodríguez</h3>
+                        <p class="member-role">CEO & Cofundadora</p>
+                        <p class="member-description">
+                            Ingeniera Industrial con pasión por el emprendimiento social. 
+                            Lidera la visión estratégica de ORIGINARIA.
+                        </p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-image">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: #6B8E23; color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2rem; font-weight: bold;">CM</div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Carlos Mendoza</h3>
+                        <p class="member-role">CTO & Cofundador</p>
+                        <p class="member-description">
+                            Desarrollador con experiencia en e-commerce. Responsable de 
+                            la plataforma tecnológica y la experiencia del usuario.
+                        </p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-image">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: #6B8E23; color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2rem; font-weight: bold;">MT</div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">María Torres</h3>
+                        <p class="member-role">Directora de Operaciones</p>
+                        <p class="member-description">
+                            Especialista en cadena de suministro y logística. Gestiona las 
+                            relaciones con productores y la distribución.
+                        </p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-image">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: #6B8E23; color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2rem; font-weight: bold;">LP</div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Luis Paredes</h3>
+                        <p class="member-role">Director de Marketing</p>
+                        <p class="member-description">
+                            Comunicador social especializado en marketing digital y 
+                            comunicación para el desarrollo sostenible.
+                        </p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Certificaciones y Reconocimientos</h2>
+                <p class="section-subtitle">
+                    Nuestro compromiso con la calidad está respaldado por certificaciones reconocidas
+                </p>
+            </div>
+            
+            <div class="certifications-grid">
+                <div class="certification-item">
+                    <div class="cert-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4>SENASA Orgánico</h4>
+                    <p>Certificación oficial para productos orgánicos en Perú</p>
+                </div>
+
+                <div class="certification-item">
+                    <div class="cert-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4>Comercio Justo</h4>
+                    <p>Garantía de precios justos y condiciones éticas</p>
+                </div>
+
+                <div class="certification-item">
+                    <div class="cert-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h4>Mejor Startup Social</h4>
+                    <p>Premio UNMSM Emprendimiento 2023</p>
+                </div>
+
+                <div class="certification-item">
+                    <div class="cert-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>ISO 9001</h4>
+                    <p>Sistema de gestión de calidad certificado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Listo para ser parte del cambio?</h2>
+                <p>
+                    Únete a nuestra comunidad y disfruta de productos orgánicos excepcionales 
+                    mientras apoyas a las familias productoras del Perú.
+                </p>
+                <div class="cta-buttons">
+                    <a href="marketplace.html" class="btn btn-primary btn-large">
+                        Explorar Productos
+                    </a>
+                    <a href="register.html" class="btn btn-outline btn-large">
+                        Crear Cuenta
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo-placeholder">
+                        <img src="../assets/images/logos/LogoOriginaria01.png" alt="ORIGINARIA" class="logo">
+                    </div>
+                    <p>Conectando lo natural con lo nuestro. Marketplace de productos orgánicos del Perú.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Empresa</h3>
+                    <ul>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                        <li><a href="careers.html">Trabaja con nosotros</a></li>
+                        <li><a href="press.html">Prensa</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Productos</h3>
+                    <ul>
+                        <li><a href="marketplace.html">Marketplace</a></li>
+                        <li><a href="marketplace.html?category=coffee">Café</a></li>
+                        <li><a href="marketplace.html?category=quinoa">Quinua</a></li>
+                        <li><a href="marketplace.html?category=honey">Miel</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Vendedores</h3>
+                    <ul>
+                        <li><a href="why-sell-with-us.html">Vende con nosotros</a></li>
+                        <li><a href="vendor-guide.html">Guía del vendedor</a></li>
+                        <li><a href="vendor-support.html">Soporte</a></li>
+                        <li><a href="vendor-fees.html">Tarifas</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Ayuda</h3>
+                    <ul>
+                        <li><a href="faq.html">Preguntas frecuentes</a></li>
+                        <li><a href="shipping.html">Envíos</a></li>
+                        <li><a href="returns.html">Devoluciones</a></li>
+                        <li><a href="privacy.html">Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 ORIGINARIA. Todos los derechos reservados.</p>
+                    <div class="footer-bottom-links">
+                        <a href="terms.html">Términos de uso</a>
+                        <a href="privacy.html">Política de privacidad</a>
+                        <a href="cookies.html">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript con rutas corregidas -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/public.js"></script>
+    
+    <script>
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            alert('Mostrar menú móvil (funcionalidad de demo)');
+        }
+
+        // Cart functionality
+        function toggleCart() {
+            alert('Mostrar carrito (funcionalidad de demo)');
+        }
+
+        // Search functionality
+        document.getElementById('headerSearch').addEventListener('input', function(e) {
+            if (e.target.value.length > 2) {
+                console.log('Buscando:', e.target.value);
+            }
+        });
+
+        // Scroll animations
+        function animateOnScroll() {
+            const sections = document.querySelectorAll('section');
+            const windowHeight = window.innerHeight;
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                
+                if (sectionTop < windowHeight * 0.8) {
+                    section.classList.add('animate-in');
+                }
+            });
+        }
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            animateOnScroll();
+            
+            // Animate stats on scroll
+            const stats = document.querySelectorAll('.stat-number, .impact-number');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateNumber(entry.target);
+                    }
+                });
+            });
+            
+            stats.forEach(stat => observer.observe(stat));
+        });
+
+        // Number animation
+        function animateNumber(element) {
+            const finalNumber = element.textContent;
+            const number = parseInt(finalNumber.replace(/\D/g, ''));
+            const prefix = finalNumber.match(/^[^\d]*/)[0];
+            const suffix = finalNumber.match(/[^\d]*$/)[0];
+            
+            let current = 0;
+            const increment = number / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= number) {
+                    current = number;
+                    clearInterval(timer);
+                }
+                element.textContent = prefix + Math.floor(current) + suffix;
+            }, 30);
+        }
+
+        // Scroll event listener
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Page initialization
+        console.log('Página "Nosotros" cargada correctamente');
+    </script>
+</body>
+</html>

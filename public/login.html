@@ -1,0 +1,312 @@
+<!--
+ * Archivo: public/login.html
+ * Descripción: Página de inicio de sesión para consumidores y vendedores de ORIGINARIA
+ * Autor: Equipo ORIGINARIA
+ * Fecha: 2024
+ * Función: Autenticación de usuarios con opciones diferenciadas para compradores y vendedores
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Inicia sesión en ORIGINARIA - Marketplace de productos orgánicos del Perú">
+    <title>Iniciar Sesión | ORIGINARIA</title>
+    
+    <!-- CSS con rutas corregidas -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/public.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="auth-page">
+    <!-- Header simplificado para páginas de auth -->
+    <header class="auth-header">
+        <nav class="auth-nav">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="logo-section">
+                        <a href="index.html" class="logo-link">
+                            <div class="logo-placeholder">
+                                <img src="../assets/images/logos/LogoOriginaria01.png" alt="ORIGINARIA" class="logo">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="nav-links">
+                        <a href="index.html" class="nav-link">
+                            <i class="fas fa-arrow-left"></i>
+                            Volver al inicio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Login Main Content -->
+    <main class="auth-main">
+        <div class="auth-container">
+            <!-- Login Form Section -->
+            <div class="auth-content">
+                <div class="auth-card">
+                    <!-- Form Header -->
+                    <div class="auth-header-content">
+                        <h1 class="auth-title">¡Bienvenido de vuelta!</h1>
+                        <p class="auth-subtitle">Inicia sesión para acceder a productos orgánicos excepcionales</p>
+                    </div>
+
+                    <!-- Login Form -->
+                    <form class="auth-form" id="loginForm" onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Correo electrónico</label>
+                            <div class="input-group">
+                                <i class="fas fa-envelope input-icon"></i>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    class="form-input" 
+                                    placeholder="tu@email.com"
+                                    required
+                                    autocomplete="email"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <div class="input-group">
+                                <i class="fas fa-lock input-icon"></i>
+                                <input 
+                                    type="password" 
+                                    id="password" 
+                                    name="password" 
+                                    class="form-input" 
+                                    placeholder="Tu contraseña"
+                                    required
+                                    autocomplete="current-password"
+                                >
+                                <button type="button" class="password-toggle" onclick="togglePassword('password')">
+                                    <i class="fas fa-eye" id="passwordToggleIcon"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="rememberMe" name="rememberMe">
+                                <span class="checkbox-custom"></span>
+                                Recordarme
+                            </label>
+                            
+                            <a href="forgot-password.html" class="forgot-password">
+                                ¿Olvidaste tu contraseña?
+                            </a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" id="loginButton">
+                            <span class="btn-text">Iniciar Sesión</span>
+                            <span class="btn-loader hidden">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </span>
+                        </button>
+                    </form>
+
+                    <!-- Social Login -->
+                    <div class="social-login">
+                        <div class="divider">
+                            <span>O inicia sesión con</span>
+                        </div>
+                        
+                        <div class="social-buttons">
+                            <button class="btn btn-social btn-google" onclick="loginWithGoogle()">
+                                <i class="fab fa-google"></i>
+                                Continuar con Google
+                            </button>
+                            <button class="btn btn-social btn-facebook" onclick="loginWithFacebook()">
+                                <i class="fab fa-facebook-f"></i>
+                                Continuar con Facebook
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Register Link -->
+                    <div class="auth-footer">
+                        <p class="register-prompt">
+                            ¿No tienes cuenta? 
+                            <a href="register.html" class="register-link">Regístrate gratis</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefits Section -->
+            <div class="auth-benefits">
+                <div class="benefits-content">
+                    <div class="benefits-header">
+                        <h2>Tu marketplace de confianza</h2>
+                        <p>Más de 1,200 usuarios confían en nosotros</p>
+                    </div>
+
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Compras Seguras</h3>
+                                <p>Protección total en todas tus transacciones</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Productos Certificados</h3>
+                                <p>Garantía de calidad y origen orgánico</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Entrega Rápida</h3>
+                                <p>Envíos seguros a todo el país</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Soporte 24/7</h3>
+                                <p>Estamos aquí para ayudarte siempre</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="stats-section">
+                        <div class="stat-item">
+                            <div class="stat-number">45+</div>
+                            <div class="stat-label">Productores</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">150+</div>
+                            <div class="stat-label">Productos</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1,200+</div>
+                            <div class="stat-label">Usuarios</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Satisfacción</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/public.js"></script>
+    
+    <script>
+        // Toggle password visibility
+        function togglePassword(fieldId) {
+            const passwordInput = document.getElementById(fieldId);
+            const toggleIcon = document.getElementById(fieldId + 'ToggleIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+
+        // Handle login form submission
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            // Show loading state
+            const button = document.getElementById('loginButton');
+            const btnText = button.querySelector('.btn-text');
+            const btnLoader = button.querySelector('.btn-loader');
+            
+            button.disabled = true;
+            btnText.classList.add('hidden');
+            btnLoader.classList.remove('hidden');
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const loginData = Object.fromEntries(formData.entries());
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Simulate successful login
+                alert('¡Inicio de sesión exitoso! Bienvenido a ORIGINARIA');
+                
+                // Redirect to marketplace or dashboard based on user type
+                // For demo, redirect to marketplace
+                window.location.href = 'marketplace.html';
+                
+                // Reset button state (in case of error)
+                button.disabled = false;
+                btnText.classList.remove('hidden');
+                btnLoader.classList.add('hidden');
+            }, 2000);
+        }
+
+        // Social login functions
+        function loginWithGoogle() {
+            alert('Inicio de sesión con Google (Demo)');
+        }
+
+        function loginWithFacebook() {
+            alert('Inicio de sesión con Facebook (Demo)');
+        }
+
+        // Auto-focus email field
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('email').focus();
+            
+            // Check for URL parameters (e.g., from registration)
+            const urlParams = new URLSearchParams(window.location.search);
+            const message = urlParams.get('message');
+            
+            if (message === 'registered') {
+                alert('¡Registro exitoso! Ahora puedes iniciar sesión.');
+            }
+        });
+
+        // Form validation
+        document.getElementById('loginForm').addEventListener('input', function(e) {
+            const target = e.target;
+            
+            // Remove error state on input
+            if (target.classList.contains('error')) {
+                target.classList.remove('error');
+            }
+        });
+    </script>
+</body>
+</html>
