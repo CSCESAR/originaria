@@ -1,9 +1,9 @@
 <!--
  * Archivo: admin/dashboard.html
- * Descripci�n: Panel administrativo principal para ORIGINARIA
+ * Descripción: Panel administrativo principal para ORIGINARIA
  * Autor: Equipo ORIGINARIA
  * Fecha: 2024
- * Funci�n: Gesti�n completa del marketplace, vendedores, productos y m�tricas
+ * Función: Gestión completa del marketplace, vendedores, productos y métricas
 -->
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Panel Administrativo ORIGINARIA - Gesti�n del marketplace">
+    <meta name="description" content="Panel Administrativo ORIGINARIA - Gestión del marketplace">
     <title>Dashboard Administrativo | ORIGINARIA</title>
     
     <!-- CSS -->
@@ -115,7 +115,7 @@
                 </div>
                 
                 <div class="nav-section">
-                    <h3 class="nav-section-title">Gesti�n</h3>
+                    <h3 class="nav-section-title">Gestión</h3>
                     <ul class="nav-list">
                         <li class="nav-item">
                             <a href="users.html" class="nav-link">
@@ -126,13 +126,13 @@
                         <li class="nav-item">
                             <a href="categories.html" class="nav-link">
                                 <i class="fas fa-tags"></i>
-                                <span>Categor�as</span>
+                                <span>Categorías</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="reviews.html" class="nav-link">
                                 <i class="fas fa-star"></i>
-                                <span>Rese�as</span>
+                                <span>Reseñas</span>
                             </a>
                         </li>
                     </ul>
@@ -144,7 +144,7 @@
                         <li class="nav-item">
                             <a href="analytics.html" class="nav-link">
                                 <i class="fas fa-chart-line"></i>
-                                <span>M�tricas</span>
+                                <span>Métricas</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -162,7 +162,7 @@
                         <li class="nav-item">
                             <a href="settings.html" class="nav-link">
                                 <i class="fas fa-cog"></i>
-                                <span>Configuraci�n</span>
+                                <span>Configuración</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -185,7 +185,7 @@
             <div class="page-header">
                 <div class="page-title">
                     <h1>Dashboard Administrativo</h1>
-                    <p>Visi�n general del marketplace ORIGINARIA</p>
+                    <p>Visión general del marketplace ORIGINARIA</p>
                 </div>
                 <div class="page-actions">
                     <button class="btn btn-outline btn-sm" onclick="exportData()">
@@ -194,7 +194,7 @@
                     </button>
                     <button class="btn btn-primary btn-sm" onclick="showQuickActions()">
                         <i class="fas fa-plus"></i>
-                        Acci�n R�pida
+                        Acción Rápida
                     </button>
                 </div>
             </div>
@@ -293,9 +293,9 @@
                         <h3>Ventas Mensuales</h3>
                         <div class="chart-controls">
                             <select class="chart-period">
-                                <option value="6m">�ltimos 6 meses</option>
-                                <option value="3m">�ltimos 3 meses</option>
-                                <option value="1m">�ltimo mes</option>
+                                <option value="6m">Últimos 6 meses</option>
+                                <option value="3m">Últimos 3 meses</option>
+                                <option value="1m">Último mes</option>
                             </select>
                         </div>
                     </div>
@@ -306,7 +306,7 @@
 
                 <div class="chart-card">
                     <div class="chart-header">
-                        <h3>Distribuci�n por Categor�as</h3>
+                        <h3>Distribución por Categorías</h3>
                     </div>
                     <div class="chart-content">
                         <canvas id="categoriesChart"></canvas>
@@ -327,7 +327,7 @@
                             <div class="order-item">
                                 <div class="order-info">
                                     <div class="order-id">#ORD-2024-001</div>
-                                    <div class="order-customer">Mar�a Gonz�lez</div>
+                                    <div class="order-customer">María González</div>
                                     <div class="order-date">Hace 2 horas</div>
                                 </div>
                                 <div class="order-amount">S/ 125.50</div>
@@ -382,7 +382,7 @@
                                 </div>
                                 <div class="vendor-info">
                                     <div class="vendor-name">Roberto Gomez</div>
-                                    <div class="vendor-store">Caf� Andino Los Andes</div>
+                                    <div class="vendor-store">Café Andino Los Andes</div>
                                     <div class="vendor-location">Cusco</div>
                                 </div>
                                 <div class="vendor-stats">
@@ -398,7 +398,7 @@
                                     <div class="avatar-placeholder">MP</div>
                                 </div>
                                 <div class="vendor-info">
-                                    <div class="vendor-name">Mar�a Quispe</div>
+                                    <div class="vendor-name">María Quispe</div>
                                     <div class="vendor-store">Quinua Real del Altiplano</div>
                                     <div class="vendor-location">Puno</div>
                                 </div>
@@ -415,7 +415,7 @@
                                     <div class="avatar-placeholder">JH</div>
                                 </div>
                                 <div class="vendor-info">
-                                    <div class="vendor-name">Jorge Huam�n</div>
+                                    <div class="vendor-name">Jorge Huamán</div>
                                     <div class="vendor-store">Miel de Abeja Natural</div>
                                     <div class="vendor-location">Ayacucho</div>
                                 </div>
@@ -454,7 +454,7 @@
                                 </div>
                                 <div class="alert-content">
                                     <div class="alert-title">Nuevo Vendedor</div>
-                                    <div class="alert-message">Pablo Vargas solicit� unirse al marketplace</div>
+                                    <div class="alert-message">Pablo Vargas solicitó unirse al marketplace</div>
                                     <div class="alert-time">Hace 3 horas</div>
                                 </div>
                             </div>
@@ -465,7 +465,7 @@
                                 </div>
                                 <div class="alert-content">
                                     <div class="alert-title">Respaldo Completado</div>
-                                    <div class="alert-message">Respaldo autom�tico ejecutado exitosamente</div>
+                                    <div class="alert-message">Respaldo automático ejecutado exitosamente</div>
                                     <div class="alert-time">Hace 6 horas</div>
                                 </div>
                             </div>
@@ -476,7 +476,7 @@
                 <!-- Quick Actions -->
                 <div class="dashboard-card">
                     <div class="card-header">
-                        <h3>Acciones R�pidas</h3>
+                        <h3>Acciones Rápidas</h3>
                     </div>
                     <div class="card-content">
                         <div class="quick-actions-grid">
@@ -487,12 +487,12 @@
                             
                             <button class="quick-action-item" onclick="createPromotion()">
                                 <i class="fas fa-tag"></i>
-                                <span>Crear Promoci�n</span>
+                                <span>Crear Promoción</span>
                             </button>
                             
                             <button class="quick-action-item" onclick="sendNotification()">
                                 <i class="fas fa-bullhorn"></i>
-                                <span>Enviar Notificaci�n</span>
+                                <span>Enviar Notificación</span>
                             </button>
                             
                             <button class="quick-action-item" onclick="generateReport()">
@@ -563,7 +563,7 @@
         const categoriesChart = new Chart(categoriesCtx, {
             type: 'doughnut',
             data: {
-                labels: ['Caf�', 'Quinua', 'Cacao', 'Miel', 'Cereales', 'Otros'],
+                labels: ['Café', 'Quinua', 'Cacao', 'Miel', 'Cereales', 'Otros'],
                 datasets: [{
                     data: [35, 25, 15, 12, 8, 5],
                     backgroundColor: [
@@ -610,7 +610,7 @@
         }
 
         function showQuickActions() {
-            alert('Mostrando men� de acciones r�pidas...');
+            alert('Mostrando menú de acciones rápidas...');
         }
 
         function showNotifications() {
@@ -618,7 +618,7 @@
         }
 
         function toggleUserMenu() {
-            alert('Mostrando men� de usuario...');
+            alert('Mostrando menú de usuario...');
         }
 
         // Search functionality
@@ -629,7 +629,7 @@
 
         // Auto-update dashboard data every 30 seconds
         setInterval(function() {
-            console.log('Actualizando m�tricas del dashboard...');
+            console.log('Actualizando métricas del dashboard...');
         }, 30000);
 
         // Initialize tooltips and interactive elements
