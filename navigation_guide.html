@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Navegación - ORIGINARIA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #4A7023 0%, #2d4015 100%);
+            color: white;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #E7DCC8;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            margin-bottom: 50px;
+            opacity: 0.9;
+        }
+
+        .navigation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .nav-section {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #E7DCC8;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-link {
+            display: block;
+            background: rgba(255,255,255,0.2);
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: #E7DCC8;
+            transform: translateY(-2px);
+        }
+
+        .link-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .link-url {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            word-break: break-all;
+        }
+
+        .link-description {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+
+        .priority-high {
+            border-left: 5px solid #D97741;
+        }
+
+        .priority-medium {
+            border-left: 5px solid #E7DCC8;
+        }
+
+        .presentation-tips {
+            background: rgba(217, 151, 65, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            border: 2px solid #D97741;
+        }
+
+        .tips-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #D97741;
+        }
+
+        .tip-item {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .tip-item:last-child {
+            border-bottom: none;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .status-complete {
+            background: #28a745;
+            color: white;
+        }
+
+        .status-progress {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .status-pending {
+            background: #6c757d;
+            color: white;
+        }
+
+        .demo-flow {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .flow-step:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #D97741;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 20px;
+        }
+
+        .copy-btn {
+            background: #D97741;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-left: 10px;
+            transition: background 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: #c86a36;
+        }
+
+        @media (max-width: 768px) {
+            .navigation-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .link-url {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌱 GUÍA DE NAVEGACIÓN</h1>
+        <p class="subtitle">Enlaces directos para la presentación en vivo de ORIGINARIA</p>
+
+        <div class="navigation-grid">
+            <!-- Páginas Públicas -->
+            <div class="nav-section">
+                <h3 class="section-title">
+                    🌐 Páginas Públicas
+                    <span class="status-badge status-complete">Completo</span>
+                </h3>
+                
+                <a href="https://cscesar.github.io/originaria" target="_blank" class="nav-link priority-high">
+                    <div class="link-title">Landing Principal</div>
+                    <div class="link-url">cscesar.github.io/originaria</div>
+                    <div class="link-description">Página de inicio con propuesta de valor</div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://cscesar.github.io/originaria')">Copiar</button>
+                </a>
+
+                <a href="https://cscesar.github.io/originaria/public/why-sell-with-us.html" target="_blank" class="nav-link priority-high">
+                    <div class="link-title">¿Por qué vender con nosotros?</div>
+                    <div class="link-url">cscesar.github.io/originaria/public/why-sell-with-us.html</div>
+                    <div class="link-description">🎯 Página clave para convencer productores</div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://cscesar.github.io/originaria/public/why-sell-with-us.html')">Copiar</button>
+                </a>
+
+                <a href="https://cscesar.github.io/originaria/public/marketplace.html" target="_blank" class="nav-link priority-medium">
+                    <div class="link-title">Marketplace</div>
+                    <div class="link-url">cscesar.github.io/originaria/public/marketplace.html</div>
+                    <div class="link-description">Catálogo de productos orgánicos</div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://cscesar.github.io/originaria/public/marketplace.html')">Copiar</button>
+                </a>
+
+                <a href="https://cscesar.github.io/originaria/public/about.html" target="_blank" class="nav-link">
+                    <div class="link-title">Nosotros</div>
+                    <div class="link-url">cscesar.github.io/originaria/public/about.html</div>
+                    <div class="link-description">Historia y misión de ORIGINARIA</div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://cscesar.github.io/originaria/public/about.html')">Copiar</button>
+                </a>
+            </div>
+
+            <!-- Panel Vendedor -->
+            <div class="nav-section">
+                <h3 class="section-title">
+                    🛒 Panel Vendedor
+                    <span class="status-badge status-progress">En Progreso</span>
+                </h3>
+                
+                <a href="https://cscesar.github.io/originaria/vendor/dashboard.html" target="_blank" class="nav-link priority-high">
+                    <div class="link-title">Dashboard Vendedor</div>
+                    <div class="link-url">cscesar.github.io/originaria/vendor/dashboard.html</div>
+                    <div class="link-description">🎯 Panel principal con estadísticas y servicios</div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://cscesar.github.io/originaria/vendor/dashboard.html')">Copiar</button>
+                </a>
+
+                <a href="https://cscesar.github.io/originaria/vendor/products/list.html" target="_blank" class="nav-link">
+                    <div class="link-title">Mis Productos</div>
+                    <div class="link-url">cscesar.github.io/originaria/vendor/products/list.html</div>
+                    <div class="link-description">Gestión de productos del vendedor</div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://cscesar.github.io/originaria/vendor/products/list.html')">Copiar</button>
+                </a>
+
+                <a href="https://cscesar.github.io/originaria/vendor/services/cost-advisory.html" target="_blank" class="nav-link priority-high">
+                    <div class="link-title">Asesoría en Costos</div>
+                    <div class="link-url">cscesar.github.io/originaria/vendor/services/cost-advisory.html</div>
+                    <div class="link-description">⭐ Servicio diferenciador de ORIGINARIA</div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://cscesar.github.io/originaria/vendor/services/cost-advisory.html')">Copiar</button>
+                </a>
+
+                <a href="https://cscesar.github.io/originaria/vendor/onboarding/welcome.html" target="_blank" class="nav-link">
+                    <div class="link-title">Proceso de Bienvenida</div>
+                    <div class="link-url">cscesar.github.io/originaria/vendor/onboarding/welcome.html</div>
+                    <div class="link-description">Onboarding para nuevos vendedores</div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://cscesar.github.io/originaria/vendor/onboarding/welcome.html')">Copiar</button>
+                </a>
+            </div>
+
+            <!-- Panel Admin -->
+            <div class="nav-section">
+                <h3 class="section-title">
+                    ⚙️ Panel Administrador
+                    <span class="status-badge status-pending">Pendiente</span>
+                </h3>
+                
+                <a href="https://cscesar.github.io/originaria/admin/dashboard.html" target="_blank" class="nav-link">
+                    <div class="link-title">Dashboard Admin</div>
+                    <div class="link-url">cscesar.github.io/originaria/admin/dashboard.html</div>
+                    <div class="link-description">Panel de administración general</div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://cscesar.github.io/originaria/admin/dashboard.html')">Copiar</button>
+                </a>
+
+                <a href="https://cscesar.github.io/originaria/admin/users/vendors.html" target="_blank" class="nav-link">
+                    <div class="link-title">Gestión de Vendedores</div>
+                    <div class="link-url">cscesar.github.io/originaria/admin/users/vendors.html</div>
+                    <div class="link-description">Administración de productores</div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://cscesar.github.io/originaria/admin/users/vendors.html')">Copiar</button>
+                </a>
+            </div>
+        </div>
+
+        <!-- Flujo de Presentación -->
+        <div class="demo-flow">
+            <h3 class="section-title">🎯 Flujo Recomendado para Presentación</h3>
+            
+            <div class="flow-step">
+                <div class="step-number">1</div>
+                <div>
+                    <strong>Inicio:</strong> Landing principal - Mostrar propuesta de valor
+                    <br><span style="opacity: 0.8; font-size: 0.9rem;">cscesar.github.io/originaria</span>
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <div class="step-number">2</div>
+                <div>
+                    <strong>Convencer Productores:</strong> Página "¿Por qué vender?"
+                    <br><span style="opacity: 0.8; font-size: 0.9rem;">cscesar.github.io/originaria/public/why-sell-with-us.html</span>
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <div class="step-number">3</div>
+                <div>
+                    <strong>Marketplace:</strong> Catálogo de productos orgánicos
+                    <br><span style="opacity: 0.8; font-size: 0.9rem;">cscesar.github.io/originaria/public/marketplace.html</span>
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <div class="step-number">4</div>
+                <div>
+                    <strong>Panel Vendedor:</strong> Dashboard con servicios diferenciadores
+                    <br><span style="opacity: 0.8; font-size: 0.9rem;">cscesar.github.io/originaria/vendor/dashboard.html</span>
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <div class="step-number">5</div>
+                <div>
+                    <strong>Servicios Clave:</strong> Asesoría en costos (diferenciador)
+                    <br><span style="opacity: 0.8; font-size: 0.9rem;">cscesar.github.io/originaria/vendor/services/cost-advisory.html</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tips de Presentación -->
+        <div class="presentation-tips">
+            <h3 class="tips-title">💡 Tips para la Presentación</h3>
+            
+            <div class="tip-item">
+                <strong>📱 Responsive:</strong> Muestra que funciona en móvil redimensionando la ventana
+            </div>
+            
+            <div class="tip-item">
+                <strong>🎯 Enfoque:</strong> Dedica más tiempo a "why-sell-with-us.html" y el dashboard vendedor
+            </div>
+            
+            <div class="tip-item">
+                <strong>🔗 Navegación:</strong> Usa los enlaces del menú para mostrar fluidez entre secciones
+            </div>
+            
+            <div class="tip-item">
+                <strong>⭐ Diferenciadores:</strong> Destaca los servicios adicionales (asesoría, empaquetado, fotografía)
+            </div>
+            
+            <div class="tip-item">
+                <strong>📊 Datos:</strong> Menciona las métricas del dashboard (S/15,240 ventas, 4.8★ rating)
+            </div>
+            
+            <div class="tip-item">
+                <strong>🚀 Call to Action:</strong> Termina mostrando cómo los productores se registran
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                // Crear notificación de copiado
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: #28a745;
+                    color: white;
+                    padding: 15px 25px;
+                    border-radius: 10px;
+                    z-index: 10000;
+                    font-weight: 600;
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                `;
+                notification.textContent = '📋 URL copiada al portapapeles';
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.opacity = '1';
+                }, 100);
+                
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 2000);
+            });
+        }
+
+        // Verificar estado de los enlaces
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.nav-link');
+            
+            links.forEach(link => {
+                const url = link.href;
+                
+                // Agregar indicador de verificación
+                fetch(url, { method: 'HEAD', mode: 'no-cors' })
+                    .then(() => {
+                        // El enlace funciona
+                        link.style.borderLeft = '4px solid #28a745';
+                    })
+                    .catch(() => {
+                        // El enlace no funciona
+                        link.style.borderLeft = '4px solid #dc3545';
+                        link.style.opacity = '0.6';
+                    });
+            });
+        });
+    </script>
+</body>
+</html>
