@@ -331,8 +331,6 @@
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-12);
     align-items: center;
     position: relative;
     z-index: 2;
