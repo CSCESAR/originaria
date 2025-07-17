@@ -81,6 +81,7 @@
 
 .stat-label {
     font-size: 0.9rem;
+    color: #e2e8f0 !important;
     opacity: 0.9;
 }
 
@@ -904,13 +905,13 @@
     background: none;
     border: none;
     font-size: 1.25rem;
-    color: #718096;
+    color: white;
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
 .cart-btn:hover {
-    color: #6B8E23;
+    color: #999b97;
 }
 
 .cart-count {
