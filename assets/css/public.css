@@ -317,6 +317,8 @@
     position: relative;
 }
 
+
+
 .hero-section::before {
     content: '';
     position: absolute;
@@ -335,6 +337,16 @@
     position: relative;
     z-index: 2;
 }
+
+#hero-index{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
 
 .hero-text {
     max-width: 100%;
@@ -2278,13 +2290,13 @@
     display: block;
     font-size: 2rem;
     font-weight: 700;
-    color: #4A7023;
+    color: var(--color-secondary);
     font-family: 'Montserrat', sans-serif;
 }
 
 .stat-label {
     font-size: 0.875rem;
-    color: #64748b;
+    color: var(--color-secondary);
     font-weight: 500;
 }
 
