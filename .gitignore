@@ -27,3 +27,4 @@ build/
 # Otros innecesarios en producción
 *.sublime-project
 *.sublime-workspace
+assets/images/logos/desktop.ini
