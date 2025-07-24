@@ -280,7 +280,7 @@
 
         <div class="info-box">
             <h3>📋 Antes de comenzar:</h3>
-            <p>Por favor, navega por el prototipo de ORIGINARIA durante 2-3 minutos explorando las secciones principales, luego regresa para completar esta evaluación.</p>
+            <p>Por favor, navega por el prototipo de ORIGINARIA durante 2-3 minutos explorando las secciones principales, luego regresa para completar esta encuesta.</p>
         <p style="margin-top:10px;">
             <a href="https://cscesar.github.io/originaria/public/marketplace.html" target="_blank" rel="noopener" style="color:#4A7023;font-weight:bold;text-decoration:underline;">
                 👉 Abrir prototipo de ORIGINARIA
@@ -314,7 +314,8 @@
 
             <!-- Evaluación UX -->
             <div class="form-group">
-                <label>¿Qué nivel de CONFIANZA te genera ORIGINARIA? (1 = Nada confiable, 10 = Muy confiable)</label>
+                <label>¿Qué nivel de CONFIANZA te genera ORIGINARIA? </label>
+                <label style="font-size:0.85em; color:#888;">(1 = Nada confiable, 10 = Muy confiable)</label>
                 <div class="rating-container">
                     <div class="rating-item">
                         <input type="radio" id="confianza1" name="confianza" value="1" required>
@@ -360,7 +361,8 @@
             </div>
 
             <div class="form-group">
-                <label>¿Qué tan FÁCIL DE USAR te pareció la plataforma? (1 = Muy difícil, 10 = Muy fácil)</label>
+                <label>¿Qué tan FÁCIL DE USAR te pareció la plataforma? </label>
+                <label style="font-size:0.85em; color:#888;">(1 = Muy difícil, 10 = Muy fácil)</label>
                 <div class="rating-container">
                     <div class="rating-item">
                         <input type="radio" id="facilidad1" name="facilidad" value="1" required>
@@ -418,7 +420,8 @@
             </div>
 
             <div class="form-group">
-                <label>¿Qué SENSACIONES te generó navegar por ORIGINARIA? (Puedes seleccionar varias)</label>
+                <label>¿Qué SENSACIONES te generó navegar por ORIGINARIA? </label>
+                <label style="font-size:0.85em; color:#888;">(Puedes seleccionar varias)</label>
                 <div class="checkbox-group">
                     <div class="checkbox-item">
                         <input type="checkbox" id="sens_confianza" name="sensaciones" value="confianza">
@@ -469,7 +472,8 @@
             </div>
 
             <div class="form-group">
-                <label for="recomendacion">¿Recomendarías ORIGINARIA a otros? (1 = No lo recomendaría, 10 = Definitivamente lo recomendaría)</label>
+                <label for="recomendacion">¿Recomendarías ORIGINARIA a otros? </label>
+                <label style="font-size:0.85em; color:#888;">(1 = No lo recomendaría, 10 = Definitivamente lo recomendaría)</label>
                 <div class="rating-container">
                     <div class="rating-item">
                         <input type="radio" id="recom1" name="recomendacion" value="1" required>
@@ -520,21 +524,21 @@
             </div>
 
             <button type="submit" class="submit-btn" id="submitBtn">
-                📤 Enviar Evaluación
+                📤 Enviar Encuesta
             </button>
 
             <div class="loading" id="loadingMessage">
-                <p>📤 Enviando tu evaluación...</p>
+                <p>📤 Enviando tu encuesta...</p>
             </div>
 
             <div class="success-message" id="successMessage">
-                <h3>✅ ¡Evaluación enviada correctamente!</h3>
+                <h3>✅ Encuesta enviada correctamente!</h3>
                 <p>Gracias por tu tiempo y feedback valioso. Tus respuestas nos ayudarán a mejorar ORIGINARIA.</p>
             </div>
 
             <div class="error-message" id="errorMessage">
                 <h3>❌ Error al enviar</h3>
-                <p>Hubo un problema al enviar tu evaluación. Por favor, intenta nuevamente o contacta con nosotros.</p>
+                <p>Hubo un problema al enviar tu Encuesta. Por favor, intenta nuevamente o contacta con nosotros.</p>
             </div>
         </form>
     </div>
@@ -581,7 +585,7 @@
             
             // Formato CSV para el email
             const csvData = `
-NUEVA EVALUACIÓN UX ORIGINARIA
+NUEVA ENCUESTA UX ORIGINARIA
 ===============================
 Fecha: ${data.timestamp}
 Perfil: ${data.perfil}
