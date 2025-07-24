@@ -1,6 +1,6 @@
 # Originaria
 
-Este docuemento proporciona orientación en cuando al código en este repositorio.
+Este documento proporciona orientación en cuando al código en este repositorio.
 
 ## Resumen del Proyecto
 

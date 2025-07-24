@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación UX - ORIGINARIA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #4A7023 0%, #E7DCC8 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .encuesta-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .encuesta-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #4A7023, #D97741, #4A7023);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: #4A7023;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 15px;
+        }
+
+        .header h1 {
+            color: #4A7023;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #4A7023;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4A7023;
+            box-shadow: 0 0 0 3px rgba(74, 112, 35, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .rating-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .rating-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            min-width: 40px;
+        }
+
+        .rating-item:hover {
+            background: #f8f9fa;
+        }
+
+        .rating-item input[type="radio"] {
+            margin-bottom: 5px;
+            width: auto;
+        }
+
+        .rating-item label {
+            font-size: 0.8rem;
+            color: #666;
+            margin: 0;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+
+        .checkbox-item:hover {
+            background: #f8f9fa;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: normal;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #4A7023 0%, #6da32a 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(74, 112, 35, 0.3);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .error-message {
+            display: none;
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .info-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+
+        .info-box h3 {
+            color: #856404;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .info-box p {
+            color: #856404;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .encuesta-container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .rating-container {
+                justify-content: center;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="encuesta-container">
+        <div class="header">
+            <div class="logo">O</div>
+            <h1>🌱 Validación UX ORIGINARIA</h1>
+            <p>Tu opinión es fundamental para mejorar nuestro marketplace de productos orgánicos. <strong>Tiempo estimado: 3 minutos</strong></p>
+        </div>
+
+        <div class="info-box">
+            <h3>📋 Antes de comenzar:</h3>
+            <p>Por favor, navega por el prototipo de ORIGINARIA durante 2-3 minutos explorando las secciones principales, luego regresa para completar esta evaluación.</p>
+        </div>
+
+        <form id="encuestaForm">
+            <!-- Información del participante -->
+            <div class="form-group">
+                <label for="perfil">¿Cuál describe mejor tu perfil?</label>
+                <select id="perfil" name="perfil" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="consumidor">Consumidor (comprar productos)</option>
+                    <option value="productor">Productor (vender productos)</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="edad">Rango de edad</label>
+                <select id="edad" name="edad" required>
+                    <option value="">Selecciona tu rango</option>
+                    <option value="18-25">18-25 años</option>
+                    <option value="26-35">26-35 años</option>
+                    <option value="36-45">36-45 años</option>
+                    <option value="46-55">46-55 años</option>
+                    <option value="56+">56+ años</option>
+                </select>
+            </div>
+
+            <!-- Evaluación UX -->
+            <div class="form-group">
+                <label>¿Qué nivel de CONFIANZA te genera ORIGINARIA? (1 = Nada confiable, 10 = Muy confiable)</label>
+                <div class="rating-container">
+                    <div class="rating-item">
+                        <input type="radio" id="confianza1" name="confianza" value="1" required>
+                        <label for="confianza1">1</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="confianza2" name="confianza" value="2">
+                        <label for="confianza2">2</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="confianza3" name="confianza" value="3">
+                        <label for="confianza3">3</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="confianza4" name="confianza" value="4">
+                        <label for="confianza4">4</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="confianza5" name="confianza" value="5">
+                        <label for="confianza5">5</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="confianza6" name="confianza" value="6">
+                        <label for="confianza6">6</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="confianza7" name="confianza" value="7">
+                        <label for="confianza7">7</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="confianza8" name="confianza" value="8">
+                        <label for="confianza8">8</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="confianza9" name="confianza" value="9">
+                        <label for="confianza9">9</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="confianza10" name="confianza" value="10">
+                        <label for="confianza10">10</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>¿Qué tan FÁCIL DE USAR te pareció la plataforma? (1 = Muy difícil, 10 = Muy fácil)</label>
+                <div class="rating-container">
+                    <div class="rating-item">
+                        <input type="radio" id="facilidad1" name="facilidad" value="1" required>
+                        <label for="facilidad1">1</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="facilidad2" name="facilidad" value="2">
+                        <label for="facilidad2">2</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="facilidad3" name="facilidad" value="3">
+                        <label for="facilidad3">3</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="facilidad4" name="facilidad" value="4">
+                        <label for="facilidad4">4</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="facilidad5" name="facilidad" value="5">
+                        <label for="facilidad5">5</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="facilidad6" name="facilidad" value="6">
+                        <label for="facilidad6">6</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="facilidad7" name="facilidad" value="7">
+                        <label for="facilidad7">7</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="facilidad8" name="facilidad" value="8">
+                        <label for="facilidad8">8</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="facilidad9" name="facilidad" value="9">
+                        <label for="facilidad9">9</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="facilidad10" name="facilidad" value="10">
+                        <label for="facilidad10">10</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="intencion_uso">¿Usarías ORIGINARIA si estuviera disponible?</label>
+                <select id="intencion_uso" name="intencion_uso" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="definitivamente_si">Definitivamente sí</option>
+                    <option value="probablemente_si">Probablemente sí</option>
+                    <option value="tal_vez">Tal vez</option>
+                    <option value="probablemente_no">Probablemente no</option>
+                    <option value="definitivamente_no">Definitivamente no</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>¿Qué SENSACIONES te generó navegar por ORIGINARIA? (Puedes seleccionar varias)</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="sens_confianza" name="sensaciones" value="confianza">
+                        <label for="sens_confianza">Confianza</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="sens_autenticidad" name="sensaciones" value="autenticidad">
+                        <label for="sens_autenticidad">Autenticidad</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="sens_profesionalismo" name="sensaciones" value="profesionalismo">
+                        <label for="sens_profesionalismo">Profesionalismo</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="sens_proposito" name="sensaciones" value="proposito_social">
+                        <label for="sens_proposito">Propósito social</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="sens_innovacion" name="sensaciones" value="innovacion">
+                        <label for="sens_innovacion">Innovación</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="sens_confusion" name="sensaciones" value="confusion">
+                        <label for="sens_confusion">Confusión</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="sens_desconfianza" name="sensaciones" value="desconfianza">
+                        <label for="sens_desconfianza">Desconfianza</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="sens_aburrimiento" name="sensaciones" value="aburrimiento">
+                        <label for="sens_aburrimiento">Aburrimiento</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="valor_diferencial">¿Cuál crees que es el principal VALOR DIFERENCIAL de ORIGINARIA?</label>
+                <select id="valor_diferencial" name="valor_diferencial" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="conexion_directa">Conexión directa con productores</option>
+                    <option value="servicios_adicionales">Servicios adicionales (asesoría, empaquetado, etc.)</option>
+                    <option value="productos_autenticos">100% productos auténticos y locales</option>
+                    <option value="facilidad_uso">Facilidad de uso de la plataforma</option>
+                    <option value="impacto_social">Impacto social positivo</option>
+                    <option value="no_veo_diferencia">No veo una diferencia clara</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="recomendacion">¿Recomendarías ORIGINARIA a otros? (1 = No lo recomendaría, 10 = Definitivamente lo recomendaría)</label>
+                <div class="rating-container">
+                    <div class="rating-item">
+                        <input type="radio" id="recom1" name="recomendacion" value="1" required>
+                        <label for="recom1">1</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="recom2" name="recomendacion" value="2">
+                        <label for="recom2">2</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="recom3" name="recomendacion" value="3">
+                        <label for="recom3">3</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="recom4" name="recomendacion" value="4">
+                        <label for="recom4">4</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="recom5" name="recomendacion" value="5">
+                        <label for="recom5">5</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="recom6" name="recomendacion" value="6">
+                        <label for="recom6">6</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="recom7" name="recomendacion" value="7">
+                        <label for="recom7">7</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="recom8" name="recomendacion" value="8">
+                        <label for="recom8">8</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="recom9" name="recomendacion" value="9">
+                        <label for="recom9">9</label>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" id="recom10" name="recomendacion" value="10">
+                        <label for="recom10">10</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="comentarios">Comentarios adicionales (opcional):</label>
+                <textarea id="comentarios" name="comentarios" placeholder="¿Qué mejorarías? ¿Qué te gustó más? ¿Alguna sugerencia?"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                📤 Enviar Evaluación
+            </button>
+
+            <div class="loading" id="loadingMessage">
+                <p>📤 Enviando tu evaluación...</p>
+            </div>
+
+            <div class="success-message" id="successMessage">
+                <h3>✅ ¡Evaluación enviada correctamente!</h3>
+                <p>Gracias por tu tiempo y feedback valioso. Tus respuestas nos ayudarán a mejorar ORIGINARIA.</p>
+            </div>
+
+            <div class="error-message" id="errorMessage">
+                <h3>❌ Error al enviar</h3>
+                <p>Hubo un problema al enviar tu evaluación. Por favor, intenta nuevamente o contacta con nosotros.</p>
+            </div>
+        </form>
+    </div>
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        // Configuración EmailJS
+        (function() {
+            emailjs.init("ehzKNXRhDR_8D2Fhk"); // Reemplazar con tu clave
+        })();
+
+        document.getElementById('encuestaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const loadingMessage = document.getElementById('loadingMessage');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Mostrar loading
+            submitBtn.style.display = 'none';
+            loadingMessage.style.display = 'block';
+            
+            // Recopilar datos del formulario
+            const formData = new FormData(this);
+            const data = {};
+            
+            // Campos simples
+            for (let [key, value] of formData.entries()) {
+                if (key !== 'sensaciones') {
+                    data[key] = value;
+                }
+            }
+            
+            // Sensaciones múltiples
+            const sensaciones = formData.getAll('sensaciones');
+            data.sensaciones = sensaciones.join(', ');
+            
+            // Timestamp
+            data.timestamp = new Date().toLocaleString('es-PE');
+            
+            // Formato CSV para el email
+            const csvData = `
+NUEVA EVALUACIÓN UX ORIGINARIA
+===============================
+Fecha: ${data.timestamp}
+Perfil: ${data.perfil}
+Edad: ${data.edad}
+
+MÉTRICAS UX:
+- Confianza: ${data.confianza}/10
+- Facilidad de uso: ${data.facilidad}/10
+- Recomendación (NPS): ${data.recomendacion}/10
+
+EVALUACIÓN:
+- Intención de uso: ${data.intencion_uso}
+- Valor diferencial: ${data.valor_diferencial}
+- Sensaciones: ${data.sensaciones}
+
+COMENTARIOS:
+${data.comentarios || 'Sin comentarios adicionales'}
+
+===============================
+Datos en formato CSV:
+${data.timestamp},${data.perfil},${data.edad},${data.confianza},${data.facilidad},${data.intencion_uso},"${data.sensaciones}",${data.valor_diferencial},${data.recomendacion},"${data.comentarios}"
+            `.trim();
+            
+            // Enviar por EmailJS
+            emailjs.send("service_7mhc2gc", "template_2451erc", {
+                to_email: "cchambim@gmail.com", // Reemplazar con tu email
+                subject: `Nueva Evaluación UX ORIGINARIA - ${data.timestamp}`,
+                message: csvData,
+                datos_csv: `${data.timestamp},${data.perfil},${data.edad},${data.confianza},${data.facilidad},${data.intencion_uso},"${data.sensaciones}",${data.valor_diferencial},${data.recomendacion},"${data.comentarios}"`
+            })
+            .then(function(response) {
+                console.log('Éxito:', response);
+                loadingMessage.style.display = 'none';
+                successMessage.style.display = 'block';
+                
+                // Limpiar formulario
+                document.getElementById('encuestaForm').reset();
+            })
+            .catch(function(error) {
+                console.error('Error:', error);
+                loadingMessage.style.display = 'none';
+                errorMessage.style.display = 'block';
+                submitBtn.style.display = 'block';
+            });
+        });
+
+        // Simulación para desarrollo (comentar cuando EmailJS esté configurado)
+        /*
+        document.getElementById('encuestaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const loadingMessage = document.getElementById('loadingMessage');
+            const successMessage = document.getElementById('successMessage');
+            
+            submitBtn.style.display = 'none';
+            loadingMessage.style.display = 'block';
+            
+            // Simular envío
+            setTimeout(() => {
+                loadingMessage.style.display = 'none';
+                successMessage.style.display = 'block';
+                console.log('Datos de la encuesta enviados (simulación)');
+            }, 2000);
+        });
+        */
+    </script>
+</body>
+</html>
