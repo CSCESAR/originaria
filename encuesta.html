@@ -272,14 +272,20 @@
 <body>
     <div class="encuesta-container">
         <div class="header">
-            <div class="logo">O</div>
-            <h1>🌱 Validación UX ORIGINARIA</h1>
+            <img src="assets/images/logos/Logo.png" 
+                 alt="Logo Secundario" 
+                 style="height: 120px; border-radius: 8px;">  
             <p>Tu opinión es fundamental para mejorar nuestro marketplace de productos orgánicos. <strong>Tiempo estimado: 3 minutos</strong></p>
         </div>
 
         <div class="info-box">
             <h3>📋 Antes de comenzar:</h3>
             <p>Por favor, navega por el prototipo de ORIGINARIA durante 2-3 minutos explorando las secciones principales, luego regresa para completar esta evaluación.</p>
+        <p style="margin-top:10px;">
+            <a href="https://cscesar.github.io/originaria/public/marketplace.html" target="_blank" rel="noopener" style="color:#4A7023;font-weight:bold;text-decoration:underline;">
+                👉 Abrir prototipo de ORIGINARIA
+            </a>
+        </p>
         </div>
 
         <form id="encuestaForm">
@@ -533,12 +539,14 @@
         </form>
     </div>
 
-    <!-- EmailJS SDK -->
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <!-- EmailJS SDK v4 (Actualizado) -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-        // Configuración EmailJS
+        // Configuración EmailJS v4
         (function() {
-            emailjs.init("ehzKNXRhDR_8D2Fhk"); // Reemplazar con tu clave
+            emailjs.init({
+                publicKey: "ehzKNXRhDR_8D2Fhk", // Reemplazar con tu Public Key
+            });
         })();
 
         document.getElementById('encuestaForm').addEventListener('submit', function(e) {
@@ -597,12 +605,13 @@ Datos en formato CSV:
 ${data.timestamp},${data.perfil},${data.edad},${data.confianza},${data.facilidad},${data.intencion_uso},"${data.sensaciones}",${data.valor_diferencial},${data.recomendacion},"${data.comentarios}"
             `.trim();
             
-            // Enviar por EmailJS
+            // Enviar por EmailJS v4
             emailjs.send("service_7mhc2gc", "template_2451erc", {
-                to_email: "cchambim@gmail.com", // Reemplazar con tu email
-                subject: `Nueva Evaluación UX ORIGINARIA - ${data.timestamp}`,
+                from_name: "ORIGINARIA UX Survey",
+                to_name: "Equipo ORIGINARIA",
                 message: csvData,
-                datos_csv: `${data.timestamp},${data.perfil},${data.edad},${data.confianza},${data.facilidad},${data.intencion_uso},"${data.sensaciones}",${data.valor_diferencial},${data.recomendacion},"${data.comentarios}"`
+                timestamp: data.timestamp,
+                reply_to: "noreply@originaria.com"
             })
             .then(function(response) {
                 console.log('Éxito:', response);
@@ -619,27 +628,6 @@ ${data.timestamp},${data.perfil},${data.edad},${data.confianza},${data.facilidad
                 submitBtn.style.display = 'block';
             });
         });
-
-        // Simulación para desarrollo (comentar cuando EmailJS esté configurado)
-        /*
-        document.getElementById('encuestaForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.getElementById('submitBtn');
-            const loadingMessage = document.getElementById('loadingMessage');
-            const successMessage = document.getElementById('successMessage');
-            
-            submitBtn.style.display = 'none';
-            loadingMessage.style.display = 'block';
-            
-            // Simular envío
-            setTimeout(() => {
-                loadingMessage.style.display = 'none';
-                successMessage.style.display = 'block';
-                console.log('Datos de la encuesta enviados (simulación)');
-            }, 2000);
-        });
-        */
     </script>
 </body>
 </html>
