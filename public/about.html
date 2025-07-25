@@ -28,6 +28,18 @@
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @media (max-width: 768px) {
+            .team-grid[style] {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .team-grid[style] {
+                grid-template-columns: 1fr !important;
+            }
+        }
+</style>
 </head>
 <body>
     <!-- Header -->
@@ -252,22 +264,22 @@
             <div class="section-header">
                 <h2 class="section-title">Nuestro Equipo</h2>
                 <p class="section-subtitle">
-                    Conoce a las personas apasionadas que hacen posible ORIGINARIA
+                    Somos un equipo de la UNMSM que busca conectar productores locales peruanos con consumidores conscientes.
                 </p>
             </div>
             
-            <div class="team-grid">
+<div class="team-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1200px; margin: 0 auto;"">
                 <div class="team-member">
                     <div class="member-image">
-                        <!-- Placeholder en lugar de imagen que no existe -->
-                        <div style="width: 100px; height: 100px; border-radius: 50%; background: #6B8E23; color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2rem; font-weight: bold;">AR</div>
+                        <!-- Placeholder para María Fernanda Susanibar -->
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: #6B8E23; color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2rem; font-weight: bold;">MS</div>
                     </div>
                     <div class="member-info">
-                        <h3 class="member-name">Ana Rodríguez</h3>
-                        <p class="member-role">CEO & Cofundadora</p>
+                        <h3 class="member-name">María Fernanda Susanibar</h3>
+                        <p class="member-role">CEO & Líder del Proyecto</p>
                         <p class="member-description">
-                            Ingeniera Industrial con pasión por el emprendimiento social. 
-                            Lidera la visión estratégica de ORIGINARIA.
+                            Administradora con experiencia en marketing y tecnología. 
+                            Lidera la visión estratégica y el desarrollo de ORIGINARIA.
                         </p>
                         <div class="member-social">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -281,11 +293,46 @@
                         <div style="width: 100px; height: 100px; border-radius: 50%; background: #6B8E23; color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2rem; font-weight: bold;">CM</div>
                     </div>
                     <div class="member-info">
-                        <h3 class="member-name">Carlos Mendoza</h3>
-                        <p class="member-role">CTO & Cofundador</p>
+                        <h3 class="member-name">Carlos David Eduardo Matassini</h3>
+                        <p class="member-role">Director General & Marketing</p>
                         <p class="member-description">
-                            Desarrollador con experiencia en e-commerce. Responsable de 
-                            la plataforma tecnológica y la experiencia del usuario.
+                            Administrador especializado en dirección general y marketing. 
+                            Responsable de la estrategia comercial y desarrollo de marca.
+                        </p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-image">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: #6B8E23; color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2rem; font-weight: bold;">ER</div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Nora Evanny Rentería</h3>
+                        <p class="member-role">Directora de RRHH & Logística</p>
+                        <p class="member-description">
+                            Administradora especializada en recursos humanos y logística. 
+                            Gestiona el talento y las operaciones de distribución.
+                        </p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-image">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: #6B8E23; color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2rem; font-weight: bold;">YL</div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Yohel Abdon Leandro</h3>
+                        <p class="member-role">Director de Tecnología & Comercial</p>
+                        <p class="member-description">
+                            Ingeniero con experiencia en gestión comercial. 
+                            Lidera el desarrollo tecnológico y estrategias de ventas.
                         </p>
                         <div class="member-social">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -296,14 +343,14 @@
 
                 <div class="team-member">
                     <div class="member-image">
-                        <div style="width: 100px; height: 100px; border-radius: 50%; background: #6B8E23; color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2rem; font-weight: bold;">MT</div>
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: #6B8E23; color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2rem; font-weight: bold;">NP</div>
                     </div>
                     <div class="member-info">
-                        <h3 class="member-name">María Torres</h3>
-                        <p class="member-role">Directora de Operaciones</p>
+                        <h3 class="member-name">Norma Portal</h3>
+                        <p class="member-role">Directora Financiera</p>
                         <p class="member-description">
-                            Especialista en cadena de suministro y logística. Gestiona las 
-                            relaciones con productores y la distribución.
+                            Contadora con amplia experiencia en gestión financiera. 
+                            Responsable de la planificación y control financiero.
                         </p>
                         <div class="member-social">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -313,18 +360,18 @@
 
                 <div class="team-member">
                     <div class="member-image">
-                        <div style="width: 100px; height: 100px; border-radius: 50%; background: #6B8E23; color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2rem; font-weight: bold;">LP</div>
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: #6B8E23; color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2rem; font-weight: bold;">CC</div>
                     </div>
                     <div class="member-info">
-                        <h3 class="member-name">Luis Paredes</h3>
-                        <p class="member-role">Director de Marketing</p>
+                        <h3 class="member-name">Cesar Chambi</h3>
+                        <p class="member-role">Director de Calidad & Analytics</p>
                         <p class="member-description">
-                            Comunicador social especializado en marketing digital y 
-                            comunicación para el desarrollo sostenible.
+                            Administrador especializado en gestión de calidad y análisis de datos. 
+                            Responsable del control de calidad y desarrollo de aplicaciones.
                         </p>
                         <div class="member-social">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>

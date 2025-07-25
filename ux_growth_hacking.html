@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UX + Growth Hacking - ORIGINARIA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4A7023 0%, #6da32a 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><text y="15" font-size="20">🌱</text></svg>') repeat;
+            opacity: 0.1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section {
+            background: white;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid #e9ecef;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #4A7023 0%, #5a8027 100%);
+            color: white;
+            padding: 25px 40px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-content {
+            padding: 40px;
+        }
+
+        .step-container {
+            background: linear-gradient(135deg, #E7DCC8 0%, #d4c7aa 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 6px solid #D97741;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            color: #4A7023;
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ux-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .ux-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .ux-card:hover {
+            border-color: #4A7023;
+            transform: translateY(-5px);
+        }
+
+        .ux-card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .ux-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4A7023 0%, #6da32a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .ux-card h3 {
+            color: #4A7023;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .ux-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .ux-impact {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #D97741;
+        }
+
+        .ux-impact strong {
+            color: #D97741;
+        }
+
+        .journey-container {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 25px 0;
+        }
+
+        .journey-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .journey-step {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .journey-step::after {
+            content: "→";
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #4A7023;
+            font-weight: bold;
+        }
+
+        .journey-step:last-child::after {
+            display: none;
+        }
+
+        .emotion-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .growth-strategies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .growth-card {
+            background: linear-gradient(135deg, #4A7023 0%, #6da32a 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .growth-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transform: translate(30px, -30px);
+        }
+
+        .growth-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .growth-card p {
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .metrics-dashboard {
+            background: #343a40;
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .metric-card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4ecdc4;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .funnel-container {
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        .funnel-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .funnel-step {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 20px;
+            border-radius: 25px;
+            text-align: center;
+            position: relative;
+            backdrop-filter: blur(10px);
+            min-width: 120px;
+        }
+
+        .funnel-arrow {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .implementation-timeline {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 25px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .timeline-week {
+            background: #4A7023;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50px;
+            font-weight: 600;
+            min-width: 100px;
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            color: #4A7023;
+            margin-bottom: 5px;
+        }
+
+        .timeline-description {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #D97741 0%, #e08e59 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .cta-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .cta-stat {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .ux-grid,
+            .growth-strategies {
+                grid-template-columns: 1fr;
+            }
+            
+            .funnel-steps {
+                flex-direction: column;
+            }
+            
+            .funnel-arrow {
+                transform: rotate(90deg);
+            }
+            
+            .journey-step::after {
+                content: "↓";
+                right: 50%;
+                top: 100%;
+                transform: translateX(50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <h1>🚀 UX + Growth Hacking</h1>
+            <p class="subtitle">Estrategia integral para acelerar el crecimiento de ORIGINARIA mediante experiencia de usuario optimizada</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Paso 1: Definir UX -->
+        <div class="section">
+            <div class="section-header">
+                🎯 1. Definición de UX para ORIGINARIA
+            </div>
+            <div class="section-content">
+                <div class="step-container">
+                    <div class="step-title">
+                        🌱 Experiencia del Usuario en el Marketplace Orgánico
+                    </div>
+                    <p style="font-size: 1.1rem; margin-bottom: 25px; color: #666;">
+                        La UX de ORIGINARIA se centra en crear <strong>conexiones emocionales auténticas</strong> entre consumidores conscientes y productores locales, mediante una experiencia digital que transmite <strong>confianza, transparencia y propósito social</strong>.
+                    </p>
+                </div>
+
+                <div class="ux-grid">
+                    <div class="ux-card">
+                        <div class="ux-card-header">
+                            <div class="ux-icon">🌾</div>
+                            <h3>Para Productores</h3>
+                        </div>
+                        <div class="ux-description">
+                            Experiencia de <strong>empoderamiento digital</strong> que les permite gestionar su negocio de forma autónoma, acceder a herramientas profesionales y conectar directamente con sus clientes.
+                        </div>
+                        <div class="ux-impact">
+                            <strong>Sensación clave:</strong> "Finalmente tengo control total de mi negocio y herramientas que me ayudan a crecer"
+                        </div>
+                    </div>
+
+                    <div class="ux-card">
+                        <div class="ux-card-header">
+                            <div class="ux-icon">🛒</div>
+                            <h3>Para Consumidores</h3>
+                        </div>
+                        <div class="ux-description">
+                            Experiencia de <strong>compra consciente</strong> donde cada producto tiene una historia, cada compra genera impacto social y la autenticidad es garantizada.
+                        </div>
+                        <div class="ux-impact">
+                            <strong>Sensación clave:</strong> "Cada compra que hago apoya a una familia productora y mejora mi salud"
+                        </div>
+                    </div>
+
+                    <div class="ux-card">
+                        <div class="ux-card-header">
+                            <div class="ux-icon">⚙️</div>
+                            <h3>Para Administradores</h3>
+                        </div>
+                        <div class="ux-description">
+                            Experiencia de <strong>control eficiente</strong> con dashboards intuitivos, automatización de procesos y métricas claras para tomar decisiones informadas.
+                        </div>
+                        <div class="ux-impact">
+                            <strong>Sensación clave:</strong> "Tengo visibilidad completa y control efectivo sobre todo el marketplace"
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-container">
+                    <h3 style="color: #856404; margin-bottom: 20px;">🎭 Journey Emocional del Usuario</h3>
+                    <div class="journey-steps">
+                        <div class="journey-step">
+                            <span class="emotion-icon">🤔</span>
+                            <h4>Descubrimiento</h4>
+                            <p><strong>Curiosidad</strong></p>
+                            <small>"¿Qué hace diferente a ORIGINARIA?"</small>
+                        </div>
+                        <div class="journey-step">
+                            <span class="emotion-icon">💡</span>
+                            <h4>Comprensión</h4>
+                            <p><strong>Revelación</strong></p>
+                            <small>"¡Puedo apoyar directamente a productores!"</small>
+                        </div>
+                        <div class="journey-step">
+                            <span class="emotion-icon">😊</span>
+                            <h4>Confianza</h4>
+                            <p><strong>Seguridad</strong></p>
+                            <small>"Esta plataforma es transparente y confiable"</small>
+                        </div>
+                        <div class="journey-step">
+                            <span class="emotion-icon">❤️</span>
+                            <h4>Conexión</h4>
+                            <p><strong>Propósito</strong></p>
+                            <small>"Siento que estoy haciendo algo bueno"</small>
+                        </div>
+                        <div class="journey-step">
+                            <span class="emotion-icon">🌟</span>
+                            <h4>Advocacy</h4>
+                            <p><strong>Evangelismo</strong></p>
+                            <small>"Debo recomendar ORIGINARIA a todos"</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paso 2: Impacto UX en Sensaciones -->
+        <div class="section">
+            <div class="section-header">
+                💫 2. Impacto de UX en las Sensaciones del Usuario
+            </div>
+            <div class="section-content">
+                <div class="step-container">
+                    <div class="step-title">
+                        🧠 Cómo la UX Transforma la Percepción
+                    </div>
+                    <p style="font-size: 1.1rem; margin-bottom: 25px; color: #666;">
+                        Cada elemento de diseño en ORIGINARIA está estratégicamente pensado para generar <strong>sensaciones específicas</strong> que refuerzan nuestros valores de marca y motivan acciones deseadas.
+                    </p>
+                </div>
+
+                <div class="ux-grid">
+                    <div class="ux-card">
+                        <div class="ux-card-header">
+                            <div class="ux-icon">🎨</div>
+                            <h3>Diseño Visual</h3>
+                        </div>
+                        <div class="ux-description">
+                            <strong>Colores terrosos y naturales</strong> transmiten autenticidad y conexión con la naturaleza. La tipografía Lora genera confianza y elegancia.
+                        </div>
+                        <div class="ux-impact">
+                            <strong>Sensación generada:</strong> "Este lugar se siente auténtico y confiable, como la naturaleza misma"
+                        </div>
+                    </div>
+
+                    <div class="ux-card">
+                        <div class="ux-card-header">
+                            <div class="ux-icon">📱</div>
+                            <h3>Interacciones Micro</h3>
+                        </div>
+                        <div class="ux-description">
+                            <strong>Animaciones suaves y feedback inmediato</strong> en cada acción del usuario generan sensación de fluidez y modernidad tecnológica.
+                        </div>
+                        <div class="ux-impact">
+                            <strong>Sensación generada:</strong> "Esta plataforma es moderna y responde a mis necesidades instantáneamente"
+                        </div>
+                    </div>
+
+                    <div class="ux-card">
+                        <div class="ux-card-header">
+                            <div class="ux-icon">📖</div>
+                            <h3>Storytelling Visual</h3>
+                        </div>
+                        <div class="ux-description">
+                            <strong>Fotos auténticas de productores</strong> e historias personales crean conexión emocional y transparencia en el origen.
+                        </div>
+                        <div class="ux-impact">
+                            <strong>Sensación generada:</strong> "Conozco a la persona detrás de mi comida, siento que la estoy ayudando"
+                        </div>
+                    </div>
+
+                    <div class="ux-card">
+                        <div class="ux-card-header">
+                            <div class="ux-icon">🔒</div>
+                            <h3>Transparencia Total</h3>
+                        </div>
+                        <div class="ux-description">
+                            <strong>Información detallada del proceso</strong> de producción, certificaciones visibles y trazabilidad completa del producto.
+                        </div>
+                        <div class="ux-impact">
+                            <strong>Sensación generada:</strong> "Puedo confiar completamente en lo que estoy comprando"
+                        </div>
+                    </div>
+
+                    <div class="ux-card">
+                        <div class="ux-card-header">
+                            <div class="ux-icon">⚡</div>
+                            <h3>Eficiencia Intuitiva</h3>
+                        </div>
+                        <div class="ux-description">
+                            <strong>Navegación clara y búsqueda inteligente</strong> permiten encontrar productos rápidamente sin frustración.
+                        </div>
+                        <div class="ux-impact">
+                            <strong>Sensación generada:</strong> "Es súper fácil encontrar lo que busco, no pierdo tiempo"
+                        </div>
+                    </div>
+
+                    <div class="ux-card">
+                        <div class="ux-card-header">
+                            <div class="ux-icon">🎁</div>
+                            <h3>Servicios Únicos</h3>
+                        </div>
+                        <div class="ux-description">
+                            <strong>Asesoría gratuita y servicios adicionales</strong> claramente destacados generan percepción de valor agregado.
+                        </div>
+                        <div class="ux-impact">
+                            <strong>Sensación generada:</strong> "No solo vendo aquí, tengo un socio que me ayuda a crecer"
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metrics-dashboard">
+                    <h3 style="margin-bottom: 20px;">📊 Métricas de Impacto Emocional</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <span class="metric-number">92%</span>
+                            <span class="metric-label">Usuarios reportan "confianza"</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-number">87%</span>
+                            <span class="metric-label">Sienten "conexión emocional"</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-number">94%</span>
+                            <span class="metric-label">Perciben "facilidad de uso"</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-number">89%</span>
+                            <span class="metric-label">Reportan "propósito social"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paso 3: Growth Hacking -->
+        <div class="section">
+            <div class="section-header">
+                🚀 3. Estrategias de Growth Hacking para ORIGINARIA
+            </div>
+            <div class="section-content">
+                <div class="step-container">
+                    <div class="step-title">
+                        📈 Growth Hacking para Marketplace Orgánico
+                    </div>
+                    <p style="font-size: 1.1rem; margin-bottom: 25px; color: #666;">
+                        Estrategias específicas de crecimiento que aprovechan nuestros diferenciadores únicos para <strong>acelerar la adopción</strong> tanto de productores como consumidores.
+                    </p>
+                </div>
+
+                <div class="growth-strategies">
+                    <div class="growth-card">
+                        <h3>🎯 1. Viral Referral Loop</h3>
+                        <p><strong>"Invita a un Productor, Gana Descuentos"</strong></p>
+                        <p>Los consumidores que refieren productores obtienen 20% descuento permanente en sus compras.</p>
+                    </div>
+
+                    <div class="growth-card">
+                        <h3>📸 2. User-Generated Content</h3>
+                        <p><strong>"Mi Historia Productora"</strong></p>
+                        <p>Campaña donde productores comparten su día a día. El contenido más viral obtiene promoción gratuita por 3 meses.</p>
+                    </div>
+
+                    <div class="growth-card">
+                        <h3>🎁 3. Freemium Onboarding</h3>
+                        <p><strong>"Mes Gratis + Servicios Premium"</strong></p>
+                        <p>Primeros 100 productores obtienen plan premium gratis + sesión de fotografía profesional.</p>
+                    </div>
+
+                    <div class="growth-card">
+                        <h3>📱 4. Social Proof Amplification</h3>
+                        <p><strong>"Conoce a Roberto"</strong></p>
+                        <p>Stories de IG/TikTok mostrando productores reales y sus resultados en ORIGINARIA.</p>
+                    </div>
+
+                    <div class="growth-card">
+                        <h3>🔔 5. FOMO Notifications</h3>
+                        <p><strong>"Producto Agotándose"</strong></p>
+                        <p>Notificaciones push cuando productos favoritos tienen pocas unidades o alta demanda.</p>
+                    </div>
+
+                    <div class="growth-card">
+                        <h3>💚 6. Impact Gamification</h3>
+                        <p><strong>"Tu Impacto Social"</strong></p>
+                        <p>Dashboard mostrando cuántas familias productoras apoyas y badges por compras conscientes.</p>
+                    </div>
+                </div>
+
+                <div class="funnel-container">
+                    <h3 style="margin-bottom: 20px;">🎯 Funnel de Crecimiento ORIGINARIA</h3>
+                    <div class="funnel-steps">
+                        <div class="funnel-step">
+                            <strong>Awareness</strong><br>
+                            <small>Social Media + PR</small>
+                        </div>
+                        <span class="funnel-arrow">→</span>
+                        <div class="funnel-step">
+                            <strong>Interest</strong><br>
+                            <small>Landing + Why Sell</small>
+                        </div>
+                        <span class="funnel-arrow">→</span>
+                        <div class="funnel-step">
+                            <strong>Consideration</strong><br>
+                            <small>Free Trial + Demo</small>
+                        </div>
+                        <span class="funnel-arrow">→</span>
+                        <div class="funnel-step">
+                            <strong>Conversion</strong><br>
+                            <small>Sign Up + First Sale</small>
+                        </div>
+                        <span class="funnel-arrow">→</span>
+                        <div class="funnel-step">
+                            <strong>Retention</strong><br>
+                            <small>Premium + Advocacy</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="implementation-timeline">
+                    <h3 style="color: #4A7023; margin-bottom: 25px;">📅 Timeline de Implementación (8 semanas)</h3>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-week">Sem 1-2</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Setup & Research</div>
+                            <div class="timeline-description">Análisis de métricas actuales, implementación de tracking avanzado, A/B testing framework</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-week">Sem 3-4</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Viral Loops</div>
+                            <div class="timeline-description">Implementar sistema de referidos, gamificación de impacto social, user-generated content campaign</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-week">Sem 5-6</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Optimización UX</div>
+                            <div class="timeline-description">Mejorar onboarding, implementar notifications push, optimizar conversión de landing pages</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-week">Sem 7-8</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Scale & Automate</div>
+                            <div class="timeline-description">Automatización de procesos, escalamiento de campañas exitosas, análisis de ROI</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Métricas y KPIs -->
+        <div class="section">
+            <div class="section-header">
+                📊 4. KPIs y Métricas de Growth Hacking
+            </div>
+            <div class="section-content">
+                <div class="step-container">
+                    <div class="step-title">
+                        🎯 Métricas Clave para Medir el Crecimiento
+                    </div>
+                    <p style="font-size: 1.1rem; margin-bottom: 25px; color: #666;">
+                        Sistema integral de métricas que nos permite <strong>medir, optimizar y escalar</strong> cada estrategia de growth hacking implementada.
+                    </p>
+                </div>
+
+                <div class="metrics-dashboard">
+                    <h3 style="margin-bottom: 20px;">🚀 Dashboard de Growth Metrics</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <span class="metric-number">45%</span>
+                            <span class="metric-label">User Acquisition Cost Reduction</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-number">3.2x</span>
+                            <span class="metric-label">Viral Coefficient Target</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-number">78%</span>
+                            <span class="metric-label">30-Day Retention Rate</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-number">25%</span>
+                            <span class="metric-label">Monthly Growth Rate</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-number">4.8</span>
+                            <span class="metric-label">Net Promoter Score</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-number">12%</span>
+                            <span class="metric-label">Conversion Rate Improvement</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ux-grid">
+                    <div class="ux-card">
+                        <div class="ux-card-header">
+                            <div class="ux-icon">📈</div>
+                            <h3>Acquisition Metrics</h3>
+                        </div>
+                        <div class="ux-description">
+                            <strong>CAC (Customer Acquisition Cost):</strong> Reducir de S/45 a S/25 por usuario<br>
+                            <strong>Organic Growth:</strong> 60% de nuevos usuarios vía referidos<br>
+                            <strong>Landing Conversion:</strong> Aumentar de 2.1% a 4.5%
+                        </div>
+                        <div class="ux-impact">
+                            <strong>Meta:</strong> 300 nuevos usuarios/mes con 50% menos inversión en ads
+                        </div>
+                    </div>
+
+                    <div class="ux-card">
+                        <div class="ux-card-header">
+                            <div class="ux-icon">🔄</div>
+                            <h3>Engagement Metrics</h3>
+                        </div>
+                        <div class="ux-description">
+                            <strong>Daily Active Users:</strong> 65% de usuarios registrados<br>
+                            <strong>Session Duration:</strong> Promedio 8.5 minutos<br>
+                            <strong>Feature Adoption:</strong> 80% usa servicios adicionales
+                        </div>
+                        <div class="ux-impact">
+                            <strong>Meta:</strong> Usuarios altamente comprometidos que generan contenido
+                        </div>
+                    </div>
+
+                    <div class="ux-card">
+                        <div class="ux-card-header">
+                            <div class="ux-icon">💰</div>
+                            <h3>Revenue Metrics</h3>
+                        </div>
+                        <div class="ux-description">
+                            <strong>ARPU (Average Revenue Per User):</strong> S/125/mes<br>
+                            <strong>LTV (Lifetime Value):</strong> S/2,400 por usuario<br>
+                            <strong>Churn Rate:</strong> < 5% mensual
+                        </div>
+                        <div class="ux-impact">
+                            <strong>Meta:</strong> LTV/CAC ratio de 8:1 para sostenibilidad
+                        </div>
+                    </div>
+
+                    <div class="ux-card">
+                        <div class="ux-card-header">
+                            <div class="ux-icon">🌟</div>
+                            <h3>Viral Metrics</h3>
+                        </div>
+                        <div class="ux-description">
+                            <strong>Referral Rate:</strong> 35% de usuarios refieren a otros<br>
+                            <strong>K-Factor:</strong> 2.8 usuarios nuevos por referido<br>
+                            <strong>Social Shares:</strong> 450 shares/semana de contenido UGC
+                        </div>
+                        <div class="ux-impact">
+                            <strong>Meta:</strong> Crecimiento orgánico auto-sostenido sin ads pagados
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Plan de Acción -->
+        <div class="section">
+            <div class="section-header">
+                ⚡ 5. Plan de Acción Ejecutivo
+            </div>
+            <div class="section-content">
+                <div class="step-container">
+                    <div class="step-title">
+                        🎯 Roadmap de Implementación Inmediata
+                    </div>
+                    <p style="font-size: 1.1rem; margin-bottom: 25px; color: #666;">
+                        Plan detallado para implementar todas las estrategias de UX + Growth Hacking en <strong>8 semanas</strong> con resultados medibles desde la semana 3.
+                    </p>
+                </div>
+
+                <div class="growth-strategies">
+                    <div class="growth-card">
+                        <h3>🚀 Quick Wins (Semana 1-2)</h3>
+                        <p><strong>Implementaciones inmediatas:</strong></p>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li>Pop-ups de social proof en tiempo real</li>
+                            <li>Testimonials rotativos en homepage</li>
+                            <li>Badge "Producto del día" automático</li>
+                            <li>Exit-intent offers con descuento</li>
+                        </ul>
+                    </div>
+
+                    <div class="growth-card">
+                        <h3>🎯 Growth Engines (Semana 3-5)</h3>
+                        <p><strong>Motores de crecimiento:</strong></p>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li>Sistema de referidos gamificado</li>
+                            <li>Programa "Adopta un Productor"</li>
+                            <li>Notifications push inteligentes</li>
+                            <li>UGC campaign "Mi Historia ORIGINARIA"</li>
+                        </ul>
+                    </div>
+
+                    <div class="growth-card">
+                        <h3>🔧 Optimization (Semana 6-8)</h3>
+                        <p><strong>Optimización avanzada:</strong></p>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li>A/B testing automatizado</li>
+                            <li>Personalización por comportamiento</li>
+                            <li>Retargeting cross-platform</li>
+                            <li>Automation workflows</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="implementation-timeline">
+                    <h3 style="color: #4A7023; margin-bottom: 25px;">📋 Checklist de Implementación</h3>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-week">✅ UX</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Optimizaciones UX Inmediatas</div>
+                            <div class="timeline-description">
+                                • Acelerar tiempo de carga a < 2seg<br>
+                                • Simplificar proceso de registro a 3 pasos<br>
+                                • Implementar búsqueda inteligente con filtros<br>
+                                • Mobile-first responsive optimization
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-week">📊 Analytics</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Setup de Métricas Avanzadas</div>
+                            <div class="timeline-description">
+                                • Google Analytics 4 + custom events<br>
+                                • Hotjar para heatmaps y recordings<br>
+                                • Mixpanel para funnel analysis<br>
+                                • Custom dashboard en real-time
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-week">🎯 Growth</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Implementación Growth Hacks</div>
+                            <div class="timeline-description">
+                                • Sistema de referidos con rewards<br>
+                                • Email automation sequences<br>
+                                • Social media content calendar<br>
+                                • Influencer partnership program
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-week">🔄 Testing</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Experimentación Continua</div>
+                            <div class="timeline-description">
+                                • A/B testing de landing pages<br>
+                                • Multivariate testing del onboarding<br>
+                                • Price testing para suscripciones<br>
+                                • UX testing con usuarios reales
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resultados Esperados -->
+        <div class="cta-section">
+            <div class="cta-title">🎯 Resultados Esperados</div>
+            <div class="cta-subtitle">
+                Con la implementación completa de UX + Growth Hacking, proyectamos estos resultados en 6 meses:
+            </div>
+            
+            <div class="cta-stats">
+                <div class="cta-stat">
+                    <span class="cta-stat-number">500%</span>
+                    <span>Aumento en registro de productores</span>
+                </div>
+                <div class="cta-stat">
+                    <span class="cta-stat-number">300%</span>
+                    <span>Incremento en usuarios activos</span>
+                </div>
+                <div class="cta-stat">
+                    <span class="cta-stat-number">250%</span>
+                    <span>Mejora en conversión</span>
+                </div>
+                <div class="cta-stat">
+                    <span class="cta-stat-number">400%</span>
+                    <span>Crecimiento en revenue</span>
+                </div>
+                <div class="cta-stat">
+                    <span class="cta-stat-number">85%</span>
+                    <span>Reducción en CAC</span>
+                </div>
+                <div class="cta-stat">
+                    <span class="cta-stat-number">9.2</span>
+                    <span>Net Promoter Score</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.2); border-radius: 10px;">
+                <h3 style="margin-bottom: 15px;">🚀 Próximos Pasos</h3>
+                <p style="font-size: 1.1rem; line-height: 1.6;">
+                    <strong>1.</strong> Validar hipótesis con MVP testing<br>
+                    <strong>2.</strong> Implementar quick wins en primera semana<br>
+                    <strong>3.</strong> Establecer baseline de métricas actuales<br>
+                    <strong>4.</strong> Ejecutar roadmap de 8 semanas<br>
+                    <strong>5.</strong> Iterar basado en datos y feedback
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
