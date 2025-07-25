@@ -394,7 +394,7 @@
     display: block;
     font-size: var(--text-3xl);
     font-weight: 700;
-    color: var(--color-secondary);
+    color: var(--color-bg-dark);
 }
 
 .stat-label {
@@ -2290,7 +2290,7 @@
     display: block;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--color-secondary);
+    color: var(--color-card-dark);
     font-family: 'Montserrat', sans-serif;
 }
 
