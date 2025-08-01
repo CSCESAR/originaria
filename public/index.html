@@ -69,48 +69,85 @@
     <!-- Hero Section -->
     <section class="hero-section" id="inicio">
         <div class="container">
-            <div class="hero-content" id="hero-index">
-                <div class="hero-text" style="text-align: center;">
+            <div class="hero-content" id="hero-index" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 32px;">
+                <div class="hero-text" style="flex: 1 1 350px; text-align: center; padding: 32px 16px;">
                     <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 24px;">
-                        <img src="../assets/images/logos/Logo.png" alt="Logo ORIGINARIA" class="brand-logo" style="max-width: 220px; width: 100%; height: auto; display: block;" />
+                        <img src="../assets/images/logos/logo_oscuro.png" alt="Logo ORIGINARIA" class="brand-logo" style="max-width: 220px; width: 100%; height: auto; display: block;" />
                     </div>
-                    <h1 class="hero-title">
-                        
-                        
-                        <span class="hero-subtitle">Donde lo natural conecta todo lo nuestro</span>
+                    <h1 class="hero-title" style="font-size: 2.2rem; font-weight: 800; margin-bottom: 16px; color: #4A7023;">
+                        <span class="hero-subtitle" style="display: block; font-size: 1.3rem; color: #1e293b; font-weight: 600;">Donde lo natural conecta todo lo nuestro</span>
                     </h1>
-                    <p class="hero-description">
+                    <p class="hero-description" style="font-size: 1.1rem; color: white; margin-bottom: 24px;">
                         Conectamos a productores locales con consumidores conscientes, 
                         promoviendo el comercio justo, la sostenibilidad y el desarrollo 
                         económico de las comunidades peruanas.
                     </p>
-                    <div class="hero-actions" style="display: flex; justify-content: center;">
-                        <a href="marketplace.html" class="btn btn-primary btn-lg">
-                            🛍️ Compra lo Nuestro
+                    <div class="hero-actions" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 32px;">
+                        <a href="marketplace.html" class="btn btn-primary btn-lg" style="min-width: 180px;">
+                            <i class="fa-solid fa-bag-shopping" style="margin-right: 8px;"></i> Compra lo Nuestro
                         </a>
-                        <a href="why-sell-with-us.html" class="btn btn-accent btn-lg">
-                            🌾 Soy Productor
+                        <a href="why-sell-with-us.html" class="btn btn-accent btn-lg" style="min-width: 180px;">
+                            <i class="fa-solid fa-seedling" style="margin-right: 8px;"></i> Soy Productor
                         </a>
                     </div>
-                    <div class="hero-stats" style="display: flex; justify-content: center; ">
-                        <div class="stat-item">
-                            <span class="stat-number">+50</span>
-                            <span class="stat-label">Productores</span>
+                    <div class="hero-stats" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; margin-bottom: 16px;">
+                        <div class="stat-item" style="background: #4A7023; border-radius: 12px; padding: 18px 24px; min-width: 90px; text-align: center; box-shadow: 0 2px 8px rgba(74,112,35,0.08);">
+                            <span class="stat-number" style="font-size: 2.1rem; color: #fff; font-weight: 700; display: block;">+50</span>
+                            <span class="stat-label" style="font-size: 1rem; color: #e2e8f0;">Productores</span>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number">+500</span>
-                            <span class="stat-label">Productos</span>
+                        <div class="stat-item" style="background: #4A7023; border-radius: 12px; padding: 18px 24px; min-width: 90px; text-align: center; box-shadow: 0 2px 8px rgba(74,112,35,0.08);">
+                            <span class="stat-number" style="font-size: 2.1rem; color: #fff; font-weight: 700; display: block;">+500</span>
+                            <span class="stat-label" style="font-size: 1rem; color: #e2e8f0;">Productos</span>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number">+20</span>
-                            <span class="stat-label">Regiones</span>
+                        <div class="stat-item" style="background: #4A7023; border-radius: 12px; padding: 18px 24px; min-width: 90px; text-align: center; box-shadow: 0 2px 8px rgba(74,112,35,0.08);">
+                            <span class="stat-number" style="font-size: 2.1rem; color: #fff; font-weight: 700; display: block;">+20</span>
+                            <span class="stat-label" style="font-size: 1rem; color: #e2e8f0;">Regiones</span>
                         </div>
                     </div>
+                    <style>
+                    @media (max-width: 900px) {
+                        .hero-content {
+                            flex-direction: column !important;
+                            gap: 0 !important;
+                        }
+                        .hero-image {
+                            margin-top: 24px !important;
+                        }
+                    }
+                    @media (max-width: 600px) {
+                        .hero-text {
+                            padding: 20px 4px !important;
+                        }
+                        .hero-stats {
+                            flex-wrap: nowrap !important;
+                            flex-direction: row !important;
+                            align-items: stretch !important;
+                            gap: 8px !important;
+                            overflow-x: auto !important;
+                            white-space: nowrap !important;
+                            padding-bottom: 4px !important;
+                        }
+                        .stat-item {
+                            min-width: 120px !important;
+                            width: auto !important;
+                            font-size: 0.95rem !important;
+                            display: inline-block !important;
+                        }
+                        .stat-number {
+                            font-size: 1.2rem !important;
+                        }
+                        .stat-label {
+                            font-size: 0.85rem !important;
+                        }
+                        .hero-image {
+                            display: none !important;
+                        }
+                    }
+                    </style>
                 </div>
-                <div class="hero-image">
-                    <div class="img-placeholder hero-img-placeholder">
-                    <img src="../assets/images/banners/productor_cacao.jpg" alt="Productor de cacao peruano - ORIGINARIA" class="hero-img" />
-   
+                <div class="hero-image" style="flex: 1 1 350px; display: block; max-width: 420px;">
+                    <div class="img-placeholder hero-img-placeholder" style="border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(74,112,35,0.10);">
+                        <img src="../assets/images/banners/productor_cacao.jpg" alt="Productor de cacao peruano - ORIGINARIA" class="hero-img" style="width: 100%; height: auto; display: block;" />
                     </div>
                 </div>
             </div>

@@ -91,6 +91,7 @@
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
+                <br>
                 <h1>Productos Orgánicos del Perú</h1>
                 <p>Descubre la auténtica riqueza de nuestros productores locales</p>
                 <div class="hero-stats">
@@ -107,6 +108,45 @@
                         <span class="stat-label">Regiones</span>
                     </div>
                 </div>
+                <style>
+                @media (max-width: 900px) {
+                    .hero-stats {
+                        display: flex !important;
+                        flex-direction: row !important;
+                        flex-wrap: nowrap !important;
+                        gap: 12px !important;
+                        overflow-x: auto !important;
+                        white-space: nowrap !important;
+                        padding-bottom: 4px !important;
+                    }
+                    .stat-item {
+                        min-width: 120px !important;
+                        width: auto !important;
+                        font-size: 1rem !important;
+                        display: inline-block !important;
+                    }
+                    .stat-number {
+                        font-size: 1.4rem !important;
+                    }
+                    .stat-label {
+                        font-size: 0.95rem !important;
+                    }
+                }
+                @media (max-width: 600px) {
+                    .hero-stats {
+                        gap: 8px !important;
+                    }
+                    .stat-item {
+                        font-size: 0.95rem !important;
+                    }
+                    .stat-number {
+                        font-size: 1.2rem !important;
+                    }
+                    .stat-label {
+                        font-size: 0.85rem !important;
+                    }
+                }
+                </style>
             </div>
         </div>
     </section>
@@ -117,10 +157,10 @@
             <div class="filters-container">
                 <div class="filters-left">
                     <div class="category-filters">
-                        <button class="filter-btn active" data-category="all">
+                        <!--<button class="filter-btn active" data-category="all">
                             <i class="fas fa-th"></i>
                             Todos
-                        </button>
+                        </button> -->
                         <button class="filter-btn" data-category="cafe">
                             <i class="fas fa-coffee"></i>
                             Café y Cacao
@@ -138,6 +178,35 @@
                             Lácteos
                         </button>
                     </div>
+                    <style>
+                    @media (max-width: 900px) {
+                        .category-filters {
+                            display: flex !important;
+                            flex-direction: row !important;
+                            flex-wrap: nowrap !important;
+                            gap: 8px !important;
+                            overflow-x: auto !important;
+                            white-space: nowrap !important;
+                            padding-bottom: 4px !important;
+                        }
+                        .filter-btn {
+                            min-width: 110px !important;
+                            font-size: 0.95rem !important;
+                            padding: 8px 10px !important;
+                            display: inline-block !important;
+                        }
+                    }
+                    @media (max-width: 600px) {
+                        .category-filters {
+                            gap: 4px !important;
+                        }
+                        .filter-btn {
+                            min-width: 90px !important;
+                            font-size: 0.85rem !important;
+                            padding: 6px 6px !important;
+                        }
+                    }
+                    </style>
                 </div>
                 
                 <div class="filters-right">
@@ -1103,7 +1172,7 @@
                     <div class="quick-view-product">
                         <div class="quick-view-image">
                             <div class="img-placeholder">
-                                <i class="fas fa-coffee"></i>
+                                <img src="../assets/images/products/cafeOrganicoVR.jpg" alt="Café Orgánico Premium Los Andes" onerror="this.style.display='none'">
                             </div>
                         </div>
                         <div class="quick-view-info">
